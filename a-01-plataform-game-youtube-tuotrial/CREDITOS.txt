@@ -1,0 +1,11 @@
+//Projeto iniciado em 06/12/2025
+
+Este material foi produzido através do Tutorial Godot do Zero 2025 
+do canal do Rafael Forbeck | Game Dev no youtube!
+
+//link para o canal:
+https://www.youtube.com/@rafaelforbeck-game-dev/
+
+Sprites e artes desenvolvidos e compartilhados por:
+
+Grafxkid - https://grafxkid.itch.io/
