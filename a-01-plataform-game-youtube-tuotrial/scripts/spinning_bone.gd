@@ -10,8 +10,8 @@ var direction = 1
 func _process(delta: float) -> void:
 	position.x += speed * delta * direction
 
-func set_direction(direction):#definindo a direção do projetil
-	self.direction = direction #adiciona no self a direção recebida de fora
+func set_direction(skeleton_direction):#definindo a direção do projetil
+	self.direction = skeleton_direction #adiciona no self a direção recebida de fora
 	anim.flip_h = direction < 0 #inverte a direção quando necessario
 	
 
