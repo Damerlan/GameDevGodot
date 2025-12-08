@@ -51,4 +51,11 @@ shape = SubResource("CircleShape2D_njpw1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cjyle")
 autoplay = "default"
-frame_progress = 0.23051141
+frame_progress = 0.8079651
+
+[node name="SelfDestructTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]

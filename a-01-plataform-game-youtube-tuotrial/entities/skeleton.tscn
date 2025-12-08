@@ -1,12 +1,33 @@
-[gd_scene load_steps=20 format=3 uid="uid://duvd7dajko72h"]
+[gd_scene load_steps=26 format=3 uid="uid://duvd7dajko72h"]
 
 [ext_resource type="Script" uid="uid://dryvicxxnpriq" path="res://scripts/skeleton.gd" id="1_yag7t"]
+[ext_resource type="Texture2D" uid="uid://ctq7ufg34ireu" path="res://Assets/Sprite Pack 6/3 - Skeleton/Bone_Toss (32 x 32).png" id="2_4oc3b"]
 [ext_resource type="Texture2D" uid="uid://bijtuut5avelw" path="res://Assets/Sprite Pack 6/3 - Skeleton/Crumbling_Into_Bone_Pile (32 x 32).png" id="2_fpmxe"]
 [ext_resource type="Texture2D" uid="uid://dq3a18cd7gcek" path="res://Assets/Sprite Pack 6/3 - Skeleton/Limping_Movement (32 x 32).png" id="3_4oc3b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yag7t"]
 radius = 8.0
 height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0uhi"]
+atlas = ExtResource("2_4oc3b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgbw"]
+atlas = ExtResource("2_4oc3b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjous"]
+atlas = ExtResource("2_4oc3b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f01p"]
+atlas = ExtResource("2_4oc3b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe8ja"]
+atlas = ExtResource("2_4oc3b")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hr2a"]
 atlas = ExtResource("2_fpmxe")
@@ -62,6 +83,26 @@ region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpmxe"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0uhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjous")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f01p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe8ja")
+}],
+"loop": false,
+"name": &"atack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6hr2a")
@@ -125,7 +166,9 @@ shape = SubResource("CapsuleShape2D_yag7t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fpmxe")
-animation = &"hurt"
+animation = &"atack"
+frame = 2
+frame_progress = 0.06450542
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
@@ -143,3 +186,13 @@ target_position = Vector2(15, 0)
 [node name="GroundDetector" type="RayCast2D" parent="."]
 position = Vector2(11, 0)
 target_position = Vector2(0, 22)
+
+[node name="PlayerDetector" type="RayCast2D" parent="."]
+position = Vector2(0, 11)
+target_position = Vector2(45, 0)
+collision_mask = 2
+
+[node name="BoneStartPosition" type="Node2D" parent="."]
+position = Vector2(14, -2)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
