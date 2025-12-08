@@ -6,11 +6,13 @@ enum PlayerState{
 	jump,
 	duck,
 	fall,
-	slide
+	slide,
+	hurt
 }
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var reload_timer: Timer = $ReloadTimer
 
 
 @export var max_speed = 150.0
@@ -48,6 +50,8 @@ func _physics_process(delta: float) -> void:
 			duck_state(delta)
 		PlayerState.slide:
 			slide_state(delta)
+		PlayerState.hurt:
+			hurt_state(delta)
 
 	move_and_slide()#função do movimento
 
@@ -74,6 +78,12 @@ func go_to_slide_state():#status escorregando
 	status = PlayerState.slide
 	anim.play("slide")
 	set_small_collider()
+
+func go_to_hurt_state():
+	status = PlayerState.hurt
+	anim.play("hurt")
+	velocity = Vector2.ZERO #zerando o x e o y
+	reload_timer.start()
 	
 func exit_from_slide_state():#saida do status escorregando
 	set_large_collider()
@@ -167,6 +177,8 @@ func slide_state(delta):#escorregando
 		go_to_duck_state()
 		return
 
+func hurt_state(_delta):
+	pass
 
 #função do movimento
 func move(delta):
@@ -200,3 +212,18 @@ func set_large_collider():
 	collision_shape.shape.height = 16
 	collision_shape.position.y = 0
 	
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if velocity.y > 0:
+		#inimigo morre
+		area.get_parent().take_damage()
+		go_to_jump_state()
+	else:
+		#player morre
+		if status!= PlayerState.hurt:
+			go_to_hurt_state()
+
+
+func _on_reload_timer_timeout() -> void:
+	get_tree().reload_current_scene()#reinicia a fase quando o timer zerar a contagem

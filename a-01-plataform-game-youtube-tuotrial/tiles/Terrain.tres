@@ -1,16 +1,12 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://kpyruge2g8ce"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://kpyruge2g8ce"]
 
 [ext_resource type="Texture2D" uid="uid://dyd56fbkdgxd8" path="res://Assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_r0ryr"]
 [ext_resource type="Texture2D" uid="uid://dcoftqfn3hrrp" path="res://Assets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="2_324lj"]
 [ext_resource type="Texture2D" uid="uid://ckxo4lurrv57s" path="res://Assets/Seasonal Tilesets/3 - Tropics/Terrain (16 x 16).png" id="3_x23o1"]
 [ext_resource type="Texture2D" uid="uid://sne4bkwqycx5" path="res://Assets/Seasonal Tilesets/4 - Winter World/Terrain (16 x 16).png" id="4_wqtma"]
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_r0ryr"]
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_324lj"]
 tile_data = PackedInt32Array(0, 589826, 3, 1, 655362, 3, 2, 786434, 3, 3, 786434, 3, 4, 851970, 3)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_x23o1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 resource_name = "Grasland"
@@ -311,6 +307,4 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 sources/1 = SubResource("TileSetAtlasSource_fg0xw")
 sources/2 = SubResource("TileSetAtlasSource_q33yl")
 sources/3 = SubResource("TileSetAtlasSource_fhani")
-pattern_0 = SubResource("TileMapPattern_r0ryr")
-pattern_1 = SubResource("TileMapPattern_324lj")
-pattern_2 = SubResource("TileMapPattern_x23o1")
+pattern_0 = SubResource("TileMapPattern_324lj")
