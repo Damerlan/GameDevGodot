@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://kpyruge2g8ce"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://kpyruge2g8ce"]
 
 [ext_resource type="Texture2D" uid="uid://dyd56fbkdgxd8" path="res://Assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_r0ryr"]
 [ext_resource type="Texture2D" uid="uid://dcoftqfn3hrrp" path="res://Assets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="2_324lj"]
@@ -9,6 +9,8 @@
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_324lj"]
 tile_data = PackedInt32Array(0, 589826, 3, 1, 655362, 3, 2, 786434, 3, 3, 786434, 3, 4, 851970, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_x23o1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 resource_name = "Grasland"
@@ -90,16 +92,28 @@ texture = ExtResource("2_324lj")
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.8992939, -8, -1.0791512)
 5:1/0/physics_layer_0/polygon_0/one_way = true
 11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+11:1/0/physics_layer_0/polygon_0/one_way = true
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
 11:2/0 = 0
 9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+9:3/0/physics_layer_0/polygon_0/one_way = true
 10:3/0 = 0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+10:3/0/physics_layer_0/polygon_0/one_way = true
 11:3/0 = 0
 12:3/0 = 0
+12:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+12:3/0/physics_layer_0/polygon_0/one_way = true
 13:3/0 = 0
+13:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+13:3/0/physics_layer_0/polygon_0/one_way = true
 15:3/0 = 0
+15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.71943474, -8, -0.5395756)
+15:3/0/physics_layer_0/polygon_0/one_way = true
 11:4/0 = 0
 11:5/0 = 0
 4:8/0 = 0
@@ -292,9 +306,11 @@ texture = ExtResource("4_wqtma")
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 sources/1 = SubResource("TileSetAtlasSource_fg0xw")
 sources/2 = SubResource("TileSetAtlasSource_q33yl")
 sources/3 = SubResource("TileSetAtlasSource_fhani")
 pattern_0 = SubResource("TileMapPattern_r0ryr")
 pattern_1 = SubResource("TileMapPattern_324lj")
+pattern_2 = SubResource("TileMapPattern_x23o1")
