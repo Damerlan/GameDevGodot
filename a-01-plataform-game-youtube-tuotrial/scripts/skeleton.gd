@@ -17,7 +17,7 @@ enum SkeletonState { #inicio da state machine
 const SPINNING_BONE = preload("uid://ho3a0dcdxtbp")#referencia do projetil bone
 
 
-const SPEED = 20.0
+const SPEED = 10.0
 const JUMP_VELOCITY = -400.0
 
 var status: SkeletonState
@@ -64,7 +64,10 @@ func go_to_atack_state():#entrada pro estado de ataque
 
 #Funçoes de estado
 func walk_state(_delta): #estado de caminhada
-	velocity.x = SPEED * direction
+	if anim.frame == 3 or anim.frame == 4:#corrigido os frames de movimento do esqueleto
+		velocity.x = SPEED * direction
+	else:
+		velocity.x = 0
 	
 	if walk_detector.is_colliding():#se detectar a parede ele inverte o sentido
 		scale.x *= -1
