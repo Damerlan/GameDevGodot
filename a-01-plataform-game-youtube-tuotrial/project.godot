@@ -29,6 +29,8 @@ project/assembly_name="A01-PlataformGame-YoutubeTuotrial"
 [global_group]
 
 Player=""
+Enemies=""
+LetalArea=""
 
 [input]
 

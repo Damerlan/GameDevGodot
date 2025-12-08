@@ -18,3 +18,13 @@ func set_direction(skeleton_direction):#definindo a direção do projetil
 
 func _on_self_destruct_timer_timeout() -> void:
 	queue_free()
+
+
+
+
+func _on_area_entered(_area: Area2D) -> void: #quando colide com uma area2d
+	queue_free()
+
+
+func _on_body_entered(_body: Node2D) -> void: #quando colide com o xao
+	queue_free()
