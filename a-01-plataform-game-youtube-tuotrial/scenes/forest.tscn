@@ -67,6 +67,62 @@ size = Vector2(15, 202)
 [node name="Forest" type="Node2D"]
 metadata/_edit_vertical_guides_ = [1020.0, 4502.0, 4860.0]
 
+[node name="Paralax" type="Node2D" parent="."]
+
+[node name="6" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/6"]
+texture = ExtResource("3_bgcxa")
+centered = false
+offset = Vector2(0.1, 0)
+
+[node name="5" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/5"]
+texture = ExtResource("4_qm7rg")
+centered = false
+offset = Vector2(0.1, 0)
+
+[node name="4" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/4"]
+texture = ExtResource("5_0nboi")
+centered = false
+offset = Vector2(0.1, 0)
+
+[node name="3" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/3"]
+texture = ExtResource("6_3knxq")
+centered = false
+offset = Vector2(0.1, 0)
+
+[node name="2" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/2"]
+texture = ExtResource("7_ercsu")
+centered = false
+offset = Vector2(0.1, 0)
+
+[node name="1" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/1"]
+texture = ExtResource("8_j3csf")
+centered = false
+offset = Vector2(0.1, 0)
+
 [node name="TileMaps" type="Node" parent="."]
 
 [node name="Terrain" type="TileMapLayer" parent="TileMaps"]
@@ -86,68 +142,6 @@ tile_set = ExtResource("4_ercsu")
 z_index = 2
 tile_map_data = PackedByteArray("AAAWAAwAAAAAAAAAAAAWAA0AAAAAAAEAAAAXAAwAAAAAAAAAAAAXAA0AAAAAAAEAAAAYAAwAAAAAAAAAAAAYAA0AAAAAAAEAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAEAAAAaAAwAAAAAAAAAAAAaAA0AAAAAAAEAAAAbAAwAAAAAAAAAAAAbAA0AAAAAAAEAAAAcAAwAAAAAAAAAAAAcAA0AAAAAAAEAAAAdAAwAAAAAAAAAAAAdAA0AAAAAAAEAAAAyAAwAAAAAAAAAAAAyAA0AAAAAAAEAAAAzAAwAAAAAAAAAAAAzAA0AAAAAAAEAAAA0AAwAAAAAAAAAAAA0AA0AAAAAAAEAAAA1AAwAAAAAAAAAAAA1AA0AAAAAAAEAAAA2AAwAAAAAAAAAAAA2AA0AAAAAAAEAAAA3AAwAAAAAAAAAAAA3AA0AAAAAAAEAAAA4AAwAAAAAAAAAAAA4AA0AAAAAAAEAAAA5AAwAAAAAAAAAAAA5AA0AAAAAAAEAAACaAAwAAAAAAAAAAACaAA0AAAAAAAEAAACbAAwAAAAAAAAAAACbAA0AAAAAAAEAAACcAAwAAAAAAAAAAACcAA0AAAAAAAEAAACdAAwAAAAAAAAAAACdAA0AAAAAAAEAAACeAAwAAAAAAAAAAACeAA0AAAAAAAEAAACfAAwAAAAAAAAAAACfAA0AAAAAAAEAAACgAAwAAAAAAAAAAACgAA0AAAAAAAEAAAChAAwAAAAAAAAAAAChAA0AAAAAAAEAAACiAAwAAAAAAAAAAACiAA0AAAAAAAEAAACjAAwAAAAAAAAAAACjAA0AAAAAAAEAAACkAAwAAAAAAAAAAACkAA0AAAAAAAEAAAClAAwAAAAAAAAAAAClAA0AAAAAAAEAAACmAAwAAAAAAAAAAACmAA0AAAAAAAEAAACnAAwAAAAAAAAAAACnAA0AAAAAAAEAAACoAAwAAAAAAAAAAACoAA0AAAAAAAEAAACpAAwAAAAAAAAAAACpAA0AAAAAAAEAAACqAAwAAAAAAAAAAACqAA0AAAAAAAEAAACrAAwAAAAAAAAAAACrAA0AAAAAAAEAAACsAAwAAAAAAAAAAACsAA0AAAAAAAEAAACtAAwAAAAAAAAAAACtAA0AAAAAAAEAAACuAAwAAAAAAAAAAACuAA0AAAAAAAEAAACvAAwAAAAAAAAAAACvAA0AAAAAAAEAAACwAAwAAAAAAAAAAACwAA0AAAAAAAEAAACxAAwAAAAAAAAAAACxAA0AAAAAAAEAAACyAAwAAAAAAAAAAACyAA0AAAAAAAEAAACzAAwAAAAAAAAAAACzAA0AAAAAAAEAAAC0AAwAAAAAAAAAAAC0AA0AAAAAAAEAAAC1AAwAAAAAAAAAAAC1AA0AAAAAAAEAAAC2AAwAAAAAAAAAAAC2AA0AAAAAAAEAAAC3AAwAAAAAAAAAAAC3AA0AAAAAAAEAAAC4AAwAAAAAAAAAAAC4AA0AAAAAAAEAAAC5AAwAAAAAAAAAAAC5AA0AAAAAAAEAAAC6AAwAAAAAAAAAAAC6AA0AAAAAAAEAAAC7AAwAAAAAAAAAAAC7AA0AAAAAAAEAAAC8AAwAAAAAAAAAAAC8AA0AAAAAAAEAAAC9AAwAAAAAAAAAAAC9AA0AAAAAAAEAAAC+AAwAAAAAAAAAAAC+AA0AAAAAAAEAAAC/AAwAAAAAAAAAAAC/AA0AAAAAAAEAAADAAAwAAAAAAAAAAADAAA0AAAAAAAEAAADBAAwAAAAAAAAAAADBAA0AAAAAAAEAAADCAAwAAAAAAAAAAADCAA0AAAAAAAEAAADDAAwAAAAAAAAAAADDAA0AAAAAAAEAAADEAAwAAAAAAAAAAADEAA0AAAAAAAEAAADFAAwAAAAAAAAAAADFAA0AAAAAAAEAAADGAAwAAAAAAAAAAADGAA0AAAAAAAEAAADHAAwAAAAAAAAAAADHAA0AAAAAAAEAAADIAAwAAAAAAAAAAADIAA0AAAAAAAEAAADJAAwAAAAAAAAAAADJAA0AAAAAAAEAAAA/AAwAAAAAAAAAAAA/AA0AAAAAAAEAAABAAAwAAAAAAAAAAABAAA0AAAAAAAEAAABBAAwAAAAAAAAAAABBAA0AAAAAAAEAAABCAAwAAAAAAAAAAABCAA0AAAAAAAEAAABDAAwAAAAAAAAAAABDAA0AAAAAAAEAAABEAAwAAAAAAAAAAABEAA0AAAAAAAEAAABFAAwAAAAAAAAAAABFAA0AAAAAAAEAAABGAAwAAAAAAAAAAABGAA0AAAAAAAEAAAA=")
 tile_set = ExtResource("4_cf55d")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="6" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/6"]
-texture = ExtResource("3_bgcxa")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
-texture = ExtResource("4_qm7rg")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
-texture = ExtResource("5_0nboi")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
-texture = ExtResource("6_3knxq")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
-texture = ExtResource("7_ercsu")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1.5, 1.5)
-motion_mirroring = Vector2(288, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
-texture = ExtResource("8_j3csf")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
 
 [node name="Camera" parent="." instance=ExtResource("9_0nboi")]
 position = Vector2(27, 164)

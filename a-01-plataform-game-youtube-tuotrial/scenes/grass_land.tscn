@@ -13,6 +13,48 @@
 [node name="GrassLand" type="Node2D"]
 metadata/_edit_vertical_guides_ = [5281.0]
 
+[node name="Paralax" type="Node2D" parent="."]
+
+[node name="5" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/5"]
+texture = ExtResource("5_b1gpq")
+centered = false
+
+[node name="4" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/4"]
+texture = ExtResource("6_6klul")
+centered = false
+
+[node name="3" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/3"]
+texture = ExtResource("7_tqddi")
+centered = false
+
+[node name="2" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/2"]
+texture = ExtResource("8_273q6")
+centered = false
+
+[node name="1" type="Parallax2D" parent="Paralax"]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(288, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Paralax/1"]
+texture = ExtResource("9_nqk2h")
+centered = false
+
 [node name="Tiles" type="Node" parent="."]
 
 [node name="Ground" type="TileMapLayer" parent="Tiles"]
@@ -28,50 +70,3 @@ position = Vector2(129, 102)
 
 [node name="Player" parent="." instance=ExtResource("3_3yafl")]
 position = Vector2(118, 180)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="5" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5"]
-texture = ExtResource("5_b1gpq")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4"]
-texture = ExtResource("6_6klul")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.3)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3"]
-texture = ExtResource("7_tqddi")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0.4)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/2"]
-texture = ExtResource("8_273q6")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
-
-[node name="1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/1"]
-texture = ExtResource("9_nqk2h")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 0, 576, 208)
