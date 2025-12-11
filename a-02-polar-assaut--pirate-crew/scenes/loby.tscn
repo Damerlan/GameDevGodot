@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://ohske20s0nla"]
+[gd_scene load_steps=3 format=3 uid="uid://ohske20s0nla"]
+
+[ext_resource type="Texture2D" uid="uid://cg611rqkr1yhx" path="res://assets/Meus Assets Prototipos/2 TilePrefabs/h1x3.png" id="1_bus4n"]
+[ext_resource type="Script" uid="uid://5krpi0qbyaod" path="res://scripts/testes.gd" id="1_egcrx"]
 
 [node name="Loby" type="Node2D"]
+script = ExtResource("1_egcrx")
+
+[node name="H1x3" type="Sprite2D" parent="."]
+position = Vector2(138, 211)
+texture = ExtResource("1_bus4n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 54.0
+offset_top = 92.0
+offset_right = 227.0
+offset_bottom = 141.0
+text = "Pressione Esc ou start 
+para começar"

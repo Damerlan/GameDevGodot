@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfp6ethjgtsv5"]
+
+[ext_resource type="Script" uid="uid://da227rcw6u4pw" path="res://scripts/hud_01.gd" id="1_oe2p5"]
+
+[node name="hud_01" type="CanvasLayer"]
+script = ExtResource("1_oe2p5")
+metadata/_edit_vertical_guides_ = [459.0, 18.0]
+metadata/_edit_horizontal_guides_ = [16.0, 43.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pontos" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 77.0
+offset_bottom = 40.0
+text = "Pontos:"
+
+[node name="LabelScore" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 43.0
+offset_right = 58.0
+offset_bottom = 66.0
+
+[node name="Vidas" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 17.0
+offset_right = 459.0
+offset_bottom = 40.0
+text = "Vidas:"
+
+[node name="LabelLife" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 43.0
+offset_right = 458.0
+offset_bottom = 66.0

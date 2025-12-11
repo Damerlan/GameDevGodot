@@ -14,16 +14,16 @@ platform_scene = ExtResource("3_63by8")
 distance_between = Vector2(120, 80)
 
 [node name="PlayerPeko" parent="." instance=ExtResource("1_uft36")]
-position = Vector2(121, 421)
+position = Vector2(244, 213)
 
 [node name="CameraGamePlay" parent="." instance=ExtResource("2_ee1ip")]
-position = Vector2(80, 250)
+position = Vector2(243, 137)
 
 [node name="KillZone" parent="." instance=ExtResource("5_sfmi4")]
-position = Vector2(55, 518)
-offset_y = 150
+position = Vector2(269, 366)
+next_scene = "loby"
 
 [node name="YSort" type="Node" parent="."]
 
 [node name="Plataforma" parent="YSort" instance=ExtResource("3_63by8")]
-position = Vector2(122, 439)
+position = Vector2(249, 247)

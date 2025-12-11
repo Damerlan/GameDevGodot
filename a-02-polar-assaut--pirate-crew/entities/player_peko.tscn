@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4ogkwmkdhmb7"]
+[gd_scene load_steps=25 format=3 uid="uid://b4ogkwmkdhmb7"]
 
 [ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcuhfbit8b433" path="res://assets/Sprite Pack 6/1 - Penguin/Idle (16 x 16).png" id="4_51ghi"]
 [ext_resource type="Texture2D" uid="uid://cjie62bviespv" path="res://assets/Sprite Pack 6/1 - Penguin/Jump (16 x 16).png" id="5_4es5t"]
 [ext_resource type="Texture2D" uid="uid://ck41fkuhlna70" path="res://assets/Sprite Pack 6/1 - Penguin/Waddling (16 x 16).png" id="6_rfw8o"]
+[ext_resource type="Texture2D" uid="uid://bbcdlp10qljje" path="res://assets/Sprite Pack 6/1 - Penguin/Belly_Sliding (16 x 16).png" id="7_u5olf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
@@ -31,6 +32,18 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v8o1"]
 atlas = ExtResource("4_51ghi")
 region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51ghi"]
+atlas = ExtResource("7_u5olf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4es5t"]
+atlas = ExtResource("7_u5olf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfw8o"]
+atlas = ExtResource("7_u5olf")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_855p3"]
 atlas = ExtResource("6_rfw8o")
@@ -113,8 +126,17 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_4es5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51ghi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4es5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfw8o")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -143,6 +165,8 @@ animations = [{
 }]
 
 [node name="PlayerPeko" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_dx4ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,5 +174,5 @@ shape = SubResource("CapsuleShape2D_3v82r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x4iqf")
-animation = &"fall"
+animation = &"jump"
 autoplay = "idle"

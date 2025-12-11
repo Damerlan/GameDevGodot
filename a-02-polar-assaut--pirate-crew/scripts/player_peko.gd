@@ -35,9 +35,17 @@ var input_dir := 0.0
 var JUMP_VELOCITY = -600.0
 var SPEED = 80.0
 
+#adicionando a mecanica do momentum
+@export var run_momentum := 0.0     # aumenta enquanto corre
+@export var max_momentum := 500.0   # limite do momentum
+@export var momentum_gain := 450.0
+@export var momentum_decay := 60.0
+
 #-----------funçoes do sistema e fisica------------------#
 func _ready() -> void:
 	go_to_idle_state()	#coloca o player em idle state
+
+   
 
 func _physics_process(delta: float) -> void:	#processo de fisica
 	read_input()
@@ -62,10 +70,9 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	#fim do Switch
 	
 	move_and_slide()#calcula a posição do player com base no movimento
+
 	
-	# Detectar queda depois do pulo
-	if status != PlayerState.jump and not is_on_floor() and velocity.y > 0:
-		go_to_fall_state()
+	
 	
 		
 
@@ -82,7 +89,7 @@ func go_to_run_state():#entrada run state (Caminhada)
 func go_to_jump_state():
 	status = PlayerState.jump
 	anim.play("jump")
-	velocity.y = JUMP_VELOCITY	#aplica a ação do pulo
+	#velocity.y = JUMP_VELOCITY	#aplica a ação do pulo
 
 func go_to_fall_state():
 	status = PlayerState.fall
@@ -101,6 +108,9 @@ func go_to_death_state():
 
 func idle_state(delta):
 	apply_movement(delta)
+	Global.update_score(global_position.y) 	#calcula a pontuação
+	#decai o momentum
+	run_momentum = max(run_momentum - momentum_decay * delta, 0)
 
 	if input_dir != 0:
 		go_to_run_state()
@@ -116,9 +126,15 @@ func idle_state(delta):
 
 func run_state(delta):
 	apply_movement(delta)
-	#if velocity.x == 0:	#Se o player parou
-	#	go_to_idle_state()	#define o estado como idle
-	#	return
+	
+	# acumula momentum enquanto corre
+	if input_dir != 0:
+		run_momentum += momentum_gain * delta
+	else:
+		run_momentum -= momentum_decay * delta
+	
+	run_momentum = clamp(run_momentum, 0, max_momentum)
+	
 	if input_dir == 0:
 		go_to_idle_state()
 		return
@@ -129,6 +145,12 @@ func run_state(delta):
 
 func jump_state(delta):
 	apply_movement(delta)
+	
+	# se começou a cair → entra em fall
+	if velocity.y > 0:
+		go_to_fall_state()
+		return
+		
 	# ao tocar no chão
 	if is_on_floor():
 		if input_dir == 0:
@@ -136,19 +158,17 @@ func jump_state(delta):
 		else:
 			go_to_run_state()
 			
-	#if is_on_floor():	#se o player esta no chão
-	#	if velocity.x == 0:	#se o player está parado
-	#		go_to_idle_state()	#retorna pro estado idle
-	#	else:	#se não
-	#		go_to_run_state()	#vai pro estado ran
-	#	return
 
 
 
 func fall_state(delta):
 	apply_movement(delta)
+	
+	# momentum perde força no ar
+	run_momentum = max(run_momentum - momentum_decay * delta, 0)
 
 	if is_on_floor():
+		run_momentum = 0   # reset momentum ao pousar
 		if input_dir == 0:
 			go_to_idle_state()
 		else:
@@ -188,7 +208,9 @@ func update_direction():
 func apply_movement(delta):
 	# aplica movimento horizontal
 	if input_dir != 0:
-		velocity.x = move_toward(velocity.x, input_dir * move_speed, acceleration * delta)
+		var speed_with_momentum = move_speed + (run_momentum * 0.3)
+		velocity.x = move_toward(velocity.x, input_dir * speed_with_momentum, acceleration * delta)
+		#velocity.x = move_toward(velocity.x, input_dir * move_speed, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 
@@ -202,7 +224,9 @@ func read_input():
 	input_dir = Input.get_axis("left", "right")
 
 func jump():
-	velocity.y = jump_force
+	#velocity.y = jump_force
+	var extra_force = run_momentum * 0.4    # 40% do momentum vira força no pulo
+	velocity.y = jump_force - extra_force
 	go_to_jump_state()
 	#change_state(PlayerState.jump)
 #-----------------------------------------#

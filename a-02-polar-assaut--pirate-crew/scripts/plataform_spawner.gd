@@ -3,7 +3,7 @@ extends Node2D
 @export var platform_scene: PackedScene
 
 # Altura mínima/máxima entre plataformas (alcançável pelo pulo)
-@export var distance_between := Vector2(40, 80)
+@export var distance_between := Vector2(10, 750)
 
 # Margem para não colar na borda da câmera
 @export var screen_margin := 45
@@ -14,7 +14,7 @@ var player = null
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	last_platform_y = player.global_position.y + 50
+	last_platform_y = player.global_position.y + 60
 	_spawn_initial_platforms()
 
 
