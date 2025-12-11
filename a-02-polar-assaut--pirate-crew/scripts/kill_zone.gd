@@ -5,8 +5,13 @@ extends Area2D
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	print("Player Morreu!")
-	call_deferred("load_next_scene")
+	
+	if Global.lives >= 1:
+		Global.remove_life()
+		print("Player Perdeu uma vida!")
+	elif Global.lives < 1:
+		print("Player Morreu!")
+		call_deferred("load_next_scene")
 	
 	
 func load_next_scene():

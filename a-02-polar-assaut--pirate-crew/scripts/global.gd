@@ -25,5 +25,5 @@ func remove_life(): 	#remove Vidas
 func update_score(player_y):
 	if player_y < max_height_reached:
 		var diff = max_height_reached - player_y
-		score += int(diff / 10)
+		score += int(diff / 5)
 		max_height_reached = player_y

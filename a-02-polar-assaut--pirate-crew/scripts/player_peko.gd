@@ -224,6 +224,7 @@ func read_input():
 	input_dir = Input.get_axis("left", "right")
 
 func jump():
+	
 	#velocity.y = jump_force
 	var extra_force = run_momentum * 0.4    # 40% do momentum vira força no pulo
 	velocity.y = jump_force - extra_force
