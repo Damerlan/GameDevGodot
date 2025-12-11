@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c6katgog4x6nk"]
+[gd_scene load_steps=13 format=4 uid="uid://c6katgog4x6nk"]
 
 [ext_resource type="TileSet" uid="uid://kpyruge2g8ce" path="res://tiles/Terrain.tres" id="1_mlvwr"]
 [ext_resource type="PackedScene" uid="uid://bls706v7wnqyt" path="res://entities/camera.tscn" id="1_rky87"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://chvnjodtnjawi" path="res://Assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="7_tqddi"]
 [ext_resource type="Texture2D" uid="uid://cydy08n3tporf" path="res://Assets/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="8_273q6"]
 [ext_resource type="Texture2D" uid="uid://bonl6ctj8172n" path="res://Assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="9_nqk2h"]
+[ext_resource type="Script" uid="uid://dcyq7ds5sc7kk" path="res://scripts/level_end.gd" id="10_273q6"]
+[ext_resource type="PackedScene" uid="uid://duvd7dajko72h" path="res://entities/skeleton.tscn" id="11_nqk2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bc8j"]
+size = Vector2(20, 191)
 
 [node name="GrassLand" type="Node2D"]
 metadata/_edit_vertical_guides_ = [5281.0]
@@ -70,3 +75,62 @@ position = Vector2(129, 102)
 
 [node name="Player" parent="." instance=ExtResource("3_3yafl")]
 position = Vector2(118, 180)
+
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2(5215, 103)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("10_273q6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_4bc8j")
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Skeleton" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(395, 178)
+
+[node name="Skeleton2" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(441, 177)
+
+[node name="Skeleton3" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(789, 177)
+
+[node name="Skeleton4" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(1390, 124)
+
+[node name="Skeleton5" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(1712, 165)
+
+[node name="Skeleton6" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(1862, -147)
+
+[node name="Skeleton7" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(2302, -8)
+
+[node name="Skeleton8" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(2440, 168)
+
+[node name="Skeleton9" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(2911, 162)
+
+[node name="Skeleton10" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(3375, 159)
+
+[node name="Skeleton11" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(3724, 167)
+
+[node name="Skeleton12" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(3794, 164)
+
+[node name="Skeleton13" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(3854, 166)
+
+[node name="Skeleton14" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(4417, 174)
+
+[node name="Skeleton15" parent="Enemys" instance=ExtResource("11_nqk2h")]
+position = Vector2(4537, 169)
+
+[connection signal="body_entered" from="LevelEnd" to="LevelEnd" method="_on_body_entered"]

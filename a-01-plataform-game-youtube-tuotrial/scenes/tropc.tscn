@@ -98,4 +98,19 @@ shape = SubResource("RectangleShape2D_v7qhf")
 [node name="Skeleton" parent="Enemies" instance=ExtResource("11_v7qhf")]
 position = Vector2(387, 58)
 
+[node name="Skeleton2" parent="Enemies" instance=ExtResource("11_v7qhf")]
+position = Vector2(598, -35)
+
+[node name="Skeleton3" parent="Enemies" instance=ExtResource("11_v7qhf")]
+position = Vector2(712, 154)
+
+[node name="Skeleton4" parent="Enemies" instance=ExtResource("11_v7qhf")]
+position = Vector2(1052, 156)
+
+[node name="Skeleton5" parent="Enemies" instance=ExtResource("11_v7qhf")]
+position = Vector2(1441, 151)
+
+[node name="Skeleton6" parent="Enemies" instance=ExtResource("11_v7qhf")]
+position = Vector2(1578, 148)
+
 [editable path="LevelEnd"]

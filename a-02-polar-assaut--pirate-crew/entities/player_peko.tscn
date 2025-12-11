@@ -1,177 +1,12 @@
 [gd_scene load_steps=21 format=3 uid="uid://b4ogkwmkdhmb7"]
 
+[ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
 [ext_resource type="Texture2D" uid="uid://cfkxcfrtvjbfs" path="res://assets/Sprite Pack 6/1 - Penguin/Falling (16 x 16).png" id="2_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://chow36m1k8w20" path="res://assets/Sprite Pack 6/1 - Penguin/Hurt (16 x 16).png" id="3_u5olf"]
 [ext_resource type="Texture2D" uid="uid://bcuhfbit8b433" path="res://assets/Sprite Pack 6/1 - Penguin/Idle (16 x 16).png" id="4_51ghi"]
 [ext_resource type="Texture2D" uid="uid://cjie62bviespv" path="res://assets/Sprite Pack 6/1 - Penguin/Jump (16 x 16).png" id="5_4es5t"]
 [ext_resource type="Texture2D" uid="uid://ck41fkuhlna70" path="res://assets/Sprite Pack 6/1 - Penguin/Waddling (16 x 16).png" id="6_rfw8o"]
-
-[sub_resource type="GDScript" id="GDScript_q5j1t"]
-script/source = "extends CharacterBody2D
-
-#inicio da maquina de estado
-enum PlayerState{
-	idle,
-	run,
-	jump,
-	hit,
-	fall,
-	death
-}
-
-#setando os obj filhos
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
-#variaveis exportaveis
-@export var max_speed = 150
-@export var acceleration = 10
-@export var deceleration = 300
-
-#ariaveis de sistema
-var direction = 0
-var status: PlayerState
-var JUMP_VELOCITY = 300
-
-#------------------------------------------#
-func _ready() -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
-	#iniciando o Switch da maquina de estado
-	match status:
-		PlayerState.idle:
-			idle_state(delta)
-		PlayerState.run:
-			run_state(delta)
-		PlayerState.jump:
-			jump_state(delta)
-		PlayerState.hit:
-			hit_state(delta)
-		PlayerState.fall:
-			fall_state(delta)
-		PlayerState.death:
-			death_state(delta)
-	#fim do Switch
-	
-	move_and_slide()#função de movimento
-
-#------------------------------------------#
-#funçoes de preparação para o status do player
-func go_to_idle_state():#entrada idle state
-	status = PlayerState.idle
-	anim.play(\"Idle\")
-
-func go_to_run_state():#entrada run state
-	status = PlayerState.run
-	anim.play(\"Run\")
-
-func go_to_jump_state():
-	status = PlayerState.jump
-	anim.play(\"Jump\")
-	velocity.y = JUMP_VELOCITY
-
-func go_to_fall_state():
-	status = PlayerState.fall
-	anim.play(\"Falling\")
-
-func go_to_hit_state():
-	status = PlayerState.hit
-	anim.play(\"Hit\")
-
-func go_to_death_state():
-	status = PlayerState.death
-	anim.play(\"Death\")
-
-#------------------------------------------#
-#funções de estado
-func idle_state(delta):
-	aply_gravity(delta)
-	move(delta)
-	if velocity.x != 0:
-		go_to_run_state()
-		return
-	
-	if Input.is_action_just_pressed(\"jump\"):
-		go_to_jump_state()
-		return
-
-func run_state(delta):
-	aplyca_gravity(delta)
-	move(delta)
-	if velocity.x == 0:
-		go_to_idle_state()
-		return
-	
-	if Input.is_action_just_pressed(\"jump\"):
-		go_to_jump_state()
-		return
-
-func jump_state(delta):
-	aplyca_gravity(delta)
-	move(delta)
-	
-	if Input.is_action_just_pressed(\"jump\"):# && can_jump():
-		go_to_jump_state()
-		return
-	if velocity.y > 0:
-		go_to_fall_state()
-		return
-
-func fall_state(delta):
-	aplyca_gravity(delta)
-	move(delta)
-	
-	if Input.is_action_just_pressed(\"jump\"):# && can_jump():
-		go_to_jump_state()
-		return
-	
-	if is_on_floor():#se esta no chão, volta pro estado idle
-		#jump_count = 0
-		if velocity.x == 0:
-			go_to_idle_state()
-		else:
-			go_to_run_state()
-		return
-
-func hit_state(_delta):
-	pass
-
-func death_state(_delta):
-	pass
-
-#-----------------------------------------#
-#Funçoes do sistema#
-func aply_gravity(_delta):
-	pass
-
-func move(delta):
-	update_direction()
-	
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * max_speed, acceleration * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-	
-func aplyca_gravity(delta):
-	velocity += get_gravity() * delta
-	pass
-#func aply_gravity(delta):
-#	if not is_on_floor():
-#		velocity += get_gravity() * delta
-
-func update_direction():
-	direction = Input.get_axis(\"left\", \"right\")
-	
-	#ajuste do flip
-	if direction < 0:
-		anim.flip_h = true
-	elif direction > 0:
-		anim.flip_h = false
-
-#func can_jump() -> bool:
-#	return jump_count < max_jump_count
-"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
@@ -225,10 +60,10 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_q5j1t")
+"texture": ExtResource("2_dx4ep")
 }],
-"loop": true,
-"name": &"Death",
+"loop": false,
+"name": &"fall",
 "speed": 5.0
 }, {
 "frames": [{
@@ -236,7 +71,15 @@ animations = [{
 "texture": ExtResource("2_dx4ep")
 }],
 "loop": false,
-"name": &"Falling",
+"name": &"halling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q5j1t")
+}],
+"loop": true,
+"name": &"heath",
 "speed": 5.0
 }, {
 "frames": [{
@@ -244,7 +87,7 @@ animations = [{
 "texture": ExtResource("3_u5olf")
 }],
 "loop": false,
-"name": &"Hit",
+"name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
@@ -264,7 +107,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4v8o1")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -272,7 +115,7 @@ animations = [{
 "texture": ExtResource("5_4es5t")
 }],
 "loop": false,
-"name": &"Jump",
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -295,17 +138,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_77sqc")
 }],
 "loop": true,
-"name": &"Run",
+"name": &"run",
 "speed": 7.0
 }]
 
-[node name="PlayerPeko" type="CharacterBody2D"]
-script = SubResource("GDScript_q5j1t")
+[node name="PlayerPeko" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_dx4ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3v82r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x4iqf")
-animation = &"Death"
-autoplay = "Idle"
+animation = &"fall"
+autoplay = "idle"

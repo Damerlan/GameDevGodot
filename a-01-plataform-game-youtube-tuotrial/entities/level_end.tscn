@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcyq7ds5sc7kk" path="res://scripts/level_end.gd" id="1_y82ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bc8j"]
+size = Vector2(20, 191)
 
 [node name="LevelEnd" type="Area2D"]
 collision_layer = 8

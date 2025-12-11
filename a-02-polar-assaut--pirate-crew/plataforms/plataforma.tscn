@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://br67ppirdrfo3"]
+
+[ext_resource type="Script" uid="uid://ccjyhx2weho6l" path="res://scripts/plataforma.gd" id="1_ib1hc"]
+[ext_resource type="Texture2D" uid="uid://clcfarf6bq5hj" path="res://assets/Meus Assets Prototipos/2 TilePrefabs/h1x3_2.png" id="2_ib1hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib1hc"]
+size = Vector2(94, 10)
+
+[node name="Plataforma" type="StaticBody2D"]
+script = ExtResource("1_ib1hc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ib1hc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ib1hc")

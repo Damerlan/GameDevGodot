@@ -150,7 +150,7 @@ limit_right = 4860
 
 [node name="LevelEnd" parent="." instance=ExtResource("12_j3csf")]
 position = Vector2(4719, 174)
-netx_level = "tropc"
+netx_level = "grass_land"
 
 [node name="CollisionShape2D" parent="LevelEnd" index="0"]
 position = Vector2(6, -80)
@@ -159,17 +159,55 @@ shape = SubResource("RectangleShape2D_j3csf")
 [node name="Player" parent="." instance=ExtResource("1_xijx7")]
 position = Vector2(27, 182)
 
-[node name="Skeleton" parent="." instance=ExtResource("13_dabdc")]
-position = Vector2(222, 173)
-
-[node name="Skeleton2" parent="." instance=ExtResource("13_dabdc")]
-position = Vector2(545, 108)
-
 [node name="LimitFase" type="StaticBody2D" parent="."]
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimitFase"]
 position = Vector2(-2.5, 91)
 shape = SubResource("RectangleShape2D_cf55d")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Skeleton" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(222, 173)
+
+[node name="Skeleton2" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(545, 108)
+
+[node name="Skeleton3" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(941, 176)
+
+[node name="Skeleton4" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(1318, 173)
+
+[node name="Skeleton5" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(1433, 170)
+
+[node name="Skeleton6" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(1628, 171)
+
+[node name="Skeleton7" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(1741, 169)
+
+[node name="Skeleton8" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(2063, 75)
+
+[node name="Skeleton9" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(2126, 72)
+
+[node name="Skeleton10" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(2319, 167)
+
+[node name="Skeleton11" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(3273, 168)
+
+[node name="Skeleton12" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(3522, 171)
+
+[node name="Skeleton13" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(3873, 166)
+
+[node name="Skeleton14" parent="Enemies" instance=ExtResource("13_dabdc")]
+position = Vector2(4135, 168)
 
 [editable path="LevelEnd"]
