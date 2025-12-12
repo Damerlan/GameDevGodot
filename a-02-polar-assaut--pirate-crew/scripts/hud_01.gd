@@ -20,7 +20,7 @@ func _on_lives_changed(value):
 	lives_label.text = str(value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_score()
 
 func update_score():

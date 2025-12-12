@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2uatexe3i8uo"]
+
+[ext_resource type="Script" uid="uid://cjc8011lvdsmk" path="res://scripts/screen_manager.gd" id="1_egfvl"]
+[ext_resource type="PackedScene" uid="uid://prvvfpd68376" path="res://huds/hud_record_name.tscn" id="2_jf8w5"]
+
+[node name="ScreenManager" type="Node"]
+script = ExtResource("1_egfvl")
+
+[node name="HudRecordName" parent="." instance=ExtResource("2_jf8w5")]
+visible = false

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cgeydefvficvl" path="res://scripts/kill_zone.gd" id="1_6neg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6neg6"]
-size = Vector2(3084, 27)
+size = Vector2(26889, 228)
 
 [node name="KillZone" type="Area2D"]
 collision_layer = 8
@@ -11,7 +11,6 @@ collision_mask = 6
 script = ExtResource("1_6neg6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3.5)
 shape = SubResource("RectangleShape2D_6neg6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

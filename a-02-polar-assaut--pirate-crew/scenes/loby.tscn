@@ -1,19 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://ohske20s0nla"]
+[gd_scene load_steps=4 format=3 uid="uid://ohske20s0nla"]
 
 [ext_resource type="Texture2D" uid="uid://cg611rqkr1yhx" path="res://assets/Meus Assets Prototipos/2 TilePrefabs/h1x3.png" id="1_bus4n"]
 [ext_resource type="Script" uid="uid://5krpi0qbyaod" path="res://scripts/testes.gd" id="1_egcrx"]
+[ext_resource type="PackedScene" uid="uid://dcylmsth0dr2y" path="res://huds/hud_loby.tscn" id="3_g5wso"]
 
 [node name="Loby" type="Node2D"]
 script = ExtResource("1_egcrx")
+metadata/_edit_vertical_guides_ = [36.0, 250.0, 325.0, 450.0, 300.0]
+metadata/_edit_horizontal_guides_ = [32.0]
 
 [node name="H1x3" type="Sprite2D" parent="."]
-position = Vector2(138, 211)
+position = Vector2(349, 186)
 texture = ExtResource("1_bus4n")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 54.0
-offset_top = 92.0
-offset_right = 227.0
-offset_bottom = 141.0
+offset_left = 274.0
+offset_top = 61.0
+offset_right = 447.0
+offset_bottom = 110.0
 text = "Pressione Esc ou start 
 para começar"
+
+[node name="HudLoby" parent="." instance=ExtResource("3_g5wso")]

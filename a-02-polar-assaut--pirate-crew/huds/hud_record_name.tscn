@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://prvvfpd68376"]
+
+[ext_resource type="Script" uid="uid://cd023s24gvote" path="res://scripts/hud_record_name.gd" id="1_q4gx8"]
+[ext_resource type="Texture2D" uid="uid://besy21kj53vma" path="res://assets/Sprite Pack 6/1 - Penguin/Victory_Dance (16 x 16).png" id="1_sa2g7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4gx8"]
+atlas = ExtResource("1_sa2g7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpu6a"]
+atlas = ExtResource("1_sa2g7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t408"]
+atlas = ExtResource("1_sa2g7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xycqh"]
+atlas = ExtResource("1_sa2g7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lombr"]
+atlas = ExtResource("1_sa2g7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulw0y"]
+animations = [{
+"frames": [{
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_q4gx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpu6a")
+}, {
+"duration": 1.51,
+"texture": SubResource("AtlasTexture_1t408")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xycqh")
+}, {
+"duration": 1.51,
+"texture": SubResource("AtlasTexture_lombr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HudRecordName" type="CanvasLayer"]
+script = ExtResource("1_q4gx8")
+metadata/_edit_horizontal_guides_ = [50.0, 59.0]
+metadata/_edit_vertical_guides_ = [120.0, 360.0, 150.0, 320.0, 240.0]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 120.0
+offset_top = 37.0
+offset_right = 360.0
+offset_bottom = 231.0
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 9.0
+offset_right = 188.0
+offset_bottom = 46.0
+text = "!Novo Recorde!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 92.0
+offset_right = 161.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+theme_override_font_sizes/font_size = 12
+text = "Digite seu nome:"
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 110.0
+offset_right = 200.0
+offset_bottom = 141.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+position = Vector2(120, 56)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ulw0y")
+autoplay = "default"
+frame_progress = 0.47102833
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 146.0
+offset_right = 149.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 14
+text = "Salvar"

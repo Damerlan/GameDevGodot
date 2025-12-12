@@ -53,6 +53,29 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	if not is_on_floor():	#se o player nao está no chão
 		velocity += get_gravity() * delta	#aplica o efeito de gravidade
 	
+	
+	#if is_on_floor(): #se estiver na plataforma
+	#	Global.last_safe_position = global_position
+	
+	if is_on_floor(): #registrando a plataforma
+		var normal = get_floor_normal()
+
+		# Garante que o player pousou no topo plano da plataforma
+		if normal.is_equal_approx(Vector2.UP):
+			
+			# Pegamos a plataforma pela última colisão do slide
+			var collision = get_last_slide_collision()
+			
+			if collision:
+				var obj = collision.get_collider()
+
+				if obj and obj.has_method("register_as_safe"):
+					obj.register_as_safe()
+		else:
+			# Aqui evitamos registrar plataformas onde o player
+			# pousou na quina ou numa lateral
+			print("Ignorado: pousou na quina / lateral.")
+	
 	# --- State Machine ---
 	match status:
 		PlayerState.idle:
@@ -175,13 +198,20 @@ func fall_state(delta):
 			go_to_run_state()
 	
 
-func hit_state(_delta):
-	pass
+func hit_state(delta):
+	# Player não mexe horizontalmente enquanto leva dano
+	velocity.x = move_toward(velocity.x, 0, 30 * delta)
+	
+	# mantém a física
+	# move_and_slide() é chamado fora
 
 func death_state(_delta):
 	pass
 
 #----------#Funçoes auxiliares do sistema#-----------------#
+
+
+
 
 func aply_gravity(_delta):
 	pass
@@ -231,3 +261,49 @@ func jump():
 	go_to_jump_state()
 	#change_state(PlayerState.jump)
 #-----------------------------------------#
+#---------------------------------------------
+# SISTEMA DE DANO + RESPAWN
+#---------------------------------------------
+func take_hit():
+	# evita reentrar no estado
+	if status == PlayerState.hit or status == PlayerState.death:
+		return
+	
+	# perde vida no Global
+	Global.remove_life()
+
+	# coloca estado de hit
+	go_to_hit_state()
+	velocity = Vector2.ZERO
+
+	# respawn em deferred (evita bugs)
+	call_deferred("_do_respawn")
+
+func game_over():
+	Global.last_score = Global.score
+	
+	#verificamos se superou o record
+	if Global.score > Global.highscore:
+		Global.pending_record = true
+	else:
+		Global.pending_record = false
+	
+	#salva score normal
+	SaveManager.save_game()
+	
+	#ScreenManager vai decidir se abre a HUD de nome ou volta ao loby
+	#get_tree().change_scene_to_file("res://scenes/screen_manager.tscn")
+
+
+func _do_respawn():
+	# posição segura existe?
+	if Global.last_safe_position != Vector2.ZERO:
+		# respawn 40px acima da plataforma
+		global_position = Global.last_safe_position + Vector2(0, -40)
+		velocity = Vector2.ZERO
+
+	# invulnerável por 0.2s
+	status = PlayerState.hit
+	await get_tree().create_timer(0.2).timeout
+
+	go_to_idle_state()

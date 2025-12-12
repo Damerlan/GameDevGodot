@@ -1,17 +1,32 @@
 extends Area2D
 
-@export var next_scene = "" 	#definindo a sena que o player será jogado apos morrer
+@export var next_scene = "screen_manager" 	#definindo a sena que o player será jogado apos morrer
 
 
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	
-	if Global.lives >= 1:
-		Global.remove_life()
-		print("Player Perdeu uma vida!")
-	elif Global.lives < 1:
-		print("Player Morreu!")
-		call_deferred("load_next_scene")
+	if body is CharacterBody2D and body.has_method("take_hit"):
+
+		# Se o player ainda tem vidas → aplica hit + respawn
+		if Global.lives > 1:
+			body.take_hit()
+			print("Player caiu na KillZone. Perdeu 1 vida e retornou à última plataforma!")
+		
+		# Se era a última vida → faz hit e depois troca a cena
+		elif Global.lives == 1:
+			body.take_hit()
+			print("Player morreu!")
+			# registra recorde e limpa contadores
+			Global.on_player_death()
+			if Global.highscore < Global.score:
+				Global.pending_record = false
+			else:
+				Global.pending_record = true
+			# vai para o lobby
+			call_deferred("load_next_scene")
+	
+
 	
 	
 func load_next_scene():
