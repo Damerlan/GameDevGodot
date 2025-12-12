@@ -1,72 +1,74 @@
 extends Node
+#class_name SaveManager
 
-var save_path := "user://savegame.json"
+const SAVE_PATH := "user://savegame.json"
 
-#dados padrão caso o save ainda nao exista
-var data :={
-	"hight_score": 0,
-	"hight_score_name": "",
-	"last_score": 0
-}
+var highscore := Global.highscore
+var highscore_name := Global.highscore_name
+var last_run_score := Global.last_score
 
-func _ready() -> void:
+signal new_highscore(score)
+signal highscore_saved(name, score)
+
+func _ready():
 	load_game()
 
-#-----------------------------------------------
-#Salvar os dados no arquivo
-#-----------------------------------------------
-func save_game():
-	data["hight_score"] = Global.highscore
-	data["last_score"] = Global.last_score
-	data["hight_score_name"] = Global.highscore_name
-	
-	var file := FileAccess.open(save_path, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(data))
-		file.close()
-	#------------------------------------------
-	#Carregar dados do arquivo
-	#------------------------------------------
-#func load_game():
-#	if not FileAccess.file_exists(save_path):
-#		save_game() #cria arquivo novo se não existir
-#		return
-	
-#	var file := FileAccess.open(save_path, FileAccess.READ)
-#	var content := file.get_as_text()
-#	file.close()
-	
-#	var result = JSON.parse_string(content)
-#	if result is Dictionary:
-#		data = result
-	
+# =========================================================
+#  ↪ CHAMADA PELO JOGO QUANDO A PARTIDA TERMINA
+# =========================================================
+func register_score(score: int) -> void:
+	last_run_score = score
 
-func load_game():
-	if not FileAccess.file_exists(save_path):
-		print("SAVE NÃO EXISTE — criando novo...")
+	if score > highscore:
+		# 👉 Aciona o sinal para o HUD abrir o formulário
+		emit_signal("new_highscore", score)
+	else:
+		# 👉 Não é recorde, apenas salva o último score
 		save_game()
+
+# =========================================================
+#  ↪ CHAMADO PELO HUD quando o jogador digita o nome
+# =========================================================
+func save_highscore_with_name(player_name: String) -> void:
+	if player_name.strip_edges() == "":
+		player_name = "Jogador"
+
+	highscore = last_run_score
+	highscore_name = player_name
+
+	save_game()
+	emit_signal("highscore_saved", player_name, highscore)
+
+# =========================================================
+#  ↪ SALVA NO ARQUIVO
+# =========================================================
+func save_game() -> void:
+	var data := {
+			"highscore": highscore,
+			"highscore_name": highscore_name
+		}
+		
+	if Global.step_record == true:
+		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+		if file:
+			file.store_string(JSON.stringify(data))
+			file.close()
+
+# =========================================================
+#  ↪ CARREGA O ARQUIVO
+# =========================================================
+func load_game() -> void:
+	if not FileAccess.file_exists(SAVE_PATH):
 		return
 
-	var file := FileAccess.open(save_path, FileAccess.READ)
-	var content := file.get_as_text()
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		return
+
+	var text := file.get_as_text()
 	file.close()
 
-	print("Conteúdo carregado:", content)
-
-	var result = JSON.parse_string(content)
-
+	var result = JSON.parse_string(text)
 	if result is Dictionary:
-		data = result
-		Global.highscore = data.get("hight_score", 0)
-		Global.last_score = data.get("last_score", 0)
-		Global.highscore_name = data.get("", "")
-		print("LOAD SUCESSO:", data)
-	else:
-		print("ERRO NO JSON — recriando arquivo.")
-		save_game()
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+		highscore = result.get("highscore", 0)
+		highscore_name = result.get("highscore_name", "Jogador")

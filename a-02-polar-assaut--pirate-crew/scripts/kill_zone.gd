@@ -16,15 +16,21 @@ func _on_body_entered(body: Node2D) -> void:
 		# Se era a última vida → faz hit e depois troca a cena
 		elif Global.lives == 1:
 			body.take_hit()
-			print("Player morreu!")
+			Global.last_score = Global.score
+			#print("Player morreu!")
 			# registra recorde e limpa contadores
-			Global.on_player_death()
-			if Global.highscore < Global.score:
-				Global.pending_record = false
+			#Global.on_player_death()
+			if Global.score > Global.highscore:
+				print("O player bateu o recod")
+				Global.pending_record = true #deve pedir nome
+				Global.step_record = false
+				#call_deferred("load_next_scene")
 			else:
-				Global.pending_record = true
-			# vai para o lobby
+				Global.pending_record = false
+				print("O não bateu o recod")
+			
 			call_deferred("load_next_scene")
+			
 	
 
 	

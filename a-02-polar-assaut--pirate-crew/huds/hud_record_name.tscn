@@ -98,3 +98,5 @@ offset_right = 149.0
 offset_bottom = 177.0
 theme_override_font_sizes/font_size = 14
 text = "Salvar"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

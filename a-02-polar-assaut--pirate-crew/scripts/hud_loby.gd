@@ -14,12 +14,22 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	exibe_score()
 	
-func exibe_score():
-	var high = SaveManager.data["hight_score"]
-	var last = SaveManager.data["last_score"]
-	var champion = SaveManager.data["hight_score_name"]
+func old_exibe_score():
+	var high = Global.highscore
+	var last = Global.last_score
+	var champion = Global.highscore_name
 	
-	record_label.text = "Recorde: " + str(high) + " (" + champion + ")"
+	record_label.text = "Recorde: %s (%s)" % [high, champion]
 	last_score_label.text = "Última Partida: " + str(last)
 	#record_label.text = "Recorde: " + str(Global.highscore)
 	#last_score_label.text = "Última partida: " + str(Global.last_score)
+	
+func exibe_score():
+	SaveManager.load_game()
+	
+	var high = Global.highscore
+	var last = Global.last_score
+	var champion = Global.highscore_name
+	
+	record_label.text = "Recorde: %s (%s)" % [high, champion]
+	last_score_label.text = "Última Partida: " + str(last)

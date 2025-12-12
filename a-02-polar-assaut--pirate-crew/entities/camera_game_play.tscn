@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck0npg1dylxc7"]
+[gd_scene load_steps=4 format=3 uid="uid://ck0npg1dylxc7"]
 
 [ext_resource type="Script" uid="uid://jiy3tnhwgoun" path="res://scripts/camera_game_play.gd" id="1_nc486"]
 [ext_resource type="PackedScene" uid="uid://cfp6ethjgtsv5" path="res://huds/hud_01.tscn" id="2_nw58e"]
+[ext_resource type="PackedScene" uid="uid://dm47l8n874xj5" path="res://huds/hud_cam.tscn" id="3_tnh1k"]
 
 [node name="CameraGamePlay" type="Camera2D" groups=["cam"]]
 limit_bottom = 480
@@ -9,3 +10,5 @@ position_smoothing_enabled = true
 script = ExtResource("1_nc486")
 
 [node name="hud_01" parent="." instance=ExtResource("2_nw58e")]
+
+[node name="HudCam" parent="." instance=ExtResource("3_tnh1k")]

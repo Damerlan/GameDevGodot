@@ -7,4 +7,3 @@
 script = ExtResource("1_egfvl")
 
 [node name="HudRecordName" parent="." instance=ExtResource("2_jf8w5")]
-visible = false

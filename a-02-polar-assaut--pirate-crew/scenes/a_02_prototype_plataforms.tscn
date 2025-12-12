@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ducopyb1x12ak"]
+[gd_scene load_steps=6 format=3 uid="uid://ducopyb1x12ak"]
 
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_baop6"]
 [ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="1_uft36"]
 [ext_resource type="PackedScene" uid="uid://ck0npg1dylxc7" path="res://entities/camera_game_play.tscn" id="2_ee1ip"]
 [ext_resource type="PackedScene" uid="uid://br67ppirdrfo3" path="res://plataforms/plataforma.tscn" id="3_63by8"]
 [ext_resource type="PackedScene" uid="uid://ckrkutmawwn8a" path="res://entities/kill_zone.tscn" id="5_sfmi4"]
-[ext_resource type="PackedScene" uid="uid://prvvfpd68376" path="res://huds/hud_record_name.tscn" id="6_tvxcg"]
 
 [node name="A02PrototypePlataforms" type="Node2D"]
 
@@ -27,6 +26,3 @@ position = Vector2(269, 366)
 
 [node name="Plataforma" parent="YSort" instance=ExtResource("3_63by8")]
 position = Vector2(249, 247)
-
-[node name="HudRecordName" parent="." instance=ExtResource("6_tvxcg")]
-visible = false

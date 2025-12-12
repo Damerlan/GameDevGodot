@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm47l8n874xj5"]
+
+[ext_resource type="Texture2D" uid="uid://cnr1r2evw5kqk" path="res://assets/Mini FX, Items & UI/Mini UI/1 Health_Indicator_Black_Outline (8 x 8).png" id="1_6tqqs"]
+[ext_resource type="Script" uid="uid://c2a5fnc84wx38" path="res://scripts/hud_cam.gd" id="1_e174t"]
+
+[node name="HudCam" type="CanvasLayer"]
+script = ExtResource("1_e174t")
+metadata/_edit_vertical_guides_ = [15.0]
+metadata/_edit_horizontal_guides_ = [258.0, 15.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -21.0
+offset_right = 25.0
+offset_bottom = -13.0
+grow_vertical = 0
+
+[node name="HeartIcon" type="TextureRect" parent="Control/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("1_6tqqs")
