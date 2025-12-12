@@ -17,16 +17,16 @@ func _on_body_entered(body: Node2D) -> void:
 		elif Global.lives == 1:
 			body.take_hit()
 			Global.last_score = Global.score
-			#print("Player morreu!")
+			print("Player morreu!")
 			# registra recorde e limpa contadores
 			#Global.on_player_death()
 			if Global.score > Global.highscore:
 				print("O player bateu o recod")
-				Global.pending_record = true #deve pedir nome
-				Global.step_record = false
+				#Global.pending_record = true #deve pedir nome
+				#Global.step_record = false
 				#call_deferred("load_next_scene")
 			else:
-				Global.pending_record = false
+				#Global.pending_record = false
 				print("O não bateu o recod")
 			
 			call_deferred("load_next_scene")
@@ -35,5 +35,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 	
 	
-func load_next_scene():
+func load_next_scene(): #avançã para a sena gerenciador >quetal fazer uma tela de loading aqui< -
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")	#troca de sena

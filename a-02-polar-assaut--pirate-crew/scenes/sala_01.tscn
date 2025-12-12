@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqmj6xjhfrsj0"]
+
+[ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
+[ext_resource type="PackedScene" uid="uid://br67ppirdrfo3" path="res://plataforms/plataforma.tscn" id="2_3m7pq"]
+[ext_resource type="PackedScene" uid="uid://ckrkutmawwn8a" path="res://entities/kill_zone.tscn" id="3_fnumv"]
+[ext_resource type="PackedScene" uid="uid://ck0npg1dylxc7" path="res://entities/camera_game_play.tscn" id="4_orh57"]
+[ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="5_laal3"]
+
+[node name="Sala01" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [280.0]
+
+[node name="PlataformSpawner" parent="." instance=ExtResource("1_td87b")]
+position = Vector2(84, 121)
+platform_scene = ExtResource("2_3m7pq")
+distance_between = Vector2(120, 80)
+
+[node name="YSort" type="Node" parent="."]
+
+[node name="Plataforma" parent="YSort" instance=ExtResource("2_3m7pq")]
+position = Vector2(235, 244)
+
+[node name="KillZone" parent="." instance=ExtResource("3_fnumv")]
+position = Vector2(0, 412)
+
+[node name="CameraGamePlay" parent="." instance=ExtResource("4_orh57")]
+position = Vector2(240, 136)
+limit_bottom = 280
+
+[node name="PlayerPeko" parent="." instance=ExtResource("5_laal3")]
+position = Vector2(233, 216)

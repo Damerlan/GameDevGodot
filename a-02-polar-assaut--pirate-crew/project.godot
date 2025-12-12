@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="A02-Polar Assaut: Pirate Crew"
-run/main_scene="uid://ohske20s0nla"
+run/main_scene="uid://i01paqase5ii"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
