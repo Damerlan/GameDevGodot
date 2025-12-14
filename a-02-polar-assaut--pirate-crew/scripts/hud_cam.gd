@@ -9,7 +9,7 @@ extends CanvasLayer
 func _ready() -> void:
 	heart_tamplate.visible = false #o tamplate sempre fica escondido
 	
-	Global.lives_changed.connect(update_hearts)
+	Nglobal.lives_changed.connect(update_hearts)
 	
 	update_hearts()
 	
@@ -21,7 +21,7 @@ func update_hearts():
 			child.queue_free()
 		
 	#cria novos corações baseado na vida atual
-	for i in range(Global.lives):
+	for i in range(Nglobal.lives):
 		var heart = heart_tamplate.duplicate()
 		heart.visible = true
 		hearts_container.add_child(heart)

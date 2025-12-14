@@ -10,10 +10,10 @@ func _ready() -> void:
 	update_score()
 	
 	#conecta os sinais
-	Global.score_changed.connect(_on_score_changed)
-	Global.lives_changed.connect(_on_score_changed)
+	Nglobal.autura_changed.connect(_on_altura_changed)
+	Nglobal.lives_changed.connect(_on_lives_changed)
 	
-func _on_score_changed(value):
+func _on_altura_changed(value):
 	score_label.text = str(value)
 	
 func _on_lives_changed(value):
@@ -24,5 +24,5 @@ func _process(_delta: float) -> void:
 	update_score()
 
 func update_score():
-	score_label.text = str(Global.score)
-	lives_label.text = str(Global.lives)
+	score_label.text = str(ScoreManager.altura)
+	lives_label.text = str(Nglobal.lives)

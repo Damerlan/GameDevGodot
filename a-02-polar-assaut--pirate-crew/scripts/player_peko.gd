@@ -27,6 +27,11 @@ enum PlayerState{
 @export var jump_force := -600.0
 
 #---------------------------------------------
+# Sinais
+#---------------------------------------------
+signal morreu
+
+#---------------------------------------------
 # Internas
 #---------------------------------------------
 var status: PlayerState	#variável de status
@@ -131,7 +136,7 @@ func go_to_death_state():
 
 func idle_state(delta):
 	apply_movement(delta)
-	Global.update_score(global_position.y) 	#calcula a pontuação
+	Nglobal.update_autura(global_position.y) 	#calcula a pontuação
 	#decai o momentum
 	run_momentum = max(run_momentum - momentum_decay * delta, 0)
 
@@ -270,26 +275,37 @@ func take_hit():
 		return
 	
 	# perde vida no Global
-	Global.remove_life()
+	Nglobal.remove_life()
 
 	# coloca estado de hit
 	go_to_hit_state()
 	velocity = Vector2.ZERO
 
+	#if Nglobal.lives > 0:
 	# respawn em deferred (evita bugs)
 	call_deferred("_do_respawn")
+	
+	#elif Nglobal.lives == 0:
+	#	morrer()
+
+#func morrer():
+#	print("o player morreu")
+#	emit_signal("morreu")
+	
 
 func game_over():
-	Global.last_score = Global.score
+	print("game over")
+	pass
+	#Global.last_score = Global.score
 	
 	#verificamos se superou o record
-	if Global.score > Global.highscore:
-		Global.pending_record = true
-	else:
-		Global.pending_record = false
+	#if Global.score > Global.highscore:
+	#	Global.pending_record = true
+	#else:
+	#	Global.pending_record = false
 	
 	#salva score normal
-	SaveManager.save_game()
+	#SaveManager.save_game()
 	
 	#ScreenManager vai decidir se abre a HUD de nome ou volta ao loby
 	#get_tree().change_scene_to_file("res://scenes/screen_manager.tscn")
@@ -297,9 +313,9 @@ func game_over():
 
 func _do_respawn():
 	# posição segura existe?
-	if Global.last_safe_position != Vector2.ZERO:
+	if Nglobal.last_safe_position != Vector2.ZERO:
 		# respawn 40px acima da plataforma
-		global_position = Global.last_safe_position + Vector2(0, -40)
+		global_position = Nglobal.last_safe_position + Vector2(0, -40)
 		velocity = Vector2.ZERO
 
 	# invulnerável por 0.2s

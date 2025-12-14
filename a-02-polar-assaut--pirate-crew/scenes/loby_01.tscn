@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://i01paqase5ii"]
+[gd_scene load_steps=6 format=3 uid="uid://i01paqase5ii"]
 
+[ext_resource type="Script" uid="uid://c83hwukfslhad" path="res://scripts/loby_01.gd" id="1_fjhom"]
 [ext_resource type="Texture2D" uid="uid://bvw8c8orbw5ba" path="res://assets/Sprite Pack 6/1 - Penguin/Looking_Up (16 x 16).png" id="1_w56s8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blcqn"]
@@ -25,8 +26,9 @@ animations = [{
 }]
 
 [node name="Loby_01" type="Node2D"]
+script = ExtResource("1_fjhom")
 metadata/_edit_horizontal_guides_ = [25.0, 245.0]
-metadata/_edit_vertical_guides_ = [25.0, 450.0, 244.0, 52.0, 136.0, 58.0]
+metadata/_edit_vertical_guides_ = [25.0, 450.0, 311.0, 52.0, 136.0, 58.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,65 +36,71 @@ metadata/_edit_vertical_guides_ = [25.0, 450.0, 244.0, 52.0, 136.0, 58.0]
 offset_left = 27.0
 offset_top = 27.0
 offset_right = 160.0
-offset_bottom = 243.0
+offset_bottom = 206.0
 
 [node name="BtnStart" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 63.0
-offset_right = 109.0
-offset_bottom = 89.0
+offset_left = 25.0
+offset_top = 69.0
+offset_right = 110.0
+offset_bottom = 93.0
 theme_override_font_sizes/font_size = 11
 text = "Start Game"
 
+[node name="BtnRanking" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 97.0
+offset_right = 109.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 11
+text = "Ranking"
+
 [node name="BtnExit" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 93.0
-offset_right = 109.0
-offset_bottom = 119.0
+offset_left = 25.0
+offset_top = 125.0
+offset_right = 110.0
+offset_bottom = 149.0
 theme_override_font_sizes/font_size = 11
 text = "Sair"
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Panel"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 137.0
-offset_right = 109.0
-offset_bottom = 203.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Panel"]
-layout_mode = 0
-offset_top = 20.0
-offset_right = 83.0
-offset_bottom = 43.0
-theme_override_constants/line_spacing = 3
-theme_override_font_sizes/font_size = 6
-text = "( TioDam )
-9988542238"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="CanvasLayer/Panel/Panel"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 47.0
-offset_right = 80.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0.581033, 0.58103293, 0.5810329, 1)
-theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 4
-text = "Último Score: 2238"
-
-[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Panel/Panel"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 41.0
-offset_right = 75.0
-offset_bottom = 45.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(94, 60)
+position = Vector2(94, 65)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xk8rn")
 autoplay = "default"
 frame_progress = 0.49222028
+
+[node name="RankingPanel" type="Panel" parent="CanvasLayer"]
+offset_left = 163.0
+offset_top = 27.0
+offset_right = 310.0
+offset_bottom = 204.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RankingPanel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 135.0
+offset_bottom = 106.0
+
+[node name="LabelTitle" type="Label" parent="CanvasLayer/RankingPanel/VBoxContainer"]
+layout_mode = 2
+text = "RANKING"
+horizontal_alignment = 1
+
+[node name="VBoxRanking" type="VBoxContainer" parent="CanvasLayer/RankingPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/RankingPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Close"
+
+[connection signal="pressed" from="CanvasLayer/Panel/BtnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BtnRanking" to="." method="_on_btn_ranking_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BtnExit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/RankingPanel/VBoxContainer/Button" to="." method="_on_button_pressed"]

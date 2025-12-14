@@ -18,4 +18,4 @@ func _process(_delta: float) -> void:
 
 # 🚀 Posição segura DEFINITIVA (centro da plataforma)
 func register_as_safe():
-	Global.last_safe_position = global_position
+	Nglobal.last_safe_position = global_position

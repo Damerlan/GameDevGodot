@@ -2,7 +2,6 @@ extends Node
 
 var score: int = 0
 var lives: int = 3
-
 var highscore: int = 0
 var highscore_name:String = "Ninguém" #<-novo
 var last_score: int = 0
@@ -61,7 +60,7 @@ func on_player_death():
 
 func end_game():
 	#Global.last_score = Global.score
-	SaveManager.data["last_score"] = score
+	#SaveManager.data["last_score"] = score
 	
 	if score > SaveManager.data["hight_score"]:
 		SaveManager.data["hight_score"] = score

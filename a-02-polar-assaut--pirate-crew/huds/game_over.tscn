@@ -1,0 +1,215 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3nb3tlny3smm"]
+
+[ext_resource type="Texture2D" uid="uid://wf2fiiwi17ku" path="res://assets/Sprite Pack 6/1 - Penguin/Sitting (16 x 16).png" id="1_804e5"]
+[ext_resource type="Script" uid="uid://wjfieuehp3q5" path="res://scripts/game_over.gd" id="1_b1y67"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a4tv"]
+atlas = ExtResource("1_804e5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh887"]
+atlas = ExtResource("1_804e5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g5h3"]
+atlas = ExtResource("1_804e5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7biuu"]
+atlas = ExtResource("1_804e5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1bed"]
+atlas = ExtResource("1_804e5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx31o"]
+atlas = ExtResource("1_804e5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1y67"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_5a4tv")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fh887")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0g5h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7biuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1bed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx31o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="GameOver" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 365.0
+offset_bottom = 260.0
+script = ExtResource("1_b1y67")
+
+[node name="Panel" type="Panel" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -114.5
+offset_right = 158.375
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTitle" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 146.0
+offset_bottom = 37.0
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 29.0
+offset_right = 309.0
+offset_bottom = 183.0
+
+[node name="LabelFinalScore" type="Label" parent="GameOver/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "4010"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GameOver/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxStats" type="VBoxContainer" parent="GameOver/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelAltura" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "50"
+
+[node name="LabelItens" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "10"
+
+[node name="LabelTempo" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxStats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "60s"
+
+[node name="HSeparator2" type="HSeparator" parent="GameOver/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxCalculo" type="VBoxContainer" parent="GameOver/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelCalcAutura" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxCalculo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="LabelCalcColeta" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxCalculo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="LabelCalcEficiencia" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxCalculo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="LabelCakcTempo" type="Label" parent="GameOver/Panel/VBoxContainer/VBoxCalculo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "00"
+
+[node name="LabelFeedback" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 190.0
+offset_right = 307.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 12
+text = "feedback"
+horizontal_alignment = 1
+
+[node name="LabelNovoRecorde" type="Label" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 89.0
+offset_right = 137.0
+offset_bottom = 112.0
+text = "Novo Recorde!"
+
+[node name="LineEditNome" type="LineEdit" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 117.0
+offset_right = 138.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 10
+
+[node name="ButtonSalvar" type="Button" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 144.0
+offset_right = 140.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 13
+text = "Salvar"
+
+[node name="ButtonSair" type="Button" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 180.0
+offset_right = 141.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 13
+text = "Retornar"
+
+[node name="VSeparator" type="VSeparator" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 21.0
+offset_right = 160.0
+offset_bottom = 201.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameOver/Panel"]
+position = Vector2(77, 67)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_b1y67")
+autoplay = "default"
+
+[node name="HSeparator" type="HSeparator" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 76.0
+offset_right = 138.0
+offset_bottom = 96.0
+
+[connection signal="pressed" from="GameOver/Panel/ButtonSalvar" to="GameOver" method="_on_button_salvar_pressed"]
+[connection signal="pressed" from="GameOver/Panel/ButtonSair" to="GameOver" method="_on_button_sair_pressed"]

@@ -1,0 +1,24 @@
+extends Node2D
+
+@onready var player = $PlayerPeko
+@onready var killzone = $KillZone
+
+func _ready() -> void:
+	killzone.morreu.connect(_on_player_morreu)
+	#Nglobal.morreu.connect(_on_player_morreu)
+	#player.morreu.connect()
+	
+func _on_player_morreu():
+	#para o tempo
+	get_tree().paused = true
+	
+	#pequena espera
+	await get_tree().create_timer(0.8).timeout
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://huds/game_over.tscn")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

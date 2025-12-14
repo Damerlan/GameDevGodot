@@ -7,3 +7,5 @@
 script = ExtResource("1_egfvl")
 
 [node name="HudRecordName" parent="." instance=ExtResource("2_jf8w5")]
+metadata/_edit_horizontal_guides_ = [50.0, 59.0]
+metadata/_edit_vertical_guides_ = [120.0, 360.0, 150.0, 320.0, 240.0]

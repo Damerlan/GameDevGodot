@@ -1,74 +1,109 @@
+# SaveManager.gd (autoload)
 extends Node
-#class_name SaveManager
 
-const SAVE_PATH := "user://savegame.json"
+const SAVE_PATH = "user://penguin_save_score.json"
 
-var highscore := Global.highscore
-var highscore_name := Global.highscore_name
-var last_run_score := Global.last_score
+const MAX_RECORDS := 5
 
-signal new_highscore(score)
-signal highscore_saved(name, score)
+
+var ranking:Array = []
 
 func _ready():
-	load_game()
+	load_ranking()
 
-# =========================================================
-#  ↪ CHAMADA PELO JOGO QUANDO A PARTIDA TERMINA
-# =========================================================
-func register_score(score: int) -> void:
-	last_run_score = score
-
-	if score > highscore:
-		# 👉 Aciona o sinal para o HUD abrir o formulário
-		emit_signal("new_highscore", score)
-	else:
-		# 👉 Não é recorde, apenas salva o último score
-		save_game()
-
-# =========================================================
-#  ↪ CHAMADO PELO HUD quando o jogador digita o nome
-# =========================================================
-func save_highscore_with_name(player_name: String) -> void:
-	if player_name.strip_edges() == "":
-		player_name = "Jogador"
-
-	highscore = last_run_score
-	highscore_name = player_name
-
-	save_game()
-	emit_signal("highscore_saved", player_name, highscore)
-
-# =========================================================
-#  ↪ SALVA NO ARQUIVO
-# =========================================================
-func save_game() -> void:
-	var data := {
-			"highscore": highscore,
-			"highscore_name": highscore_name
-		}
-		
-	if Global.step_record == true:
-		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-		if file:
-			file.store_string(JSON.stringify(data))
-			file.close()
-
-# =========================================================
-#  ↪ CARREGA O ARQUIVO
-# =========================================================
-func load_game() -> void:
+func load_ranking():
 	if not FileAccess.file_exists(SAVE_PATH):
+		ranking = []
 		return
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if not file:
-		return
+	var data = JSON.parse_string(file.get_as_text())
 
-	var text := file.get_as_text()
-	file.close()
+	if typeof(data) == TYPE_ARRAY:
+		ranking = data
+	else:
+		ranking = []
 
-	var result = JSON.parse_string(text)
-	if result is Dictionary:
-		highscore = result.get("highscore", 0)
-		highscore_name = result.get("highscore_name", "Jogador")
+func save_ranking():
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	file.store_string(JSON.stringify(ranking))
+
+func is_new_record(score:int) -> bool:
+	if ranking.size() < MAX_RECORDS:
+		return true
+	return score > ranking[-1].score
+
+func add_record(nome:String, score:int):
+	ranking.append({
+		"nome": nome,
+		"score": score
+	})
+	ranking.sort_custom(func(a, b): return a.score > b.score)
+	ranking = ranking.slice(0, MAX_RECORDS)
+	save_ranking()
+
+
+
+
+
+#extends Node
+#class_name SaveManager
+
+#const SAVE_PATH := "user://savegame.json"
+
+
+#--------Pesos-----------------
+#const PESO_SUBIDA = 1.2
+#const PONTOS_ITEM = 70
+#const PESO_TEMPO = 1.0
+#const PESO_EFICIENCIA = 45
+
+#--Pontos-Partida-pré-caluclo---
+#var altura := 0
+#var itens := 0
+#var tempo := 0.0
+
+#--Pontos-Partida-pós-caluclo---
+#var pontosAltura
+#var pontosColeta
+#var pontosEficiencia
+#var pontosTempo
+
+#--------HighScore-------------
+#var highscore := Nglobal.highscore
+#var highscore_name := Nglobal.highscore_name
+#var last_run_score := Nglobal.last_score 
+
+#-------Sinais-----------------
+
+
+
+
+#-------funções de sistema-----
+#func _ready():
+	#load_game()
+#	pass
+
+#-------funçoes gerais----------
+#func get_score() -> int:
+#	var pontos_subida = altura * PESO_SUBIDA
+#	var pontos_coleta = itens * PONTOS_ITEM
+#	var bonus_ef = (altura / max(tempo, 1)) * PESO_EFICIENCIA
+#	var penalidade = tempo * PESO_TEMPO
+#	
+#	return int(pontos_subida + pontos_coleta + bonus_ef - penalidade)
+
+
+#func calcScore(alturaMaxima, itensColetados,tempoPartida):
+	#Base de calculo para a função
+#	var pontosSubida = alturaMaxima * pesoSubida #calculo bonus de subida
+#	var pontosColeta = itensColetados * pontosPorItem #calculo bonus de coleta
+#	var pontosBase = pontosSubida + pontosColeta # pontos base
+#	var penalidadeTempo = tempoPartida * pesoTempo #penalida de Tempo
+#	var bonusEficiencia  = (alturaMaxima / tempoPartida) * pesoEficiencia
+#	var TOTAL = pontosBase + bonusEficiencia - penalidadeTempo
+#	pass
+
+
+
+	
