@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dm47l8n874xj5"]
+[gd_scene load_steps=30 format=3 uid="uid://dm47l8n874xj5"]
 
 [ext_resource type="Texture2D" uid="uid://cnr1r2evw5kqk" path="res://assets/Mini FX, Items & UI/Mini UI/1 Health_Indicator_Black_Outline (8 x 8).png" id="1_6tqqs"]
 [ext_resource type="Script" uid="uid://c2a5fnc84wx38" path="res://scripts/hud_cam.gd" id="1_e174t"]
@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://j0joni447mk3" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/20.png" id="22_dupd0"]
 [ext_resource type="Texture2D" uid="uid://du12c27uesqbs" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/21.png" id="23_yx6j3"]
 [ext_resource type="Texture2D" uid="uid://dpbd0hmlvci2v" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/22.png" id="24_ar5j3"]
+[ext_resource type="Texture2D" uid="uid://nqvk8blu6bvn" path="res://assets/PirateBombs/7-Objects/17-Heart/2-Live+1/1.png" id="25_1dsgy"]
+[ext_resource type="Texture2D" uid="uid://dfmlqbfnmyj5b" path="res://assets/PirateBombs/7-Objects/17-Heart/2-Live+1/2.png" id="26_fmdr3"]
+[ext_resource type="Texture2D" uid="uid://c4474277ef1o" path="res://assets/PirateBombs/7-Objects/17-Heart/2-Live+1/3.png" id="27_r70s3"]
+[ext_resource type="Texture2D" uid="uid://bcsr67j6a61jc" path="res://assets/PirateBombs/7-Objects/17-Heart/2-Live+1/4.png" id="28_p0lw2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s70xv"]
 animations = [{
@@ -97,6 +101,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_1dsgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fmdr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_r70s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_p0lw2")
+}],
+"loop": false,
+"name": &"destruct",
+"speed": 1.0
 }]
 
 [node name="HudCam" type="CanvasLayer"]
@@ -127,10 +148,9 @@ grow_vertical = 0
 layout_mode = 2
 texture = ExtResource("1_6tqqs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/HeartsContainer/HeartIcon"]
+[node name="Heart" type="AnimatedSprite2D" parent="Control/HeartsContainer/HeartIcon"]
 position = Vector2(5, 4.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_s70xv")
 autoplay = "default"
-frame_progress = 0.07350636
 speed_scale = 8.0

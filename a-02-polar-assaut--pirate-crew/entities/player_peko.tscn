@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4ogkwmkdhmb7"]
+[gd_scene load_steps=45 format=3 uid="uid://b4ogkwmkdhmb7"]
 
 [ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
@@ -8,11 +8,106 @@
 [ext_resource type="Texture2D" uid="uid://cjie62bviespv" path="res://assets/Sprite Pack 6/1 - Penguin/Jump (16 x 16).png" id="5_4es5t"]
 [ext_resource type="Texture2D" uid="uid://ck41fkuhlna70" path="res://assets/Sprite Pack 6/1 - Penguin/Waddling (16 x 16).png" id="6_rfw8o"]
 [ext_resource type="Texture2D" uid="uid://bbcdlp10qljje" path="res://assets/Sprite Pack 6/1 - Penguin/Belly_Sliding (16 x 16).png" id="7_u5olf"]
+[ext_resource type="Texture2D" uid="uid://da7ejr02s2ky2" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/1.png" id="8_oilpj"]
+[ext_resource type="Texture2D" uid="uid://knbnvboy5hba" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/1.png" id="9_2bcnr"]
 [ext_resource type="AudioStream" uid="uid://baqge7gp2dc15" path="res://assets/outros/outros/458641__lilmati__retro-jump-02.wav" id="9_51ghi"]
+[ext_resource type="Texture2D" uid="uid://de2ctjepu0764" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/2.png" id="9_443at"]
+[ext_resource type="Texture2D" uid="uid://ca1r6fogh6x4a" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/2.png" id="10_4v8o1"]
+[ext_resource type="Texture2D" uid="uid://cygvfgipajfau" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/3.png" id="10_oqohe"]
+[ext_resource type="Texture2D" uid="uid://mw3creosikqa" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/4.png" id="11_6s5g0"]
+[ext_resource type="Texture2D" uid="uid://cc83fpvc8aeak" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/3.png" id="11_855p3"]
+[ext_resource type="Texture2D" uid="uid://cu8l1ilnr3h4h" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/5.png" id="12_4isjy"]
+[ext_resource type="Texture2D" uid="uid://4x1cair1wf58" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/4.png" id="12_ut44j"]
+[ext_resource type="Texture2D" uid="uid://ckj84owls6nnh" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/5.png" id="13_c0a66"]
+[ext_resource type="Texture2D" uid="uid://d1l0vfqccjug5" path="res://assets/PirateBombs/7-Objects/14-Jump Particles/6.png" id="13_ju321"]
+[ext_resource type="Texture2D" uid="uid://cg1aaa03y6aoo" path="res://assets/PirateBombs/7-Objects/15-Fall Particles/6.png" id="14_dxs24"]
+[ext_resource type="Texture2D" uid="uid://bdaup3mn6qma8" path="res://assets/PirateBombs/7-Objects/13-Run Particles/1.png" id="14_lyryi"]
+[ext_resource type="Texture2D" uid="uid://v1ydodqxgd5i" path="res://assets/PirateBombs/7-Objects/13-Run Particles/2.png" id="15_rnul2"]
+[ext_resource type="Texture2D" uid="uid://bmx3kojb5y7xh" path="res://assets/PirateBombs/7-Objects/13-Run Particles/3.png" id="16_7np5p"]
+[ext_resource type="Texture2D" uid="uid://cd347bkng3ihn" path="res://assets/PirateBombs/7-Objects/13-Run Particles/4.png" id="17_u5iqf"]
+[ext_resource type="Texture2D" uid="uid://b8v45a3s5yi1u" path="res://assets/PirateBombs/7-Objects/13-Run Particles/5.png" id="18_ptqo6"]
+[ext_resource type="Texture2D" uid="uid://m8684ogjjaym" path="res://assets/PirateBombs/7-Objects/13-Run Particles/6.png" id="19_v26us"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
 height = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugby8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2bcnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4v8o1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_855p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ut44j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c0a66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dxs24")
+}],
+"loop": false,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_oilpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_443at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oqohe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6s5g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4isjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ju321")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_lyryi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rnul2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7np5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_u5iqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ptqo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_v26us")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uh4uj"]
 atlas = ExtResource("4_51ghi")
@@ -173,9 +268,16 @@ script = ExtResource("1_dx4ep")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_3v82r")
 
+[node name="Particles" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-9, 3)
+scale = Vector2(0.84999996, 1)
+sprite_frames = SubResource("SpriteFrames_ugby8")
+animation = &"Jump"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x4iqf")
-animation = &"jump"
+animation = &"run"
 autoplay = "idle"
 
 [node name="Node" type="Node" parent="."]
