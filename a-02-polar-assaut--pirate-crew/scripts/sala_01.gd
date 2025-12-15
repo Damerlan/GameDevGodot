@@ -3,12 +3,17 @@ extends Node2D
 @onready var player = $PlayerPeko
 @onready var killzone = $KillZone
 
+
+
+
 func _ready() -> void:
+	GameManager.iniciar_partida()
 	killzone.morreu.connect(_on_player_morreu)
 	#Nglobal.morreu.connect(_on_player_morreu)
 	#player.morreu.connect()
 	
 func _on_player_morreu():
+	GameManager.finalizar_partida()
 	#para o tempo
 	get_tree().paused = true
 	
@@ -17,8 +22,3 @@ func _on_player_morreu():
 	
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://huds/game_over.tscn")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -24,7 +24,10 @@ var final_score := 0
 func _ready():
 	var altura = ScoreManager.altura
 	var itens = ScoreManager.itens
+	ScoreManager.tempo = GameManager.tempo_partida
 	var tempo = ScoreManager.tempo
+	
+	
 
 	# --- Cálculos ---
 	var pontos_altura = altura * 1.2
@@ -99,4 +102,11 @@ func _on_button_salvar_pressed() -> void:
 
 func _on_button_sair_pressed() -> void:
 	var next_scene = "loby_01"
+	clear_instance()
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
+
+func clear_instance():
+	ScoreManager.altura = 0
+	ScoreManager.itens = 0
+	ScoreManager.tempo = 0.0
+	Nglobal.lives = 3
