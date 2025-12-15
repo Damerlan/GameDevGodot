@@ -12,6 +12,8 @@ enum PlayerState{
 	death
 }
 
+@onready var fx_jump: AudioStreamPlayer = $Node/fx_jump
+
 #---------------------------------------------
 # Nodes
 #---------------------------------------------
@@ -116,6 +118,7 @@ func go_to_run_state():#entrada run state (Caminhada)
 
 func go_to_jump_state():
 	status = PlayerState.jump
+	fx_jump.play()
 	anim.play("jump")
 	#velocity.y = JUMP_VELOCITY	#aplica a ação do pulo
 
@@ -139,13 +142,14 @@ func idle_state(delta):
 	Nglobal.update_autura(global_position.y) 	#calcula a pontuação
 	#decai o momentum
 	run_momentum = max(run_momentum - momentum_decay * delta, 0)
-
+	if Input.is_action_just_pressed("jump"):
+		jump()
+		
 	if input_dir != 0:
 		go_to_run_state()
 		return
 
-	if Input.is_action_just_pressed("jump"):
-		jump()
+	
 	
 	
 		

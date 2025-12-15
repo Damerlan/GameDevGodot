@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://i01paqase5ii"]
+[gd_scene load_steps=8 format=3 uid="uid://i01paqase5ii"]
 
 [ext_resource type="Script" uid="uid://c83hwukfslhad" path="res://scripts/loby_01.gd" id="1_fjhom"]
 [ext_resource type="Texture2D" uid="uid://bvw8c8orbw5ba" path="res://assets/Sprite Pack 6/1 - Penguin/Looking_Up (16 x 16).png" id="1_w56s8"]
+[ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="3_fjhom"]
+[ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="4_xk8rn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blcqn"]
 atlas = ExtResource("1_w56s8")
@@ -99,6 +101,14 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Close"
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fjhom")
+volume_db = -15.0
+autoplay = true
+
+[node name="ui_efect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xk8rn")
 
 [connection signal="pressed" from="CanvasLayer/Panel/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/BtnRanking" to="." method="_on_btn_ranking_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4ogkwmkdhmb7"]
+[gd_scene load_steps=26 format=3 uid="uid://b4ogkwmkdhmb7"]
 
 [ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cjie62bviespv" path="res://assets/Sprite Pack 6/1 - Penguin/Jump (16 x 16).png" id="5_4es5t"]
 [ext_resource type="Texture2D" uid="uid://ck41fkuhlna70" path="res://assets/Sprite Pack 6/1 - Penguin/Waddling (16 x 16).png" id="6_rfw8o"]
 [ext_resource type="Texture2D" uid="uid://bbcdlp10qljje" path="res://assets/Sprite Pack 6/1 - Penguin/Belly_Sliding (16 x 16).png" id="7_u5olf"]
+[ext_resource type="AudioStream" uid="uid://baqge7gp2dc15" path="res://assets/outros/outros/458641__lilmati__retro-jump-02.wav" id="9_51ghi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
@@ -176,3 +177,9 @@ shape = SubResource("CapsuleShape2D_3v82r")
 sprite_frames = SubResource("SpriteFrames_x4iqf")
 animation = &"jump"
 autoplay = "idle"
+
+[node name="Node" type="Node" parent="."]
+
+[node name="fx_jump" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("9_51ghi")
+volume_db = -10.0

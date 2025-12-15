@@ -9,8 +9,10 @@
 limit_bottom = 480
 position_smoothing_enabled = true
 script = ExtResource("1_nc486")
+metadata/_edit_horizontal_guides_ = [12.0, 23.0]
 
 [node name="hud_01" parent="." instance=ExtResource("2_nw58e")]
+metadata/_edit_horizontal_guides_ = [16.0, 43.0]
 
 [node name="HudCam" parent="." instance=ExtResource("3_tnh1k")]
 

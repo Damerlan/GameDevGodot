@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqmj6xjhfrsj0"]
+[gd_scene load_steps=10 format=3 uid="uid://dqmj6xjhfrsj0"]
 
 [ext_resource type="Script" uid="uid://c8v0lnd5nlf6w" path="res://scripts/sala_01.gd" id="1_3m7pq"]
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
@@ -6,10 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://ckrkutmawwn8a" path="res://entities/kill_zone.tscn" id="3_fnumv"]
 [ext_resource type="PackedScene" uid="uid://ck0npg1dylxc7" path="res://entities/camera_game_play.tscn" id="4_orh57"]
 [ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="5_laal3"]
+[ext_resource type="AudioStream" uid="uid://b8gf6ua334843" path="res://assets/outros/2016_ Clement Panchout_ Life is full of Joy.wav" id="7_fnumv"]
+[ext_resource type="Texture2D" uid="uid://ggrn0gy6l8ys" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="8_laal3"]
+[ext_resource type="Texture2D" uid="uid://chvnjodtnjawi" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="9_h4u88"]
 
 [node name="Sala01" type="Node2D"]
 script = ExtResource("1_3m7pq")
 metadata/_edit_horizontal_guides_ = [280.0]
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Ground" type="Parallax2D" parent="Ground"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(480, 270)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Ground"]
+scale = Vector2(1.6701388, 1.2980769)
+texture = ExtResource("8_laal3")
+centered = false
+
+[node name="Ground2" type="Parallax2D" parent="Ground"]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(480, 270)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/Ground2"]
+scale = Vector2(1.6701388, 1.2980769)
+texture = ExtResource("9_h4u88")
+centered = false
 
 [node name="PlataformSpawner" parent="." instance=ExtResource("1_td87b")]
 position = Vector2(84, 121)
@@ -30,3 +55,8 @@ position = Vector2(233, 216)
 
 [node name="KillZone" parent="." instance=ExtResource("3_fnumv")]
 position = Vector2(34, 433)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fnumv")
+volume_db = -10.0
+autoplay = true

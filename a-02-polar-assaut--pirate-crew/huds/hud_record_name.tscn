@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://prvvfpd68376"]
+[gd_scene load_steps=7 format=3 uid="uid://prvvfpd68376"]
 
-[ext_resource type="Script" uid="uid://cd023s24gvote" path="res://scripts/hud_record_name.gd" id="1_q4gx8"]
 [ext_resource type="Texture2D" uid="uid://besy21kj53vma" path="res://assets/Sprite Pack 6/1 - Penguin/Victory_Dance (16 x 16).png" id="1_sa2g7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpu6a"]
@@ -40,7 +39,6 @@ animations = [{
 }]
 
 [node name="HudRecordName" type="CanvasLayer"]
-script = ExtResource("1_q4gx8")
 metadata/_edit_horizontal_guides_ = [51.0, 64.0, 139.0]
 metadata/_edit_vertical_guides_ = [120.0, 360.0, 150.0, 320.0, 240.0, 192.0, 279.0]
 

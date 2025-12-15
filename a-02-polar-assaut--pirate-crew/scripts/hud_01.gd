@@ -24,5 +24,5 @@ func _process(_delta: float) -> void:
 	update_score()
 
 func update_score():
-	score_label.text = str(ScoreManager.altura)
-	lives_label.text = str(Nglobal.lives)
+	score_label.text = str(ScoreManager.altura) + "m"
+	#lives_label.text = str(Nglobal.lives)

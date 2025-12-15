@@ -21,6 +21,7 @@ SaveManager="*res://SaveManager.gd"
 Nglobal="*res://nglobal.gd"
 ScoreManager="*res://ScoreManager.gd"
 GameManager="*res://GameManager.gd"
+AudioManager="*res://AudioManager.gd"
 
 [display]
 
@@ -32,6 +33,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="A02-Polar Assaut- Pirate Crew"
+
+[global]
+
+Music=false
 
 [global_group]
 

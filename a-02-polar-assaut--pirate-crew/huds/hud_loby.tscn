@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcylmsth0dr2y"]
-
-[ext_resource type="Script" uid="uid://by3ahsxd6veri" path="res://scripts/hud_loby.gd" id="1_41ucl"]
+[gd_scene format=3 uid="uid://dcylmsth0dr2y"]
 
 [node name="HudLoby" type="CanvasLayer"]
-script = ExtResource("1_41ucl")
 metadata/_edit_vertical_guides_ = [11.0, 302.0, 325.0]
 
 [node name="Control" type="Control" parent="."]

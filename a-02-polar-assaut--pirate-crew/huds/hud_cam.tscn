@@ -1,12 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm47l8n874xj5"]
+[gd_scene load_steps=26 format=3 uid="uid://dm47l8n874xj5"]
 
 [ext_resource type="Texture2D" uid="uid://cnr1r2evw5kqk" path="res://assets/Mini FX, Items & UI/Mini UI/1 Health_Indicator_Black_Outline (8 x 8).png" id="1_6tqqs"]
 [ext_resource type="Script" uid="uid://c2a5fnc84wx38" path="res://scripts/hud_cam.gd" id="1_e174t"]
+[ext_resource type="Texture2D" uid="uid://c7t003km5yren" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/1.png" id="3_qum2m"]
+[ext_resource type="Texture2D" uid="uid://c1acelvclpcxa" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/2.png" id="4_hie1i"]
+[ext_resource type="Texture2D" uid="uid://beuhh7kwuu3ge" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/3.png" id="5_a15g4"]
+[ext_resource type="Texture2D" uid="uid://35u2fyntbvmj" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/4.png" id="6_taaew"]
+[ext_resource type="Texture2D" uid="uid://bwlue2jjvaupc" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/5.png" id="7_1dsgy"]
+[ext_resource type="Texture2D" uid="uid://h02qt0j7aymt" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/6.png" id="8_fmdr3"]
+[ext_resource type="Texture2D" uid="uid://caa5bx6wacpws" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/7.png" id="9_r70s3"]
+[ext_resource type="Texture2D" uid="uid://cn8e553thmnwv" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/8.png" id="10_p0lw2"]
+[ext_resource type="Texture2D" uid="uid://dq6brgayy2vr1" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/9.png" id="11_avegm"]
+[ext_resource type="Texture2D" uid="uid://5xd4b22m0u3m" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/10.png" id="12_hcaja"]
+[ext_resource type="Texture2D" uid="uid://i5mrmqmg2eg8" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/11.png" id="13_76lbw"]
+[ext_resource type="Texture2D" uid="uid://d4j8epc20bwdn" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/12.png" id="14_8hf7o"]
+[ext_resource type="Texture2D" uid="uid://n3t4sghq2q2s" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/13.png" id="15_scgyd"]
+[ext_resource type="Texture2D" uid="uid://3uuce2gctvj0" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/14.png" id="16_3hwn1"]
+[ext_resource type="Texture2D" uid="uid://qc6lm13wyh3g" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/15.png" id="17_4hqxn"]
+[ext_resource type="Texture2D" uid="uid://bu6x3mhs3pfga" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/16.png" id="18_26fk7"]
+[ext_resource type="Texture2D" uid="uid://dd7p2eqivx217" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/17.png" id="19_4ugxc"]
+[ext_resource type="Texture2D" uid="uid://d0yu70u4ou0w3" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/18.png" id="20_o6lnh"]
+[ext_resource type="Texture2D" uid="uid://crftlggxsinv8" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/19.png" id="21_h0cmk"]
+[ext_resource type="Texture2D" uid="uid://j0joni447mk3" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/20.png" id="22_dupd0"]
+[ext_resource type="Texture2D" uid="uid://du12c27uesqbs" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/21.png" id="23_yx6j3"]
+[ext_resource type="Texture2D" uid="uid://dpbd0hmlvci2v" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/22.png" id="24_ar5j3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s70xv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qum2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hie1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a15g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_taaew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1dsgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fmdr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r70s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p0lw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_avegm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hcaja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_76lbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8hf7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_scgyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3hwn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4hqxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_26fk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4ugxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_o6lnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_h0cmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_dupd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_yx6j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ar5j3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="HudCam" type="CanvasLayer"]
 script = ExtResource("1_e174t")
 metadata/_edit_vertical_guides_ = [15.0]
-metadata/_edit_horizontal_guides_ = [258.0, 15.0]
+metadata/_edit_horizontal_guides_ = [258.0, 11.0, 24.0]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -21,12 +117,20 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -21.0
-offset_right = 25.0
-offset_bottom = -13.0
+offset_left = 18.0
+offset_top = -257.0
+offset_right = 27.0
+offset_bottom = -249.0
 grow_vertical = 0
 
 [node name="HeartIcon" type="TextureRect" parent="Control/HeartsContainer"]
 layout_mode = 2
 texture = ExtResource("1_6tqqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/HeartsContainer/HeartIcon"]
+position = Vector2(5, 4.5)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_s70xv")
+autoplay = "default"
+frame_progress = 0.07350636
+speed_scale = 8.0

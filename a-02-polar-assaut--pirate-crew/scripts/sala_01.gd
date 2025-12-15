@@ -3,8 +3,8 @@ extends Node2D
 @onready var player = $PlayerPeko
 @onready var killzone = $KillZone
 
-
-
+#const CLEMENT_PANCHOUT__LIFE_IS_FULL_OF_JOY = preload("uid://fxgv6gc1b3o8")
+#const CLEMENT_PANCHOUT__LIFE_IS_FULL_OF_JOY = preload("uid://fxgv6gc1b3o8")
 
 func _ready() -> void:
 	GameManager.iniciar_partida()
