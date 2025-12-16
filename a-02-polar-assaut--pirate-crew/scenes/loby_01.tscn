@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://i01paqase5ii"]
+[gd_scene load_steps=9 format=3 uid="uid://i01paqase5ii"]
 
 [ext_resource type="Script" uid="uid://c83hwukfslhad" path="res://scripts/loby_01.gd" id="1_fjhom"]
 [ext_resource type="Texture2D" uid="uid://bvw8c8orbw5ba" path="res://assets/Sprite Pack 6/1 - Penguin/Looking_Up (16 x 16).png" id="1_w56s8"]
+[ext_resource type="Texture2D" uid="uid://b5b18f1p4fke4" path="res://assets/capa2.png" id="2_b86hm"]
 [ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="3_fjhom"]
 [ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="4_xk8rn"]
 
@@ -32,13 +33,20 @@ script = ExtResource("1_fjhom")
 metadata/_edit_horizontal_guides_ = [25.0, 245.0]
 metadata/_edit_vertical_guides_ = [25.0, 450.0, 311.0, 52.0, 136.0, 58.0]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.601223, 0.601223, 0.60122293, 1)
+offset_left = 1.0
+offset_right = 481.0
+offset_bottom = 270.0
+texture = ExtResource("2_b86hm")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_left = 27.0
+offset_left = 314.0
 offset_top = 27.0
-offset_right = 160.0
-offset_bottom = 206.0
+offset_right = 447.0
+offset_bottom = 192.0
 
 [node name="BtnStart" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
@@ -68,7 +76,7 @@ theme_override_font_sizes/font_size = 11
 text = "Sair"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(94, 65)
+position = Vector2(378, 65)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xk8rn")
 autoplay = "default"
@@ -78,7 +86,7 @@ frame_progress = 0.49222028
 offset_left = 163.0
 offset_top = 27.0
 offset_right = 310.0
-offset_bottom = 204.0
+offset_bottom = 179.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/RankingPanel"]
 layout_mode = 0
