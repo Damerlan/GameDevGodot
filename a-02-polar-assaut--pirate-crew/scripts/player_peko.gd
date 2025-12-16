@@ -12,7 +12,9 @@ enum PlayerState{
 	death
 }
 
-@onready var fx_jump: AudioStreamPlayer = $Node/fx_jump
+@onready var fx_jump: AudioStreamPlayer = $Souds/fx_jump
+@onready var fx_damage: AudioStreamPlayer = $Souds/fx_damage
+@onready var fx_teleport: AudioStreamPlayer = $Souds/fx_teleport
 
 #---------------------------------------------
 # Nodes
@@ -129,6 +131,7 @@ func go_to_fall_state():
 func go_to_hit_state():
 	status = PlayerState.hit
 	anim.play("hit")
+	fx_damage.play()
 
 func go_to_death_state():
 	status = PlayerState.death
@@ -318,6 +321,7 @@ func game_over():
 func _do_respawn():
 	# posição segura existe?
 	if Nglobal.last_safe_position != Vector2.ZERO:
+		fx_teleport.play()#som de teleporte
 		# respawn 40px acima da plataforma
 		global_position = Nglobal.last_safe_position + Vector2(0, -40)
 		velocity = Vector2.ZERO
@@ -325,5 +329,5 @@ func _do_respawn():
 	# invulnerável por 0.2s
 	status = PlayerState.hit
 	await get_tree().create_timer(0.2).timeout
-
+	
 	go_to_idle_state()

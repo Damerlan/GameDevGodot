@@ -5,7 +5,7 @@
 [node name="hud_01" type="CanvasLayer"]
 script = ExtResource("1_oe2p5")
 metadata/_edit_vertical_guides_ = [459.0, 18.0]
-metadata/_edit_horizontal_guides_ = [11.0, 24.0]
+metadata/_edit_horizontal_guides_ = [11.0, 24.0, 28.0, 40.0]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -27,11 +27,22 @@ vertical_alignment = 1
 [node name="LabelScore" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 376.0
-offset_top = 7.0
+offset_top = 8.0
 offset_right = 454.0
-offset_bottom = 27.0
+offset_bottom = 28.0
 theme_override_font_sizes/font_size = 13
 text = "0m"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelColeta" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 24.0
+offset_right = 454.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 13
+text = "0+"
 horizontal_alignment = 2
 vertical_alignment = 1
 

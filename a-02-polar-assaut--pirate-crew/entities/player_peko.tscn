@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b4ogkwmkdhmb7"]
+[gd_scene load_steps=47 format=3 uid="uid://b4ogkwmkdhmb7"]
 
 [ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://cd347bkng3ihn" path="res://assets/PirateBombs/7-Objects/13-Run Particles/4.png" id="17_u5iqf"]
 [ext_resource type="Texture2D" uid="uid://b8v45a3s5yi1u" path="res://assets/PirateBombs/7-Objects/13-Run Particles/5.png" id="18_ptqo6"]
 [ext_resource type="Texture2D" uid="uid://m8684ogjjaym" path="res://assets/PirateBombs/7-Objects/13-Run Particles/6.png" id="19_v26us"]
+[ext_resource type="AudioStream" uid="uid://ch4fha23q6tff" path="res://audio/sfx/8bit-damage16.wav" id="28_oqohe"]
+[ext_resource type="AudioStream" uid="uid://b14xguye8arvm" path="res://audio/sfx/8bit-powerup18.wav" id="29_6s5g0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
@@ -262,7 +264,7 @@ animations = [{
 
 [node name="PlayerPeko" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_dx4ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -280,8 +282,14 @@ sprite_frames = SubResource("SpriteFrames_x4iqf")
 animation = &"run"
 autoplay = "idle"
 
-[node name="Node" type="Node" parent="."]
+[node name="Souds" type="Node" parent="."]
 
-[node name="fx_jump" type="AudioStreamPlayer" parent="Node"]
+[node name="fx_jump" type="AudioStreamPlayer" parent="Souds"]
 stream = ExtResource("9_51ghi")
 volume_db = -10.0
+
+[node name="fx_damage" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource("28_oqohe")
+
+[node name="fx_teleport" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource("29_6s5g0")

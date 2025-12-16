@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dqmj6xjhfrsj0"]
+[gd_scene load_steps=11 format=3 uid="uid://dqmj6xjhfrsj0"]
 
 [ext_resource type="Script" uid="uid://c8v0lnd5nlf6w" path="res://scripts/sala_01.gd" id="1_3m7pq"]
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://ckrkutmawwn8a" path="res://entities/kill_zone.tscn" id="3_fnumv"]
 [ext_resource type="PackedScene" uid="uid://ck0npg1dylxc7" path="res://entities/camera_game_play.tscn" id="4_orh57"]
 [ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="5_laal3"]
-[ext_resource type="AudioStream" uid="uid://b8gf6ua334843" path="res://assets/outros/2016_ Clement Panchout_ Life is full of Joy.wav" id="7_fnumv"]
 [ext_resource type="Texture2D" uid="uid://ggrn0gy6l8ys" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="8_laal3"]
 [ext_resource type="Texture2D" uid="uid://chvnjodtnjawi" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="9_h4u88"]
+[ext_resource type="AudioStream" uid="uid://qt7a0n0ie1d0" path="res://audio/music/ClementPanchout_ Life_is_full_of_Joy.mp3" id="9_laal3"]
+[ext_resource type="AudioStream" uid="uid://b8lbrlv8oy3to" path="res://audio/GameOver.wav" id="10_h4u88"]
 
 [node name="Sala01" type="Node2D"]
 script = ExtResource("1_3m7pq")
@@ -56,7 +57,10 @@ position = Vector2(233, 216)
 [node name="KillZone" parent="." instance=ExtResource("3_fnumv")]
 position = Vector2(34, 433)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_fnumv")
+[node name="AudioGround" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_laal3")
 volume_db = -10.0
 autoplay = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_h4u88")

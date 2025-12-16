@@ -2,12 +2,15 @@ extends Node
 
 var lives = 3
 
-
+var coin_value = 1
+var gem_value = 100
 
 var last_safe_position
 signal autura_changed(value)
 signal lives_changed
 signal morreu
+
+
 
 #func add_score(value):	#add ponto extra ao score
 #	altura += value

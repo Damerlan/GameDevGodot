@@ -16,12 +16,14 @@ extends Control
 @onready var lbl_novo: Label = $Panel/LabelNovoRecorde
 @onready var input_nome: LineEdit = $Panel/LineEditNome
 @onready var btn_salvar: Button = $Panel/ButtonSalvar
+@onready var game_over: AudioStreamPlayer = $"../GameOver2"
 
 var final_score := 0
 
 
 
 func _ready():
+	game_over_play()
 	var altura = ScoreManager.altura
 	var itens = ScoreManager.itens
 	ScoreManager.tempo = GameManager.tempo_partida
@@ -74,7 +76,8 @@ func get_feedback(altura:int, tempo:float, itens:int) -> String:
 		return "💥 Speedrunner nato!"
 	return "👏 Boa tentativa!"
 
-
+func game_over_play():
+	game_over.play()
 
 func _on_button_salvar_pressed() -> void:
 	var nome = input_nome.text.strip_edges()

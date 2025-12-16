@@ -90,6 +90,7 @@ salvar={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="kill_zone"
+2d_physics/layer_5="coletables"
 
 [rendering]
 
