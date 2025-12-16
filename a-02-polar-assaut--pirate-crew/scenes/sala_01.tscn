@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqmj6xjhfrsj0"]
+[gd_scene load_steps=12 format=3 uid="uid://dqmj6xjhfrsj0"]
 
 [ext_resource type="Script" uid="uid://c8v0lnd5nlf6w" path="res://scripts/sala_01.gd" id="1_3m7pq"]
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chvnjodtnjawi" path="res://assets/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="9_h4u88"]
 [ext_resource type="AudioStream" uid="uid://qt7a0n0ie1d0" path="res://audio/music/ClementPanchout_ Life_is_full_of_Joy.mp3" id="9_laal3"]
 [ext_resource type="AudioStream" uid="uid://b8lbrlv8oy3to" path="res://audio/GameOver.wav" id="10_h4u88"]
+[ext_resource type="PackedScene" uid="uid://1rjyv6tknklg" path="res://huds/hud_mobile_control.tscn" id="11_7tqet"]
 
 [node name="Sala01" type="Node2D"]
 script = ExtResource("1_3m7pq")
@@ -64,3 +65,5 @@ autoplay = true
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_h4u88")
+
+[node name="HudMobileControl" parent="." instance=ExtResource("11_7tqet")]

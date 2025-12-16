@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://1rjyv6tknklg"]
+
+[ext_resource type="Script" uid="uid://d2p1mbirod3dr" path="res://scripts/hud_mobile_control.gd" id="1_qalr5"]
+[ext_resource type="Texture2D" uid="uid://cvs7x0u3vrlgr" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/direction_right.png" id="2_wvilr"]
+[ext_resource type="Texture2D" uid="uid://ykegmn2kwhmw" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/dpad_element_west.png" id="3_g6vw6"]
+[ext_resource type="Texture2D" uid="uid://dxjwb0ekqmqog" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/direction_left.png" id="4_ri0xq"]
+[ext_resource type="Texture2D" uid="uid://4cju0np8d4wf" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_circle_nub_c.png" id="4_wvilr"]
+[ext_resource type="Texture2D" uid="uid://ljpfeaqg3ump" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_circle_nub_b.png" id="5_g6vw6"]
+[ext_resource type="Texture2D" uid="uid://bhryvv00t6k0k" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/dpad_element_east.png" id="5_wfmeb"]
+[ext_resource type="Texture2D" uid="uid://bigcflft2vwt5" path="res://assets/mobile-controls-1.0/Sprites/Icons/Default/icon_size_larger.png" id="8_b37lw"]
+[ext_resource type="Texture2D" uid="uid://ci58wekloj251" path="res://assets/mobile-controls-1.0/Sprites/Icons/Default/icon_size_smaller.png" id="9_do4kx"]
+
+[node name="HudMobileControl" type="CanvasLayer"]
+script = ExtResource("1_qalr5")
+metadata/_edit_horizontal_guides_ = [230.0, 251.0, 207.0]
+
+[node name="TouchRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TSButtonRight" type="TouchScreenButton" parent="TouchRoot"]
+position = Vector2(66, 209)
+scale = Vector2(0.625, 0.625)
+texture_normal = ExtResource("2_wvilr")
+texture_pressed = ExtResource("3_g6vw6")
+action = "move_right"
+visibility_mode = 1
+
+[node name="TSButtonJump" type="TouchScreenButton" parent="TouchRoot"]
+position = Vector2(392, 181)
+texture_normal = ExtResource("4_wvilr")
+texture_pressed = ExtResource("5_g6vw6")
+action = "jump"
+visibility_mode = 1
+
+[node name="TSButtonScreen" type="TouchScreenButton" parent="TouchRoot"]
+position = Vector2(238, 245)
+scale = Vector2(0.10416688, 0.10416688)
+texture_normal = ExtResource("8_b37lw")
+texture_pressed = ExtResource("9_do4kx")
+visibility_mode = 1
+
+[node name="TSButtonLeft" type="TouchScreenButton" parent="TouchRoot"]
+position = Vector2(15, 209)
+scale = Vector2(0.625, 0.625)
+texture_normal = ExtResource("4_ri0xq")
+texture_pressed = ExtResource("5_wfmeb")
+action = "move_left"
+visibility_mode = 1
+
+[connection signal="pressed" from="TouchRoot/TSButtonRight" to="." method="_on_ts_button_right_pressed"]
+[connection signal="released" from="TouchRoot/TSButtonRight" to="." method="_on_ts_button_right_released"]
+[connection signal="pressed" from="TouchRoot/TSButtonJump" to="." method="_on_ts_button_jump_pressed"]
+[connection signal="released" from="TouchRoot/TSButtonJump" to="." method="_on_ts_button_jump_released"]
+[connection signal="pressed" from="TouchRoot/TSButtonScreen" to="." method="_on_ts_button_screen_pressed"]

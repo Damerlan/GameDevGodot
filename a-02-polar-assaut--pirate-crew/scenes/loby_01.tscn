@@ -67,6 +67,15 @@ offset_bottom = 149.0
 theme_override_font_sizes/font_size = 11
 text = "Sair"
 
+[node name="BtnFullScreen" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 4
+text = "Full"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(94, 65)
 scale = Vector2(2, 2)
@@ -97,7 +106,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/RankingPanel/VBoxContainer"]
+[node name="btnCloseRanking" type="Button" parent="CanvasLayer/RankingPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Close"
@@ -113,4 +122,5 @@ stream = ExtResource("4_xk8rn")
 [connection signal="pressed" from="CanvasLayer/Panel/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/BtnRanking" to="." method="_on_btn_ranking_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/BtnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/RankingPanel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BtnFullScreen" to="." method="_on_btn_full_screen_pressed"]
+[connection signal="pressed" from="CanvasLayer/RankingPanel/VBoxContainer/btnCloseRanking" to="." method="_on_btn_close_ranking_pressed"]
