@@ -1,0 +1,11 @@
+# Builds Godot
+exports/
+*.exe
+*.pck
+*.zip
+*.apk
+*.aab
+
+# Cache Godot
+.import/
+.godot/
