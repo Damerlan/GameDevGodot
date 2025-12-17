@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b3nb3tlny3smm"]
+[gd_scene load_steps=16 format=3 uid="uid://b3nb3tlny3smm"]
 
 [ext_resource type="Texture2D" uid="uid://wf2fiiwi17ku" path="res://assets/Sprite Pack 6/1 - Penguin/Sitting (16 x 16).png" id="1_804e5"]
 [ext_resource type="Script" uid="uid://wjfieuehp3q5" path="res://scripts/game_over.gd" id="1_b1y67"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dowhcnoqkx8vc" path="res://assets/Fonts/ARCADE_R.TTF" id="3_q6qcq"]
 [ext_resource type="FontFile" uid="uid://cnl56ypat3wa4" path="res://assets/Fonts/ARCADE.TTF" id="3_wnjhu"]
 [ext_resource type="FontFile" uid="uid://8qtltk4vk2ey" path="res://assets/Fonts/ARCADE_N.TTF" id="4_sjg1h"]
+[ext_resource type="PackedScene" uid="uid://cibemf8n5lu45" path="res://huds/virtual_keyboard.tscn" id="8_sjg1h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5a4tv"]
 atlas = ExtResource("1_804e5")
@@ -62,12 +63,19 @@ animations = [{
 
 [node name="GameOver" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 365.0
-offset_bottom = 260.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -125.5
+offset_right = 180.5
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_b1y67")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="GameOver"]
 layout_mode = 1
@@ -76,10 +84,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -171.5
-offset_top = -114.5
-offset_right = 154.5
-offset_bottom = 123.5
+offset_left = -189.5
+offset_top = -119.0
+offset_right = 189.5
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -97,7 +105,7 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_left = 175.0
 offset_top = 29.0
-offset_right = 309.0
+offset_right = 362.0
 offset_bottom = 183.0
 
 [node name="LabelFinalScore" type="Label" parent="GameOver/Panel/VBoxContainer"]
@@ -158,7 +166,7 @@ text = "00"
 layout_mode = 0
 offset_left = 174.0
 offset_top = 190.0
-offset_right = 307.0
+offset_right = 363.0
 offset_bottom = 209.0
 theme_override_fonts/font = ExtResource("3_wnjhu")
 theme_override_font_sizes/font_size = 12
@@ -181,26 +189,37 @@ offset_top = 117.0
 offset_right = 138.0
 offset_bottom = 139.0
 theme_override_font_sizes/font_size = 10
+placeholder_text = "Seu nome aqui!"
 
 [node name="ButtonSalvar" type="Button" parent="GameOver/Panel"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 144.0
 offset_right = 140.0
-offset_bottom = 170.0
+offset_bottom = 164.0
 theme_override_fonts/font = ExtResource("4_sjg1h")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 9
 text = "Salvar"
 
 [node name="ButtonSair" type="Button" parent="GameOver/Panel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 180.0
+offset_top = 169.0
 offset_right = 141.0
-offset_bottom = 206.0
+offset_bottom = 187.0
 theme_override_fonts/font = ExtResource("4_sjg1h")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 9
 text = "Retornar"
+
+[node name="ButtonNovoGame" type="Button" parent="GameOver/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 193.0
+offset_right = 141.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("4_sjg1h")
+theme_override_font_sizes/font_size = 9
+text = "Novo Game"
 
 [node name="VSeparator" type="VSeparator" parent="GameOver/Panel"]
 layout_mode = 0
@@ -222,8 +241,14 @@ offset_top = 76.0
 offset_right = 138.0
 offset_bottom = 96.0
 
+[node name="VirtualKeyboard" parent="." instance=ExtResource("8_sjg1h")]
+offset_left = -1.0
+offset_right = -1.0
+
 [node name="GameOver2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2nm1i")
 
+[connection signal="focus_entered" from="GameOver/Panel/LineEditNome" to="GameOver" method="_on_line_edit_nome_focus_entered"]
 [connection signal="pressed" from="GameOver/Panel/ButtonSalvar" to="GameOver" method="_on_button_salvar_pressed"]
 [connection signal="pressed" from="GameOver/Panel/ButtonSair" to="GameOver" method="_on_button_sair_pressed"]
+[connection signal="pressed" from="GameOver/Panel/ButtonNovoGame" to="GameOver" method="_on_button_novo_game_pressed"]

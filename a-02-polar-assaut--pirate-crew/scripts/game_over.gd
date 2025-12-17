@@ -20,6 +20,7 @@ extends Control
 
 var final_score := 0
 
+@onready var virtual_keyboard: VirtualKeyboard = $"../VirtualKeyboard"
 
 
 func _ready():
@@ -29,7 +30,9 @@ func _ready():
 	ScoreManager.tempo = GameManager.tempo_partida
 	var tempo = ScoreManager.tempo
 	
-	
+
+	if OS.has_feature("web"):
+		input_nome.grab_focus()
 
 	# --- Cálculos ---
 	var pontos_altura = altura * 1.2
@@ -62,19 +65,39 @@ func _ready():
 		lbl_novo.visible = true
 		input_nome.visible = true
 		btn_salvar.visible = true
+		# 👇 ESSENCIAL para mobile/web
+		if OS.has_feature("web"):
+			input_nome.grab_focus() #foca no line edi
+			virtual_keyboard.show_keyboard(input_nome) #mostra o teclado
+
 	else:
 		lbl_novo.visible = false
 		input_nome.visible = false
 		btn_salvar.visible = false
 
 func get_feedback(altura:int, tempo:float, itens:int) -> String:
+	# 🟥 Desempenho muito ruim
+	if altura <= 200 and itens <= 2:
+		return "[FRACO]\nTente subir mais e coletar itens!"
+
+	# 🟥 Zerou praticamente o placar
+	if altura <= 0 and itens <= 0:
+		return "[DERROTA]\nNão desista, tente novamente!"
+
+	# 🟦 Excelente
 	if altura > 1800 and tempo < 70:
-		return "🔥 Ritmo excelente!"
+		return "[EXCELENTE]\nRitmo excelente!"
+
+	# 🟩 Bom, mas lento
 	if itens > 20 and tempo > 200:
-		return "⚠ Boa coleta, mas demorou demais"
-	if tempo < 60:
-		return "💥 Speedrunner nato!"
-	return "👏 Boa tentativa!"
+		return "[ATENÇÃO]\nBoa coleta, mas demorou demais"
+
+	# 🟩 Muito rápido
+	if tempo < 60 and altura > 800:
+		return "[RÁPIDO]\nSpeedrunner nato!"
+
+	# 🟨 Mediano
+	return "[OK]\nBoa tentativa!"
 
 func game_over_play():
 	game_over.play()
@@ -85,7 +108,7 @@ func _on_button_salvar_pressed() -> void:
 		nome = "???"
 
 	SaveManager.add_record(nome, final_score)
-
+	virtual_keyboard.hide_keyboard()#esconde o teclado
 	input_nome.visible = false
 	btn_salvar.visible = false
 	lbl_novo.text = "RECORDE SALVO!"
@@ -113,3 +136,21 @@ func clear_instance():
 	ScoreManager.itens = 0
 	ScoreManager.tempo = 0.0
 	Nglobal.lives = 3
+
+
+func _on_button_novo_game_pressed() -> void:
+	var next_scene = "sala_01"
+	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
+
+func _on_line_edit_nome_gui_input(event):
+	if (event is InputEventScreenTouch and event.pressed) \
+	or (event is InputEventMouseButton and event.pressed):
+		input_nome.grab_focus()
+		
+		# 🔥 FORÇA teclado virtual no mobile web
+		#if OS.has_feature("web"):
+		#	DisplayServer.virtual_keyboard_show()
+
+
+func _on_line_edit_nome_focus_entered() -> void:
+	virtual_keyboard.show_keyboard(input_nome)
