@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b81o68ktqu4kt" path="res://scripts/virtual_keyboard.gd" id="1_ka2j0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka2j0"]
+corner_radius_top_left = 6
+corner_radius_top_right = 6
 
 [node name="VirtualKeyboard" type="Control"]
 layout_mode = 3
