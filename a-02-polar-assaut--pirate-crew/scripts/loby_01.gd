@@ -35,9 +35,9 @@ func _on_btn_ranking_pressed() -> void:
 	ranking_panel.visible = true
 
 
-func _on_button_pressed() -> void:
-	ui_efx()
-	ranking_panel.visible = false
+#func _on_button_pressed() -> void:
+#	ui_efx()
+#	ranking_panel.visible = false
 
 #const SFX_FAST_UI_CLICK_METAL_05 = preload("uid://c2d4i1tvfeqvd")
 
@@ -47,3 +47,14 @@ func _on_btn_exit_pressed() -> void:
 
 func ui_efx():
 	ui_efect.play()
+
+
+func _on_btn_close_ranking_pressed() -> void:
+	ui_efx()
+	ranking_panel.visible = false
+
+
+func _on_btn_full_screen_pressed() -> void:
+	#botão de tela cheia ou janela
+	Nglobal.toggle_fullscreen()
+	

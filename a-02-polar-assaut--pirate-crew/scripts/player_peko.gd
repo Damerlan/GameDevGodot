@@ -39,7 +39,7 @@ signal morreu
 # Internas
 #---------------------------------------------
 var status: PlayerState	#variável de status
-var input_dir := 0.0
+@export var input_dir := 0.0
 
 var JUMP_VELOCITY = -600.0
 var SPEED = 80.0
@@ -152,11 +152,6 @@ func idle_state(delta):
 		go_to_run_state()
 		return
 
-	
-	
-	
-		
-	
 
 
 func run_state(delta):
@@ -228,17 +223,6 @@ func death_state(_delta):
 func aply_gravity(_delta):
 	pass
 
-func move(_delta):
-	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if direction < 0:
-		anim.flip_h = true
-	elif direction > 0:
-		anim.flip_h = false
 
 func aplyca_gravity(_delta):
 	pass
@@ -262,11 +246,13 @@ func apply_movement(delta):
 	elif input_dir > 0:
 		anim.flip_h = false
 
+#func read_input():
+#	input_dir = Input.get_axis("left", "right")
+
 func read_input():
-	input_dir = Input.get_axis("left", "right")
+	input_dir = Input.get_axis("move_left", "move_right")
 
 func jump():
-	
 	#velocity.y = jump_force
 	var extra_force = run_momentum * 0.4    # 40% do momentum vira força no pulo
 	velocity.y = jump_force - extra_force
