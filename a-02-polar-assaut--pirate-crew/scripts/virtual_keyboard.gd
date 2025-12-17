@@ -6,8 +6,9 @@ class_name  VirtualKeyboard
 
 
 func _ready() -> void:
-	#hide()
-	pass
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		return
+	hide()
 
 func show_keyboard(input: LineEdit):
 	target_input = input

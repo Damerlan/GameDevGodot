@@ -1,0 +1,22 @@
+I needed to make buttons for UI and prompts for current and future projects. Here is that pack. So go ahead and use it in your game and software projects. 
+
+CC0 Licence 
+
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+If you'd like to support me feel free to donate or credit in your project.
+
+Most buttons fit within a 16x16 space.
+
+Palette: Rosy-42
+
+Pack includes buttons/joysticks for:
+
+Playstation
+Xbox
+Switch
+Some alternative buttons
+Smaller buttons for the main buttons
+Keyboard and Mouse
+Will update as I update it myself. This includes any new gamepads/platforms such as Mobile.
+
+https://greatdocbrown.itch.io/gamepad-ui

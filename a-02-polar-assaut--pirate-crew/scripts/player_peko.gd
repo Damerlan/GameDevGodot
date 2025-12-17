@@ -20,13 +20,17 @@ enum PlayerState{
 # Nodes
 #---------------------------------------------
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jump_ui: Node2D = $JumpPowerUi
+@onready var jump_fill: ColorRect = $JumpPowerUi/Fill
 
+@export var jump_ui_height := 12.0
+@export var jump_ui_fade_speed := 20.0
 #---------------------------------------------
 # Variáveis exportáveis
 #---------------------------------------------
 @export var max_speed = 250
 @export var move_speed := 160.0
-@export var acceleration := 900.0
+@export var acceleration := 600.0
 @export var deceleration := 1200.0
 @export var jump_force := -600.0
 
@@ -53,7 +57,7 @@ var SPEED = 80.0
 #-----------funçoes do sistema e fisica------------------#
 func _ready() -> void:
 	go_to_idle_state()	#coloca o player em idle state
-
+	jump_ui.position = Vector2(9, -7)
    
 
 func _physics_process(delta: float) -> void:	#processo de fisica
@@ -100,7 +104,7 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 		PlayerState.death:
 			death_state(delta)
 	#fim do Switch
-	
+	update_jump_ui()#jump UI
 	move_and_slide()#calcula a posição do player com base no movimento
 
 	
@@ -259,6 +263,28 @@ func jump():
 	go_to_jump_state()
 	#change_state(PlayerState.jump)
 #-----------------------------------------#
+
+func update_jump_ui():
+	var ratio := run_momentum / max_momentum
+	ratio = clamp(ratio, 0.0, 1.0)
+
+	# Atualiza tamanho da barra
+	jump_fill.size.y = jump_ui_height * ratio
+	jump_fill.position.y = jump_ui_height - jump_fill.size.y
+
+	# Condição de exibição
+	var should_show := is_on_floor() and ratio >= 0.5
+
+	# Fade suave (GDScript correto)
+	var target_alpha := 1.0 if should_show else 0.0
+
+	jump_ui.modulate.a = lerp(
+		jump_ui.modulate.a,
+		target_alpha,
+		jump_ui_fade_speed * get_physics_process_delta_time()
+	)
+	
+
 #---------------------------------------------
 # SISTEMA DE DANO + RESPAWN
 #---------------------------------------------

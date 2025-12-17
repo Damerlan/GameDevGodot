@@ -31,7 +31,7 @@ func _ready():
 	var tempo = ScoreManager.tempo
 	
 
-	if OS.has_feature("web"):
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		input_nome.grab_focus()
 
 	# --- Cálculos ---
@@ -66,7 +66,7 @@ func _ready():
 		input_nome.visible = true
 		btn_salvar.visible = true
 		# 👇 ESSENCIAL para mobile/web
-		if OS.has_feature("web"):
+		if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 			input_nome.grab_focus() #foca no line edi
 			virtual_keyboard.show_keyboard(input_nome) #mostra o teclado
 
@@ -153,4 +153,5 @@ func _on_line_edit_nome_gui_input(event):
 
 
 func _on_line_edit_nome_focus_entered() -> void:
-	virtual_keyboard.show_keyboard(input_nome)
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		virtual_keyboard.show_keyboard(input_nome)
