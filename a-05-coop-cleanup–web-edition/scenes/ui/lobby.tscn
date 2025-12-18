@@ -1,0 +1,167 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqdg4ltvofyba"]
+
+[ext_resource type="Script" uid="uid://c1urqaibbetyt" path="res://scripts/ui/lobby.gd" id="1_6oakf"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6oakf")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.043137256, 0.05882353, 1)
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(420, 360)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -79.5
+offset_right = 20.0
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Lobby"
+horizontal_alignment = 1
+
+[node name="RoomInfo" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RoomCodeLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/RoomInfo"]
+layout_mode = 2
+text = "Sala: ----  "
+
+[node name="IpLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/RoomInfo"]
+layout_mode = 2
+text = "IP da sala: 0.0.0.0"
+
+[node name="CopyButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/RoomInfo"]
+layout_mode = 2
+text = "Copiar"
+
+[node name="PlayersLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jogadores"
+
+[node name="PlayersList" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerSlot1" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " Aguardando..."
+
+[node name="HostIcon" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "★"
+
+[node name="PlayerSlot2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " Aguardando..."
+
+[node name="HostIcon" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "★"
+
+[node name="PlayerSlot3" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " Aguardando..."
+
+[node name="HostIcon" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "★"
+
+[node name="PlayerSlot4" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " Aguardando..."
+
+[node name="HostIcon" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "★"
+
+[node name="PlayerSlot5" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = " Aguardando..."
+
+[node name="HostIcon" type="Label" parent="Panel/MarginContainer/VBoxContainer/PlayersList/PlayerSlot5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "★"
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+layout_mode = 2
+disabled = true
+text = "Iniciar Partida"
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/PlayersList"]
+layout_mode = 2
+text = "Voltar ao Menu"
+
+[node name="VersionLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "v0.01 - Lobby"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/PlayersList/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/PlayersList/BackButton" to="." method="_on_back_button_pressed"]

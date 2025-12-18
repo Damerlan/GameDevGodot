@@ -38,8 +38,8 @@ action = "jump"
 visibility_mode = 1
 
 [node name="TSButtonScreen" type="TouchScreenButton" parent="TouchRoot"]
-position = Vector2(238, 245)
-scale = Vector2(0.10416688, 0.10416688)
+position = Vector2(236.99998, 244.00002)
+scale = Vector2(0.14583406, 0.145833)
 texture_normal = ExtResource("8_b37lw")
 texture_pressed = ExtResource("9_do4kx")
 visibility_mode = 1
