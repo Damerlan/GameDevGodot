@@ -1,0 +1,12 @@
+{
+  "cards": [
+	{ "id": 1, "image": "mosquito.png", "tags": ["dengue", "inseto"] },
+	{ "id": 2, "image": "pneu.png", "tags": ["agua", "lixo"] },
+	{ "id": 3, "image": "garrafa.png", "tags": ["agua", "lixo"] },
+	{ "id": 4, "image": "banana.png", "tags": ["alimento"] },
+	{ "id": 5, "image": "gato.png", "tags": ["animal"] },
+	{ "id": 6, "image": "cachorro.png", "tags": ["animal"] },
+	{ "id": 7, "image": "vaso.png", "tags": ["agua"] },
+	{ "id": 8, "image": "casa.png", "tags": ["ambiente"] }
+  ]
+}

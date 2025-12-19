@@ -1,0 +1,96 @@
+{
+  "rounds": [
+
+	{
+	  "type": "find_correct",
+	  "question": "Onde está o mosquito da dengue?",
+	  "correct_card_id": 1,
+	  "total_cards": 6
+	},
+	{
+	  "type": "find_correct",
+	  "question": "Onde está o gato?",
+	  "correct_card_id": 5,
+	  "total_cards": 6
+	},
+	{
+	  "type": "find_correct",
+	  "question": "Onde está o pneu?",
+	  "correct_card_id": 2,
+	  "total_cards": 8
+	},
+
+	{
+	  "type": "pairs",
+	  "question": "Encontre os pares",
+	  "pairs": 2
+	},
+	{
+	  "type": "pairs",
+	  "question": "Mais pares!",
+	  "pairs": 3
+	},
+	{
+	  "type": "pairs",
+	  "question": "Desafio de memória",
+	  "pairs": 4
+	},
+
+	{
+	  "type": "time_attack",
+	  "question": "Encontre o mosquito rápido!",
+	  "correct_card_id": 1,
+	  "total_cards": 6,
+	  "time_limit": 5
+	},
+	{
+	  "type": "time_attack",
+	  "question": "Ache o gato antes do tempo!",
+	  "correct_card_id": 5,
+	  "total_cards": 8,
+	  "time_limit": 4
+	},
+	{
+	  "type": "time_attack",
+	  "question": "Onde está o pneu?",
+	  "correct_card_id": 2,
+	  "total_cards": 8,
+	  "time_limit": 3
+	},
+
+	{
+	  "type": "sequence",
+	  "question": "Clique na ordem correta",
+	  "sequence": [1, 2, 3]
+	},
+	{
+	  "type": "sequence",
+	  "question": "Ordem dos animais",
+	  "sequence": [5, 6]
+	},
+	{
+	  "type": "sequence",
+	  "question": "Sequência rápida",
+	  "sequence": [2, 3, 7]
+	},
+
+	{
+	  "type": "logic",
+	  "question": "O que acumula água?",
+	  "required_tag": "agua",
+	  "total_cards": 6
+	},
+	{
+	  "type": "logic",
+	  "question": "Quais são animais?",
+	  "required_tag": "animal",
+	  "total_cards": 6
+	},
+	{
+	  "type": "logic",
+	  "question": "O que é lixo?",
+	  "required_tag": "lixo",
+	  "total_cards": 6
+	}
+  ]
+}

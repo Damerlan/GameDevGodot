@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpgkran0xnth5"]
+
+[ext_resource type="Script" uid="uid://7xvc3qv740qn" path="res://scripts/objects/card.gd" id="1_k5eb0"]
+
+[node name="Card" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 3
+anchor_right = 0.14
+anchor_bottom = 0.342
+offset_right = -0.19999695
+offset_bottom = -0.2400055
+script = ExtResource("1_k5eb0")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpriteFront" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(126, 190)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="SpriteBack" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(126, 190)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpriteFrontOLD" type="Sprite2D" parent="."]
+visible = false
+region_enabled = true
+
+[node name="SpriteBackOLD" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
