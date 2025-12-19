@@ -1,0 +1,687 @@
+[gd_scene format=3 uid="uid://bof3q8c3ccvm8"]
+
+[node name="Sala01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74978, 0.74978, 0.74977994, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="HudTopo" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HudTopo"]
+layout_mode = 2
+text = "HP INIMIGO: 30"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HudTopo"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+color = Color(0.93862647, 0.19716927, 0.4113595, 1)
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HudTopo"]
+layout_mode = 2
+text = "[ MENU ]"
+
+[node name="Mao-IA" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+alignment = 2
+
+[node name="Deck-IA" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Mao-IA"]
+layout_mode = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Deck-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="Descarte2" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Deck-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="Descarte3" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Deck-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="Descarte4" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Deck-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="Descarte5" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Deck-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Mao-IA"]
+layout_mode = 2
+
+[node name="Descarte-IA" type="MarginContainer" parent="MarginContainer/VBoxContainer/Mao-IA"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/Mao-IA/Descarte-IA"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Mao-IA/Descarte-IA/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Mao-IA/Descarte-IA/Descarte/VBoxContainer"]
+layout_mode = 2
+text = "Desc"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Mao-IA/Descarte-IA/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Mao-IA/Descarte-IA/Descarte/VBoxContainer"]
+layout_mode = 2
+text = "Mont"
+
+[node name="CampoIaAtaque" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+alignment = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+layout_mode = 2
+
+[node name="Descarte2" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+layout_mode = 2
+
+[node name="Descarte3" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+layout_mode = 2
+
+[node name="Descarte4" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+layout_mode = 2
+
+[node name="Descarte5" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaAtaque"]
+layout_mode = 2
+
+[node name="CampoIaDefeza" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+layout_mode = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+layout_mode = 2
+
+[node name="Descarte2" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+layout_mode = 2
+
+[node name="Descarte3" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+layout_mode = 2
+
+[node name="Descarte4" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+layout_mode = 2
+
+[node name="Descarte5" type="Panel" parent="MarginContainer/VBoxContainer/CampoIaDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="CampoJogadorAtaque" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+layout_mode = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+layout_mode = 2
+
+[node name="Descarte2" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+layout_mode = 2
+
+[node name="Descarte3" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 140.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="CartaExemplo3" type="MarginContainer" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque/Descarte3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+layout_mode = 2
+
+[node name="Descarte4" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+layout_mode = 2
+
+[node name="Descarte5" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorAtaque"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="CampoJogadorDefeza" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+layout_mode = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+layout_mode = 2
+
+[node name="Descarte2" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+layout_mode = 2
+
+[node name="Descarte3" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+layout_mode = 2
+
+[node name="Descarte4" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+layout_mode = 2
+
+[node name="Descarte5" type="Panel" parent="MarginContainer/VBoxContainer/CampoJogadorDefeza"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="MaoJogador" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="DescartePlayer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/DescartePlayer"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/DescartePlayer/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/DescartePlayer/Descarte/VBoxContainer"]
+layout_mode = 2
+text = "Desc"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/DescartePlayer/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/DescartePlayer/Descarte/VBoxContainer"]
+layout_mode = 2
+text = "Mont"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/MaoJogador"]
+layout_mode = 2
+
+[node name="Deck Player" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador"]
+layout_mode = 2
+alignment = 1
+
+[node name="CartaExemplo" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="CartaExemplo2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo2/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="CartaExemplo3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo3/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="CartaExemplo4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo4/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="CartaExemplo5" type="MarginContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="Descarte" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="nome" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "O Vagalume"
+horizontal_alignment = 1
+
+[node name="Elemento" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "F"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "D: 20"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "A: 50"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MaoJogador/Deck Player/CartaExemplo5/Descarte/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Energia"
+
+[node name="JogadorContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/JogadorContainer"]
+layout_mode = 2
+text = "SEU HP:30"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/JogadorContainer"]
+layout_mode = 2
+text = "E 3/5"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/JogadorContainer"]
+layout_mode = 2
+text = "PASSAR TURNO"
