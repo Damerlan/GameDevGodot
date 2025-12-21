@@ -56,41 +56,7 @@
 	  "correct_card_id": 2,
 	  "total_cards": 8,
 	  "time_limit": 3
-	},
-
-	{
-	  "type": "sequence",
-	  "question": "Clique na ordem correta",
-	  "sequence": [1, 2, 3]
-	},
-	{
-	  "type": "sequence",
-	  "question": "Ordem dos animais",
-	  "sequence": [5, 6]
-	},
-	{
-	  "type": "sequence",
-	  "question": "Sequência rápida",
-	  "sequence": [2, 3, 7]
-	},
-
-	{
-	  "type": "logic",
-	  "question": "O que acumula água?",
-	  "required_tag": "agua",
-	  "total_cards": 6
-	},
-	{
-	  "type": "logic",
-	  "question": "Quais são animais?",
-	  "required_tag": "animal",
-	  "total_cards": 6
-	},
-	{
-	  "type": "logic",
-	  "question": "O que é lixo?",
-	  "required_tag": "lixo",
-	  "total_cards": 6
 	}
+	
   ]
 }

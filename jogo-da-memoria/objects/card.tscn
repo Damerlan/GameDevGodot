@@ -4,10 +4,10 @@
 
 [node name="Card" type="Control"]
 clip_contents = true
-custom_minimum_size = Vector2(128, 192)
+custom_minimum_size = Vector2(192, 280)
 layout_mode = 3
-anchor_right = 0.14
-anchor_bottom = 0.342
+anchor_right = 0.122812495
+anchor_bottom = 0.3000075
 offset_right = -0.19999695
 offset_bottom = -0.2400055
 script = ExtResource("1_k5eb0")
