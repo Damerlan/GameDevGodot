@@ -20,13 +20,14 @@ func add_life(): #add +1 vida
 	lives += 1
 	emit_signal("lives_changed")
 
-func remove_life(): 	#remove Vidas
+# dentro do Nglobal.gd
+func remove_life():
 	lives -= 1
-	#if lives == 0:
-	#emit_signal("morreu")
-	#print("morreu")
 	emit_signal("lives_changed")
-#func remove_life(amount := 1):
+
+	if lives <= 0:
+		lives = 0
+		emit_signal("morreu")
 #	lives -= amount
 
 #reseta a partida

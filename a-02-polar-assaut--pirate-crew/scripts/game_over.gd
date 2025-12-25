@@ -139,6 +139,8 @@ func clear_instance():
 
 
 func _on_button_novo_game_pressed() -> void:
+	Nglobal.lives = 3
+	GameManager.finalizar_partida()
 	var next_scene = "sala_01"
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
 

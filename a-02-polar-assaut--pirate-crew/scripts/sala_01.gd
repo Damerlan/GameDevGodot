@@ -9,7 +9,7 @@ extends Node2D
 
 func _ready() -> void:
 	GameManager.iniciar_partida()
-	killzone.morreu.connect(_on_player_morreu)
+#	killzone.morreu.connect(_on_player_morreu)
 	
 	#Nglobal.morreu.connect(_on_player_morreu)
 	#player.morreu.connect()

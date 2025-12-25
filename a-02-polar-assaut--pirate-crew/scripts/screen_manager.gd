@@ -3,15 +3,22 @@ extends Node
 @onready var hud_record: CanvasLayer = $HudRecordName
 
 func _ready() -> void:
-	
-	if Global.pending_record == true:
-		hud_record.visible = true
-		#hud_record.show_panel()
-		if Input.is_action_just_pressed("salvar"):
-			_on_confirm_pressed()
+	GameManager.connect("partida_finalizada", _on_partida_finalizada)
+
+
+func _on_partida_finalizada(_tempo):
+	if Nglobal.pending_record:
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
+		get_tree().change_scene_to_file("res://scenes/loby_01.tscn")
+	#if Nglobal.pending_record == true:
+	#	hud_record.visible = true
+		#hud_record.show_panel()
+	#	if Input.is_action_just_pressed("salvar"):
+	#		_on_confirm_pressed()
+	#else:
 		#volta pro loby normal
-		get_tree().change_scene_to_file("res://scenes/loby.tscn")
+	#	get_tree().change_scene_to_file("res://scenes/loby.tscn")
 
 
 
@@ -24,12 +31,12 @@ func _on_confirm_pressed():
 	if name == "":
 		name = "Jogador"
 	
-	Global.highscore_name = name
-	if Global.highscore < Global.score:
-		Global.highscore = Global.score
-	Global.pending_record = false
+	Nglobal.highscore_name = name
+	if Nglobal.highscore < Nglobal.score:
+		Nglobal.highscore = Nglobal.score
+	Nglobal.pending_record = false
 	
 	#salva tudo
 	SaveManager.save_game()
 		
-	get_tree().change_scene_to_file("res://scenes/loby.tscn")
+	get_tree().change_scene_to_file("res://scenes/loby_01.tscn")

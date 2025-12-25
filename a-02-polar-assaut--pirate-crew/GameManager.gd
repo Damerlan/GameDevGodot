@@ -7,6 +7,12 @@ var contando: bool = false
 signal tempo_atualizado(tempo: float)
 signal partida_finalizada(tempo_final: float)
 
+func _ready():
+	Nglobal.connect("morreu", _on_player_morreu)
+	
+func _on_player_morreu():
+	finalizar_partida()
+	
 func iniciar_partida():
 	tempo_partida = 0.0
 	contando = true

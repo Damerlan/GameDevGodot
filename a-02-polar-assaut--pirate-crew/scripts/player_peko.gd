@@ -289,46 +289,36 @@ func update_jump_ui():
 # SISTEMA DE DANO + RESPAWN
 #---------------------------------------------
 func take_hit():
-	# evita reentrar no estado
+	# evita reentrar
 	if status == PlayerState.hit or status == PlayerState.death:
 		return
-	
-	# perde vida no Global
+
+	# remove vida
 	Nglobal.remove_life()
 
-	# coloca estado de hit
+	# sempre mostra feedback
 	go_to_hit_state()
 	velocity = Vector2.ZERO
 
-	#if Nglobal.lives > 0:
-	# respawn em deferred (evita bugs)
+	# MORTE
+	if Nglobal.lives <= 0:
+		call_deferred("_die")
+		return
+
+	# AINDA VIVO
 	call_deferred("_do_respawn")
 	
 	#elif Nglobal.lives == 0:
 	#	morrer()
-
-#func morrer():
-#	print("o player morreu")
-#	emit_signal("morreu")
-	
+func _die():
+	go_to_death_state()
+	emit_signal("morreu")
+	game_over()
 
 func game_over():
-	print("game over")
-	pass
-	#Global.last_score = Global.score
-	
-	#verificamos se superou o record
-	#if Global.score > Global.highscore:
-	#	Global.pending_record = true
-	#else:
-	#	Global.pending_record = false
-	
-	#salva score normal
-	#SaveManager.save_game()
-	
-	#ScreenManager vai decidir se abre a HUD de nome ou volta ao loby
-	#get_tree().change_scene_to_file("res://scenes/screen_manager.tscn")
-
+	print("GAME OVER")
+	get_tree().change_scene_to_file("res://huds/game_over.tscn")
+#
 
 func _do_respawn():
 	# posição segura existe?

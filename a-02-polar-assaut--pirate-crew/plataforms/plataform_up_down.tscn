@@ -1,18 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://csxuac52paj6y"]
+[gd_scene load_steps=5 format=3 uid="uid://csxuac52paj6y"]
 
 [ext_resource type="Script" uid="uid://byu1ckx3oebji" path="res://scripts/plataform_up_down.gd" id="1_30r5a"]
-[ext_resource type="Texture2D" uid="uid://jgv42tas758d" path="res://assets/Meus Assets Prototipos/2 TilePrefabs/h1x5_2.png" id="2_tskes"]
+[ext_resource type="Texture2D" uid="uid://cu6isdeah8vnf" path="res://assets/Plataformas/Platform3.png" id="2_30r5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dcce"]
-size = Vector2(158, 13)
+size = Vector2(92, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30r5a"]
+size = Vector2(90, 2)
 
 [node name="PlataformUpDown" type="StaticBody2D"]
 script = ExtResource("1_30r5a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_0dcce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.5250229, 0.34803307, 0.8325392, 1)
-texture = ExtResource("2_tskes")
+texture = ExtResource("2_30r5a")
+
+[node name="SpikesBottom" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikesBottom"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_30r5a")
+
+[connection signal="body_entered" from="SpikesBottom" to="." method="_on_spikes_bottom_body_entered"]
