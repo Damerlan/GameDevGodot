@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b4ogkwmkdhmb7"]
+[gd_scene load_steps=53 format=3 uid="uid://b4ogkwmkdhmb7"]
 
 [ext_resource type="Script" uid="uid://ben21vlugcnla" path="res://scripts/player_peko.gd" id="1_dx4ep"]
 [ext_resource type="Texture2D" uid="uid://63xqchhvf5la" path="res://assets/Sprite Pack 6/1 - Penguin/Lying_On_Ground (16 x 16).png" id="1_q5j1t"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://m8684ogjjaym" path="res://assets/PirateBombs/7-Objects/13-Run Particles/6.png" id="19_v26us"]
 [ext_resource type="AudioStream" uid="uid://ch4fha23q6tff" path="res://audio/sfx/8bit-damage16.wav" id="28_oqohe"]
 [ext_resource type="AudioStream" uid="uid://b14xguye8arvm" path="res://audio/sfx/8bit-powerup18.wav" id="29_6s5g0"]
+[ext_resource type="Texture2D" uid="uid://b6ejfr0s6efcq" path="res://assets/Mini FX, Items & UI/Effects/Bright_Dust.png" id="30_6s5g0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3v82r"]
 radius = 6.0
@@ -262,6 +263,36 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Curve" id="Curve_4isjy"]
+_data = [Vector2(0.009836063, 0.6034482), 0.0, 0.0, 0, 0, Vector2(0.990164, 0.043103337), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ju321"]
+curve = SubResource("Curve_4isjy")
+
+[sub_resource type="Curve" id="Curve_lyryi"]
+_data = [Vector2(0.019672133, 0.49999994), 0.0, 0.0, 0, 0, Vector2(1, 0.76724136), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rnul2"]
+curve = SubResource("Curve_lyryi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7np5p"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, -1, 1)
+angle_min = 5.000011
+angle_max = 15.0000105
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, -100, 0)
+damping_min = 5.0
+damping_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_rnul2")
+alpha_curve = SubResource("CurveTexture_ju321")
+turbulence_enabled = true
+
 [node name="PlayerPeko" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 25
@@ -306,3 +337,13 @@ stream = ExtResource("28_oqohe")
 
 [node name="fx_teleport" type="AudioStreamPlayer" parent="Souds"]
 stream = ExtResource("29_6s5g0")
+
+[node name="DustParticles" type="GPUParticles2D" parent="."]
+position = Vector2(7.450581e-09, 7.0000005)
+rotation = 3.124262
+emitting = false
+amount = 16
+texture = ExtResource("30_6s5g0")
+lifetime = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_7np5p")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsug3gp8jxs8s"]
+
+[ext_resource type="Texture2D" uid="uid://bfs3bqx231po1" path="res://assets/Plataformas/Platform1.png" id="1_b6q0o"]
+[ext_resource type="Script" uid="uid://bprlkhsmjjqt6" path="res://scripts/plataform_breaking.gd" id="1_jx3bl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6q0o"]
+size = Vector2(92, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3bl"]
+size = Vector2(94, 5)
+
+[node name="PlataformBreackin" type="CharacterBody2D"]
+script = ExtResource("1_jx3bl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_b6q0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b6q0o")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_jx3bl")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

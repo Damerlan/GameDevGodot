@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqmj6xjhfrsj0"]
+[gd_scene load_steps=13 format=3 uid="uid://dqmj6xjhfrsj0"]
 
 [ext_resource type="Script" uid="uid://c8v0lnd5nlf6w" path="res://scripts/sala_01.gd" id="1_3m7pq"]
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://qt7a0n0ie1d0" path="res://audio/music/ClementPanchout_ Life_is_full_of_Joy.mp3" id="9_laal3"]
 [ext_resource type="AudioStream" uid="uid://b8lbrlv8oy3to" path="res://audio/GameOver.wav" id="10_h4u88"]
 [ext_resource type="PackedScene" uid="uid://1rjyv6tknklg" path="res://huds/hud_mobile_control.tscn" id="11_7tqet"]
+[ext_resource type="PackedScene" uid="uid://bsug3gp8jxs8s" path="res://plataforms/plataform_breaking.tscn" id="12_h476b"]
 
 [node name="Sala01" type="Node2D"]
 script = ExtResource("1_3m7pq")
@@ -40,7 +41,6 @@ centered = false
 
 [node name="PlataformSpawner" parent="." instance=ExtResource("1_td87b")]
 position = Vector2(84, 121)
-platform_scene = ExtResource("2_3m7pq")
 distance_between = Vector2(120, 80)
 
 [node name="YSort" type="Node" parent="."]
@@ -67,3 +67,9 @@ autoplay = true
 stream = ExtResource("10_h4u88")
 
 [node name="HudMobileControl" parent="." instance=ExtResource("11_7tqet")]
+
+[node name="PlataformBreackin" parent="." instance=ExtResource("12_h476b")]
+position = Vector2(114, 170)
+
+[node name="PlataformBreackin2" parent="." instance=ExtResource("12_h476b")]
+position = Vector2(393, 150)

@@ -22,6 +22,7 @@ enum PlayerState{
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_ui: Node2D = $JumpPowerUi
 @onready var jump_fill: ColorRect = $JumpPowerUi/Fill
+@onready var dust_particles: GPUParticles2D = $DustParticles
 
 @export var jump_ui_height := 12.0
 @export var jump_ui_fade_speed := 20.0
@@ -65,6 +66,11 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	#gravidade
 	if not is_on_floor():	#se o player nao está no chão
 		velocity += get_gravity() * delta	#aplica o efeito de gravidade
+	
+	var is_moving = abs(velocity.x) > 10
+	var on_ground = is_on_floor()
+	
+	dust_particles.emitting = is_moving and on_ground
 	
 	
 	#if is_on_floor(): #se estiver na plataforma
