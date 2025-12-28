@@ -35,6 +35,7 @@ enum PlayerState{
 @export var deceleration := 1200.0
 @export var jump_force := -600.0
 
+@export var soft_jump_multiplier := 0.55
 #---------------------------------------------
 # Sinais
 #---------------------------------------------
@@ -59,6 +60,10 @@ var SPEED = 80.0
 func _ready() -> void:
 	go_to_idle_state()	#coloca o player em idle state
 	jump_ui.position = Vector2(9, -7)
+	
+	if OS.has_feature("web") or OS.has_feature("mobile"):
+		if dust_particles:
+			dust_particles.queue_free()
    
 
 func _physics_process(delta: float) -> void:	#processo de fisica
@@ -70,9 +75,9 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	var is_moving = abs(velocity.x) > 10
 	var on_ground = is_on_floor()
 	
-	dust_particles.emitting = is_moving and on_ground
-	
-	
+	#dust_particles.emitting = is_moving and on_ground
+	if dust_particles:
+		dust_particles.emitting = is_moving and on_ground
 	#if is_on_floor(): #se estiver na plataforma
 	#	Global.last_safe_position = global_position
 	
@@ -157,6 +162,8 @@ func idle_state(delta):
 	run_momentum = max(run_momentum - momentum_decay * delta, 0)
 	if Input.is_action_just_pressed("jump"):
 		jump()
+	elif  Input.is_action_just_pressed("jump_soft"):
+		soft_jump()
 		
 	if input_dir != 0:
 		go_to_run_state()
@@ -181,6 +188,9 @@ func run_state(delta):
 	
 	if Input.is_action_just_pressed("jump"):	#se o player apertou jump
 		jump()	#coloca o player no estado de jump
+		return
+	elif Input.is_action_just_pressed("jump_soft"):
+		soft_jump()
 		return
 
 func jump_state(delta):
@@ -268,6 +278,14 @@ func jump():
 	velocity.y = jump_force - extra_force
 	go_to_jump_state()
 	#change_state(PlayerState.jump)
+	
+func soft_jump():
+	if not is_on_floor():
+		return
+		
+	var extra_force = run_momentum * 0.2 #menos influencia do momentum
+	velocity.y = (jump_force * soft_jump_multiplier) - extra_force
+	go_to_jump_state()
 #-----------------------------------------#
 
 func update_jump_ui():
@@ -329,10 +347,19 @@ func game_over():
 
 func _do_respawn():
 	#  Se não existir plataforma safe válida, pede spawn emergencial
+	var gm = get_tree().get_first_node_in_group("GameManager")
+
+	# tenta plataforma segura registrada
 	if Nglobal.last_safe_platform == null or !is_instance_valid(Nglobal.last_safe_platform):
-		var gm = get_tree().get_first_node_in_group("GameManager")
-		if gm and gm.has_method("spawn_emergency_platform"):
-			gm.spawn_emergency_platform(global_position)
+		if gm:
+			var nearest = gm.find_nearest_platform_above(global_position)
+			if nearest:
+				Nglobal.last_safe_platform = nearest
+				Nglobal.last_safe_position = nearest.global_position
+			else:
+				# 2️⃣ se não achou nenhuma, cria emergencial ACIMA
+				gm.spawn_emergency_platform(global_position + Vector2(0, -120))
+				await get_tree().process_frame
 
 	#  Ainda não tem posição segura? cancela (failsafe)
 	if Nglobal.last_safe_position == Vector2.ZERO:

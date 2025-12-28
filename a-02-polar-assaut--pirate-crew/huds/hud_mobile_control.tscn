@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://1rjyv6tknklg"]
+[gd_scene load_steps=12 format=3 uid="uid://1rjyv6tknklg"]
 
 [ext_resource type="Script" uid="uid://d2p1mbirod3dr" path="res://scripts/hud_mobile_control.gd" id="1_qalr5"]
 [ext_resource type="Texture2D" uid="uid://cvs7x0u3vrlgr" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/direction_right.png" id="2_wvilr"]
 [ext_resource type="Texture2D" uid="uid://ykegmn2kwhmw" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/dpad_element_west.png" id="3_g6vw6"]
 [ext_resource type="Texture2D" uid="uid://dxjwb0ekqmqog" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/direction_left.png" id="4_ri0xq"]
 [ext_resource type="Texture2D" uid="uid://4cju0np8d4wf" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_circle_nub_c.png" id="4_wvilr"]
-[ext_resource type="Texture2D" uid="uid://ljpfeaqg3ump" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_circle_nub_b.png" id="5_g6vw6"]
 [ext_resource type="Texture2D" uid="uid://bhryvv00t6k0k" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/dpad_element_east.png" id="5_wfmeb"]
-[ext_resource type="Texture2D" uid="uid://bigcflft2vwt5" path="res://assets/mobile-controls-1.0/Sprites/Icons/Default/icon_size_larger.png" id="8_b37lw"]
+[ext_resource type="Texture2D" uid="uid://cuia2r6a71nab" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_square_nub_a.png" id="6_ri0xq"]
 [ext_resource type="Texture2D" uid="uid://ci58wekloj251" path="res://assets/mobile-controls-1.0/Sprites/Icons/Default/icon_size_smaller.png" id="9_do4kx"]
+[ext_resource type="Texture2D" uid="uid://bik8taf4s42t6" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_circle_pad_d.png" id="9_ri0xq"]
+[ext_resource type="Texture2D" uid="uid://c5oslo1epcvv6" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_hexagon_nub_c.png" id="10_ri0xq"]
+[ext_resource type="Texture2D" uid="uid://duvv65ftrygp4" path="res://assets/mobile-controls-1.0/Sprites/Style A/Default/joystick_hexagon_pad_d.png" id="11_wfmeb"]
 
 [node name="HudMobileControl" type="CanvasLayer"]
 script = ExtResource("1_qalr5")
@@ -21,39 +23,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 
-[node name="TSButtonRight" type="TouchScreenButton" parent="TouchRoot"]
-position = Vector2(66, 209)
-scale = Vector2(0.625, 0.625)
-texture_normal = ExtResource("2_wvilr")
-texture_pressed = ExtResource("3_g6vw6")
-action = "move_right"
-visibility_mode = 1
+[node name="LeftControl" type="Control" parent="TouchRoot"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
 
-[node name="TSButtonJump" type="TouchScreenButton" parent="TouchRoot"]
-position = Vector2(392, 181)
-texture_normal = ExtResource("4_wvilr")
-texture_pressed = ExtResource("5_g6vw6")
-action = "jump"
-visibility_mode = 1
-
-[node name="TSButtonScreen" type="TouchScreenButton" parent="TouchRoot"]
-position = Vector2(236.99998, 244.00002)
-scale = Vector2(0.14583406, 0.145833)
-texture_normal = ExtResource("8_b37lw")
-texture_pressed = ExtResource("9_do4kx")
-visibility_mode = 1
-
-[node name="TSButtonLeft" type="TouchScreenButton" parent="TouchRoot"]
-position = Vector2(15, 209)
+[node name="TSButtonLeft" type="TouchScreenButton" parent="TouchRoot/LeftControl"]
+position = Vector2(15.000001, -21.999985)
 scale = Vector2(0.625, 0.625)
 texture_normal = ExtResource("4_ri0xq")
 texture_pressed = ExtResource("5_wfmeb")
 action = "move_left"
 visibility_mode = 1
 
-[connection signal="pressed" from="TouchRoot/TSButtonRight" to="." method="_on_ts_button_right_pressed"]
-[connection signal="released" from="TouchRoot/TSButtonRight" to="." method="_on_ts_button_right_released"]
-[connection signal="pressed" from="TouchRoot/TSButtonJump" to="." method="_on_ts_button_jump_pressed"]
-[connection signal="released" from="TouchRoot/TSButtonJump" to="." method="_on_ts_button_jump_released"]
-[connection signal="pressed" from="TouchRoot/TSButtonScreen" to="." method="_on_ts_button_screen_pressed"]
+[node name="TSButtonRight" type="TouchScreenButton" parent="TouchRoot/LeftControl"]
+position = Vector2(76, -21.999985)
+scale = Vector2(0.625, 0.625)
+texture_normal = ExtResource("2_wvilr")
+texture_pressed = ExtResource("3_g6vw6")
+action = "move_right"
+visibility_mode = 1
+
+[node name="TSButtonScreen" type="TouchScreenButton" parent="TouchRoot/LeftControl"]
+position = Vector2(14.000015, -190.99998)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_ri0xq")
+texture_pressed = ExtResource("9_do4kx")
+visibility_mode = 1
+
+[node name="RightControl" type="Control" parent="TouchRoot"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TSButtonJump" type="TouchScreenButton" parent="TouchRoot/RightControl"]
+position = Vector2(-86, -91)
+texture_normal = ExtResource("4_wvilr")
+texture_pressed = ExtResource("9_ri0xq")
+action = "jump"
+visibility_mode = 1
+
+[node name="TSButtonSoftJump" type="TouchScreenButton" parent="TouchRoot/RightControl"]
+position = Vector2(-49, -137)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_ri0xq")
+texture_pressed = ExtResource("11_wfmeb")
+action = "jump_soft"
+visibility_mode = 1
+
+[connection signal="pressed" from="TouchRoot/LeftControl/TSButtonRight" to="." method="_on_ts_button_right_pressed"]
+[connection signal="released" from="TouchRoot/LeftControl/TSButtonRight" to="." method="_on_ts_button_right_released"]
+[connection signal="pressed" from="TouchRoot/LeftControl/TSButtonScreen" to="." method="_on_ts_button_screen_pressed"]
+[connection signal="pressed" from="TouchRoot/RightControl/TSButtonJump" to="." method="_on_ts_button_jump_pressed"]
+[connection signal="released" from="TouchRoot/RightControl/TSButtonJump" to="." method="_on_ts_button_jump_released"]
+[connection signal="pressed" from="TouchRoot/RightControl/TSButtonSoftJump" to="." method="_on_ts_button_soft_jump_pressed"]
+[connection signal="released" from="TouchRoot/RightControl/TSButtonSoftJump" to="." method="_on_ts_button_soft_jump_released"]

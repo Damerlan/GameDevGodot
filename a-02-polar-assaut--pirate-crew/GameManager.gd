@@ -25,6 +25,7 @@ signal partida_finalizada(tempo_final: float)
 func _ready():
 	Nglobal.connect("morreu", _on_player_morreu)
 	add_to_group("GameManager")
+	world = get_tree().current_scene
 	print("GameManager ativo, estado:", state)
 	
 func _on_player_morreu():
@@ -64,12 +65,21 @@ func spawn_emergency_platform(pos: Vector2):
 		return
 
 	emergency_platform = EMERGENCY_PLATFORM_SCENE.instantiate()
-	emergency_platform.global_position = pos
+	emergency_platform.global_position = pos + Vector2(0, -120)
 
-	world.get_node("YSort").add_child(emergency_platform)
+	var scene := get_tree().current_scene
+	if scene == null:
+		return
 
+	var ysort := scene.get_node_or_null("YSort")
+	if ysort == null:
+		push_warning("YSort não encontrado na cena atual")
+		return
+
+	ysort.add_child(emergency_platform)
+	
 	Nglobal.last_safe_platform = emergency_platform
-	Nglobal.last_safe_position = pos
+	Nglobal.last_safe_position = emergency_platform.global_position
 
 
 func start_game():
@@ -84,10 +94,45 @@ func start_game():
 func _start_from_lobby():
 	Nglobal.reset_run()
 	state = GameState.PLAYING
-	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
-
+	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
+	await get_tree().process_frame
+	world = get_tree().current_scene
 
 func _restart_from_game_over():
 	Nglobal.reset_run()
 	state = GameState.PLAYING
-	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
+	get_tree().change_scene_to_file("res://scenes/" + next_scene + ".tscn")
+	await get_tree().process_frame
+	world = get_tree().current_scene
+
+
+func find_nearest_platform_above(pos: Vector2) -> Node2D:
+	var scene := get_tree().current_scene
+	if scene == null:
+		return null
+
+	var ysort := scene.get_node_or_null("YSort")
+	if ysort == null:
+		return null
+
+	var closest: Node2D = null
+	var closest_dist := INF
+
+	for child in ysort.get_children():
+		if not child is Node2D:
+			continue
+
+		# só plataformas
+		if not child.has_method("register_as_safe"):
+			continue
+
+		# precisa estar ACIMA
+		if child.global_position.y >= pos.y:
+			continue
+
+		var dist: float = pos.y - child.global_position.y
+		if dist < closest_dist:
+			closest_dist = dist
+			closest = child
+
+	return closest

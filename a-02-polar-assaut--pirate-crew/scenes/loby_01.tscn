@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://i01paqase5ii"]
+[gd_scene load_steps=12 format=3 uid="uid://i01paqase5ii"]
 
 [ext_resource type="Script" uid="uid://c83hwukfslhad" path="res://scripts/loby_01.gd" id="1_fjhom"]
 [ext_resource type="Texture2D" uid="uid://bvw8c8orbw5ba" path="res://assets/Sprite Pack 6/1 - Penguin/Looking_Up (16 x 16).png" id="1_w56s8"]
 [ext_resource type="Texture2D" uid="uid://bp7phwxi3csj" path="res://assets/Meus Assets Prototipos/index.png" id="2_b86hm"]
+[ext_resource type="Texture2D" uid="uid://bf4pofvbk0t7n" path="res://assets/arte do joguinho - Copia.png" id="2_illlb"]
 [ext_resource type="Texture2D" uid="uid://dw3no603ttmm3" path="res://assets/Meus Assets Prototipos/recortado.png" id="3_8kfoj"]
+[ext_resource type="Script" uid="uid://5w4qnqijixji" path="res://scripts/background.gd" id="3_daitt"]
 [ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="3_fjhom"]
 [ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="4_xk8rn"]
 
@@ -34,13 +36,34 @@ script = ExtResource("1_fjhom")
 metadata/_edit_horizontal_guides_ = [25.0, 245.0]
 metadata/_edit_vertical_guides_ = [25.0, 450.0, 311.0, 52.0, 136.0, 58.0]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("2_illlb")
+script = ExtResource("3_daitt")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
 modulate = Color(0.601223, 0.601223, 0.60122293, 1)
-offset_left = 1.0
-offset_right = 481.0
+layout_mode = 0
+offset_right = 480.0
 offset_bottom = 270.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("2_b86hm")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -49,6 +72,7 @@ offset_left = 314.0
 offset_top = 27.0
 offset_right = 447.0
 offset_bottom = 192.0
+size_flags_horizontal = 4
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
 layout_mode = 1
@@ -105,8 +129,8 @@ offset_bottom = 18.0
 theme_override_font_sizes/font_size = 4
 text = "Tela Cheia"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(378, 65)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(64, 38)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xk8rn")
 autoplay = "default"

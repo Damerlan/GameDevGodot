@@ -7,7 +7,7 @@
 size = Vector2(92, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx3bl"]
-size = Vector2(94, 5)
+size = Vector2(88, 5)
 
 [node name="PlataformBreackin" type="CharacterBody2D"]
 script = ExtResource("1_jx3bl")

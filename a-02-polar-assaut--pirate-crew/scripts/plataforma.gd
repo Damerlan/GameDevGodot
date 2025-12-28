@@ -15,7 +15,7 @@ var player = null
 @export var special_height_offset: int = -32
 
 # -------- LIFE --------
-@export var life_spawn_chance: float = 0.08 # 8%
+@export var life_spawn_chance: float = 0.07 # 8%
 @export var life_scene: PackedScene
 @export var life_height_offset: int = -32
 

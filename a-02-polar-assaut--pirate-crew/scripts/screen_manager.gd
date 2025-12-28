@@ -11,16 +11,6 @@ func _on_partida_finalizada(_tempo):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/loby_01.tscn")
-	#if Nglobal.pending_record == true:
-	#	hud_record.visible = true
-		#hud_record.show_panel()
-	#	if Input.is_action_just_pressed("salvar"):
-	#		_on_confirm_pressed()
-	#else:
-		#volta pro loby normal
-	#	get_tree().change_scene_to_file("res://scenes/loby.tscn")
-
-
 
 
 
