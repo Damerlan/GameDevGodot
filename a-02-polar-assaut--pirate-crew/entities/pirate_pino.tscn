@@ -1,0 +1,270 @@
+[gd_scene load_steps=62 format=3 uid="uid://c6lgmiyuljosp"]
+
+[ext_resource type="Texture2D" uid="uid://ca5legom6l2my" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/1.png" id="1_c4wy2"]
+[ext_resource type="Texture2D" uid="uid://byjq25lb057u2" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/2.png" id="2_x8fj7"]
+[ext_resource type="Texture2D" uid="uid://b4dqgdhfawjnd" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/3.png" id="3_gwq3q"]
+[ext_resource type="Texture2D" uid="uid://cbaq3l1rgaam" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/4.png" id="4_wlu8a"]
+[ext_resource type="Texture2D" uid="uid://b1uef08o3qjig" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/5.png" id="5_mvk8q"]
+[ext_resource type="Texture2D" uid="uid://bnyg8xts5pfqc" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/6.png" id="6_8y00p"]
+[ext_resource type="Texture2D" uid="uid://c4bdfetk2prug" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/7.png" id="7_l6tkf"]
+[ext_resource type="Texture2D" uid="uid://bhluwjfvo6alw" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/8.png" id="8_njrce"]
+[ext_resource type="Texture2D" uid="uid://dqngfxs01ls7i" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/9.png" id="9_yk564"]
+[ext_resource type="Texture2D" uid="uid://poslibiuw5l8" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/10.png" id="10_o8005"]
+[ext_resource type="Texture2D" uid="uid://od3enu2blu6u" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/11.png" id="11_38jas"]
+[ext_resource type="Texture2D" uid="uid://dekoy3fk5gd2" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/1.png" id="12_hssbb"]
+[ext_resource type="Texture2D" uid="uid://dkutgdwuyn2be" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/2.png" id="13_xnpyg"]
+[ext_resource type="Texture2D" uid="uid://c7aitqv7jj7km" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/3.png" id="14_0l0he"]
+[ext_resource type="Texture2D" uid="uid://rjsyffqeu5lf" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/4.png" id="15_enkff"]
+[ext_resource type="Texture2D" uid="uid://cgdcovjwxmtla" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/5.png" id="16_cm2ba"]
+[ext_resource type="Texture2D" uid="uid://dkhcu74t3go38" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/6.png" id="17_pmxkr"]
+[ext_resource type="Texture2D" uid="uid://cpmrijox5gofu" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/7.png" id="18_fq38o"]
+[ext_resource type="Texture2D" uid="uid://c8ajh5y5n2sv1" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/8.png" id="19_05r8a"]
+[ext_resource type="Texture2D" uid="uid://crdw10ll3b02l" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/9.png" id="20_ehyqu"]
+[ext_resource type="Texture2D" uid="uid://bnh4w3ds1enfq" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/10.png" id="21_1x6nh"]
+[ext_resource type="Texture2D" uid="uid://ddyv0nqgkni37" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/11.png" id="22_2uruo"]
+[ext_resource type="Texture2D" uid="uid://ct6ns6ke6cu6m" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/12.png" id="23_rnq11"]
+[ext_resource type="Texture2D" uid="uid://dw2ln3yvb800w" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/13.png" id="24_0cwtv"]
+[ext_resource type="Texture2D" uid="uid://dvxctw0njikil" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/14.png" id="25_ejgxd"]
+[ext_resource type="Texture2D" uid="uid://dk8ms61ebwqkd" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/15.png" id="26_sg3fj"]
+[ext_resource type="Texture2D" uid="uid://co1r5xvlk3hla" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/16.png" id="27_meo4e"]
+[ext_resource type="Texture2D" uid="uid://b4j75siul7d6" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/17.png" id="28_i1p5d"]
+[ext_resource type="Texture2D" uid="uid://d3di01yxbdcfy" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/18.png" id="29_8rxx2"]
+[ext_resource type="Texture2D" uid="uid://doeqkts5ehv16" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/19.png" id="30_18eoe"]
+[ext_resource type="Texture2D" uid="uid://d2m7yrw4bslnt" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/20.png" id="31_ok7ni"]
+[ext_resource type="Texture2D" uid="uid://bi52fcl7k3eu2" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/21.png" id="32_bsnjo"]
+[ext_resource type="Texture2D" uid="uid://bcvq0tuk8gm37" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/22.png" id="33_5c5t3"]
+[ext_resource type="Texture2D" uid="uid://bjlaex0a5etg3" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/23.png" id="34_fxqbp"]
+[ext_resource type="Texture2D" uid="uid://7vod7up5dber" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/24.png" id="35_bxm8p"]
+[ext_resource type="Texture2D" uid="uid://c22f0kgajrhe" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/25.png" id="36_gm18j"]
+[ext_resource type="Texture2D" uid="uid://d2c085royjxar" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/26.png" id="37_ji05n"]
+[ext_resource type="Texture2D" uid="uid://cvyy068ety41n" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/27.png" id="38_2qk77"]
+[ext_resource type="Texture2D" uid="uid://pacfe6wfjb" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/28.png" id="39_wy843"]
+[ext_resource type="Texture2D" uid="uid://cn8ithyml8qo5" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/29.png" id="40_y8xxo"]
+[ext_resource type="Texture2D" uid="uid://dcipo5j7c7h7l" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/30.png" id="41_61axa"]
+[ext_resource type="Texture2D" uid="uid://dsvfca4klc6q6" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/31.png" id="42_xapnd"]
+[ext_resource type="Texture2D" uid="uid://hxe6kfvpg3ka" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/32.png" id="43_bic4o"]
+[ext_resource type="Texture2D" uid="uid://b8t152184pkpy" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/33.png" id="44_bljt3"]
+[ext_resource type="Texture2D" uid="uid://cydyuq85gmpke" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/34.png" id="45_jbn2s"]
+[ext_resource type="Texture2D" uid="uid://jafcvt2gpjom" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/35.png" id="46_0xfto"]
+[ext_resource type="Texture2D" uid="uid://cfjajb7etncll" path="res://assets/PirateBombs/3-Enemy-Cucumber/1-Idle/36.png" id="47_ucqbl"]
+[ext_resource type="Texture2D" uid="uid://j5dr3jprg1ye" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/1.png" id="48_fhxbk"]
+[ext_resource type="Texture2D" uid="uid://c7fpmds3llf51" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/2.png" id="49_xj1e1"]
+[ext_resource type="Texture2D" uid="uid://c5eee4a81b0k6" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/3.png" id="50_vp5id"]
+[ext_resource type="Texture2D" uid="uid://gvbo6b8nna7h" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/4.png" id="51_80y0y"]
+[ext_resource type="Texture2D" uid="uid://dj3a7i1t8dx1y" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/5.png" id="52_cpq0p"]
+[ext_resource type="Texture2D" uid="uid://ba4fjesnmjx5e" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/6.png" id="53_b3ieq"]
+[ext_resource type="Texture2D" uid="uid://bawmcc0u76loo" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/7.png" id="54_limda"]
+[ext_resource type="Texture2D" uid="uid://bvs1gmundnu07" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/8.png" id="55_haro2"]
+[ext_resource type="Texture2D" uid="uid://ddqrlrjokside" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/9.png" id="56_k773q"]
+[ext_resource type="Texture2D" uid="uid://dhj603qvwhgy8" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/10.png" id="57_b3ahi"]
+[ext_resource type="Texture2D" uid="uid://c7h8fy7fyhiio" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/11.png" id="58_iralx"]
+[ext_resource type="Texture2D" uid="uid://bmxj4j8fc6kwl" path="res://assets/PirateBombs/3-Enemy-Cucumber/2-Run/12.png" id="59_abjb0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcwmm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlt2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c4wy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x8fj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gwq3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wlu8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mvk8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8y00p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l6tkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_njrce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yk564")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o8005")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_38jas")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_hssbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xnpyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0l0he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_enkff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cm2ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pmxkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fq38o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_05r8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ehyqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1x6nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2uruo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rnq11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0cwtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ejgxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_sg3fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_meo4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i1p5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_8rxx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_18eoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ok7ni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_bsnjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_5c5t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_fxqbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_bxm8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_gm18j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ji05n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_2qk77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wy843")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_y8xxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_61axa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_xapnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_bic4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_bljt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_jbn2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_0xfto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ucqbl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_fhxbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_xj1e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_vp5id")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_80y0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_cpq0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_b3ieq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_limda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_haro2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_k773q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_b3ahi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_iralx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_abjb0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="PiratePino" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bcwmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dlt2i")
+animation = &"idle"
+frame_progress = 0.51125747

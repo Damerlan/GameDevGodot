@@ -4,12 +4,14 @@ extends Node2D
 @onready var vbox_ranking: VBoxContainer = $CanvasLayer/RankingPanel/VBoxContainer/VBoxRanking
 
 @onready var ui_efect: AudioStreamPlayer = $ui_efect
-
+enum GameState { LOBBY, PLAYING, GAME_OVER }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ranking_panel.visible = false
-
-
+	var gm = get_tree().get_first_node_in_group("GameManager")
+	if gm:
+		gm.state = GameManager.GameState.LOBBY
+#var state: GameState = GameState.LOBBY
 func update_ranking():
 	for child in vbox_ranking.get_children():
 		child.queue_free()
@@ -58,3 +60,8 @@ func _on_btn_full_screen_pressed() -> void:
 	#botão de tela cheia ou janela
 	Nglobal.toggle_fullscreen()
 	
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_start"):
+		var gm = get_tree().get_first_node_in_group("GameManager")
+		if gm:
+			gm.start_game()

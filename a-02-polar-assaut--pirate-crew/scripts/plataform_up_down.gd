@@ -10,7 +10,7 @@ var player = null
 
 @export var next_scene = "screen_manager" 	#definindo a sena que o player será jogado apos morrer
 
-signal morreu
+#signal morreu
 
 func _ready() -> void:
 	base_y = global_position.y
@@ -38,5 +38,9 @@ func _on_spikes_bottom_body_entered(body: Node2D) -> void:
 func load_next_scene(): #avançã para a sena gerenciador >quetal fazer uma tela de loading aqui< -
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")	#troca de sena
 
-		
+
+# 🚀 Posição segura DEFINITIVA
+func register_as_safe():
+	Nglobal.last_safe_position = global_position
+	Nglobal.last_safe_platform = self
 		

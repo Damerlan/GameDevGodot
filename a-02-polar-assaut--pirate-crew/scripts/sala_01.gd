@@ -9,6 +9,9 @@ extends Node2D
 
 func _ready() -> void:
 	GameManager.iniciar_partida()
+	var gm = get_tree().get_first_node_in_group("GameManager")
+	if gm:
+		gm.state = GameManager.GameState.PLAYING
 #	killzone.morreu.connect(_on_player_morreu)
 	
 	#Nglobal.morreu.connect(_on_player_morreu)

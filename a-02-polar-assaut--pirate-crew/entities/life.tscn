@@ -1,0 +1,158 @@
+[gd_scene load_steps=32 format=3 uid="uid://bfr15h4lk4o66"]
+
+[ext_resource type="Script" uid="uid://s5na4tao7pfo" path="res://scripts/life.gd" id="1_5ughf"]
+[ext_resource type="Texture2D" uid="uid://c7t003km5yren" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/1.png" id="1_nk1ya"]
+[ext_resource type="Texture2D" uid="uid://c1acelvclpcxa" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/2.png" id="2_5ughf"]
+[ext_resource type="Texture2D" uid="uid://bav1vn2ea0ium" path="res://assets/outros/Effects/Yellow_Sparkle (16 x 16).png" id="2_u1sd8"]
+[ext_resource type="Texture2D" uid="uid://beuhh7kwuu3ge" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/3.png" id="3_kddb3"]
+[ext_resource type="Texture2D" uid="uid://35u2fyntbvmj" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/4.png" id="4_u1sd8"]
+[ext_resource type="Texture2D" uid="uid://bwlue2jjvaupc" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/5.png" id="5_4vgmk"]
+[ext_resource type="Texture2D" uid="uid://h02qt0j7aymt" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/6.png" id="6_i7u5f"]
+[ext_resource type="Texture2D" uid="uid://caa5bx6wacpws" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/7.png" id="7_rk28p"]
+[ext_resource type="Texture2D" uid="uid://cn8e553thmnwv" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/8.png" id="8_7w4nr"]
+[ext_resource type="Texture2D" uid="uid://dq6brgayy2vr1" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/9.png" id="9_r0ylm"]
+[ext_resource type="Texture2D" uid="uid://5xd4b22m0u3m" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/10.png" id="10_c516v"]
+[ext_resource type="Texture2D" uid="uid://i5mrmqmg2eg8" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/11.png" id="11_iquqh"]
+[ext_resource type="Texture2D" uid="uid://d4j8epc20bwdn" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/12.png" id="12_t5jo8"]
+[ext_resource type="Texture2D" uid="uid://n3t4sghq2q2s" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/13.png" id="13_p14k3"]
+[ext_resource type="Texture2D" uid="uid://3uuce2gctvj0" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/14.png" id="14_8ggw7"]
+[ext_resource type="Texture2D" uid="uid://qc6lm13wyh3g" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/15.png" id="15_2qkj5"]
+[ext_resource type="Texture2D" uid="uid://bu6x3mhs3pfga" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/16.png" id="16_4hgpb"]
+[ext_resource type="Texture2D" uid="uid://dd7p2eqivx217" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/17.png" id="17_b6aet"]
+[ext_resource type="Texture2D" uid="uid://d0yu70u4ou0w3" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/18.png" id="18_7bddd"]
+[ext_resource type="Texture2D" uid="uid://crftlggxsinv8" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/19.png" id="19_gbww2"]
+[ext_resource type="Texture2D" uid="uid://j0joni447mk3" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/20.png" id="20_fhh0w"]
+[ext_resource type="Texture2D" uid="uid://du12c27uesqbs" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/21.png" id="21_piwbt"]
+[ext_resource type="Texture2D" uid="uid://dpbd0hmlvci2v" path="res://assets/PirateBombs/7-Objects/17-Heart/1-Idle/22.png" id="22_mh7kd"]
+[ext_resource type="AudioStream" uid="uid://drnc6fptg6wws" path="res://assets/outros/outros/711248__xiko__retro_button_1.mp3" id="24_kddb3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eh3wu"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k11ip"]
+atlas = ExtResource("2_u1sd8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44uwl"]
+atlas = ExtResource("2_u1sd8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itd1c"]
+atlas = ExtResource("2_u1sd8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axtu4"]
+atlas = ExtResource("2_u1sd8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2bjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k11ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44uwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itd1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axtu4")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nk1ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5ughf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kddb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u1sd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4vgmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i7u5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rk28p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7w4nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r0ylm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c516v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iquqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t5jo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p14k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8ggw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2qkj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4hgpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_b6aet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7bddd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gbww2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fhh0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_piwbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mh7kd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Life" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_5ughf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eh3wu")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.6666667)
+sprite_frames = SubResource("SpriteFrames_k2bjc")
+animation = &"collect"
+autoplay = "default"
+
+[node name="cllect_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_kddb3")
+volume_db = -5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Anim" to="." method="_on_anim_animation_finished"]

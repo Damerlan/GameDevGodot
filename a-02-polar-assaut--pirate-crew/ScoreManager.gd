@@ -15,7 +15,7 @@ signal collect_coin(value)
 
 func add_coin(value: int):
 	itens += value
-	emit_signal("collect_coin", value)
+	emit_signal("collect_coin")
 
 func get_score() -> int:
 	var pontos_subida = altura * PESO_SUBIDA

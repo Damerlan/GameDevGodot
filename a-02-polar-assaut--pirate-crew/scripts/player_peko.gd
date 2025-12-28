@@ -145,7 +145,7 @@ func go_to_hit_state():
 
 func go_to_death_state():
 	status = PlayerState.death
-	anim.play("death")
+	#anim.play("death")
 	
 
 #------#funções de estado#------------------#
@@ -326,15 +326,24 @@ func game_over():
 	get_tree().change_scene_to_file("res://huds/game_over.tscn")
 #
 
-func _do_respawn():
-	# posição segura existe?
-	if Nglobal.last_safe_position != Vector2.ZERO:
-		fx_teleport.play()#som de teleporte
-		# respawn 40px acima da plataforma
-		global_position = Nglobal.last_safe_position + Vector2(0, -40)
-		velocity = Vector2.ZERO
 
-	# invulnerável por 0.2s
+func _do_respawn():
+	#  Se não existir plataforma safe válida, pede spawn emergencial
+	if Nglobal.last_safe_platform == null or !is_instance_valid(Nglobal.last_safe_platform):
+		var gm = get_tree().get_first_node_in_group("GameManager")
+		if gm and gm.has_method("spawn_emergency_platform"):
+			gm.spawn_emergency_platform(global_position)
+
+	#  Ainda não tem posição segura? cancela (failsafe)
+	if Nglobal.last_safe_position == Vector2.ZERO:
+		return
+
+	# Teleporte
+	fx_teleport.play()
+	global_position = Nglobal.last_safe_position + Vector2(0, -40)
+	velocity = Vector2.ZERO
+
+	# Invulnerável por 0.2s
 	status = PlayerState.hit
 	await get_tree().create_timer(0.2).timeout
 	

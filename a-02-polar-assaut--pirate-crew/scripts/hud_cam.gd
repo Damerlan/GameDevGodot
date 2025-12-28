@@ -4,8 +4,6 @@ extends CanvasLayer
 @onready var heart_tamplate: TextureRect = $Control/HeartsContainer/HeartIcon
 
 
-
-
 func _ready() -> void:
 	heart_tamplate.visible = false #o tamplate sempre fica escondido
 	
@@ -25,8 +23,3 @@ func update_hearts():
 		var heart = heart_tamplate.duplicate()
 		heart.visible = true
 		hearts_container.add_child(heart)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

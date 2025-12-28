@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://br67ppirdrfo3"]
+[gd_scene load_steps=7 format=3 uid="uid://br67ppirdrfo3"]
 
 [ext_resource type="Script" uid="uid://ccjyhx2weho6l" path="res://scripts/plataforma.gd" id="1_ib1hc"]
 [ext_resource type="Texture2D" uid="uid://bpp5k8ulap86o" path="res://assets/Plataformas/Platform2.png" id="2_ib1hc"]
 [ext_resource type="PackedScene" uid="uid://b5o4yin6ojjnq" path="res://entities/coin.tscn" id="3_hai64"]
+[ext_resource type="PackedScene" uid="uid://bfr15h4lk4o66" path="res://entities/life.tscn" id="4_7vy0x"]
 [ext_resource type="PackedScene" uid="uid://dfnp2q1sneo81" path="res://entities/gem_diamond.tscn" id="4_x6y3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ib1hc"]
@@ -12,6 +13,7 @@ size = Vector2(94, 14)
 script = ExtResource("1_ib1hc")
 coin_scene = ExtResource("3_hai64")
 gem_scene = ExtResource("4_x6y3e")
+life_scene = ExtResource("4_7vy0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ib1hc")
@@ -22,3 +24,5 @@ shape = SubResource("RectangleShape2D_ib1hc")
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Specials" type="Node2D" parent="."]
+
+[node name="Lifes" type="Node2D" parent="."]

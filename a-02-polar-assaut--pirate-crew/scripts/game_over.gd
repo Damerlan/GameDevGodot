@@ -74,6 +74,10 @@ func _ready():
 		lbl_novo.visible = false
 		input_nome.visible = false
 		btn_salvar.visible = false
+		
+	var gm = get_tree().get_first_node_in_group("GameManager")
+	if gm:
+		gm.state = GameManager.GameState.GAME_OVER
 
 func get_feedback(altura:int, tempo:float, itens:int) -> String:
 	# 🟥 Desempenho muito ruim
@@ -157,3 +161,9 @@ func _on_line_edit_nome_gui_input(event):
 func _on_line_edit_nome_focus_entered() -> void:
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		virtual_keyboard.show_keyboard(input_nome)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_start"):
+		var gm = get_tree().get_first_node_in_group("GameManager")
+		if gm:
+			gm.start_game()

@@ -2,17 +2,26 @@ extends Node2D
 
 @export var platform_scene: PackedScene
 @export var moving_platform_scene: PackedScene
+@export var falling_platform_scene: PackedScene
 
-# Altura mínima/máxima entre plataformas (alcançável pelo pulo)
+# Altura mínima/máxima entre plataformas
 @export var distance_between := Vector2(10, 750)
 
 # Margem para não colar na borda da câmera
 @export var screen_margin := 45
 
 # ----- CONFIGURAÇÃO DE CHANCE E PROGRESSÃO -----
-@export var base_moving_chance := 0.05 # 5% no início
-@export var max_moving_chance := 0.4   # 40% no máximo
-@export var height_for_max_chance := 6000.0 # altura para atingir chance máxima
+
+# Plataforma móvel
+@export var base_moving_chance := 0.03   # 3% no início
+@export var max_moving_chance := 0.4     # 40% no máximo
+@export var height_for_max_chance := 6000.0
+
+# Plataforma que cai
+@export var base_falling_chance := 0.03  # 3% no início
+@export var max_falling_chance := 0.25   # 25% no máximo
+@export var height_for_max_falling := 5000.0
+
 # ----------------------------------------------
 
 var last_platform_y := 0.0
@@ -47,16 +56,26 @@ func _spawn_platform_if_needed():
 		_spawn_platform()
 
 
-# 🔢 Calcula a chance baseada na altura do player
+# 🔢 Chance da plataforma móvel
 func _get_moving_platform_chance() -> float:
 	if player == null:
 		return base_moving_chance
 
-	# Quanto mais negativo o Y, mais alto o player subiu
 	var height_climbed = abs(player.global_position.y)
 	var t = clamp(height_climbed / height_for_max_chance, 0.0, 1.0)
 
 	return lerp(base_moving_chance, max_moving_chance, t)
+
+
+# 🔢 Chance da plataforma que cai
+func _get_falling_platform_chance() -> float:
+	if player == null:
+		return base_falling_chance
+
+	var height_climbed = abs(player.global_position.y)
+	var t = clamp(height_climbed / height_for_max_falling, 0.0, 1.0)
+
+	return lerp(base_falling_chance, max_falling_chance, t)
 
 
 func _spawn_platform():
@@ -69,17 +88,23 @@ func _spawn_platform():
 	var y_offset = randf_range(distance_between.x, distance_between.y)
 	last_platform_y -= y_offset
 
-	# X baseado na câmera
 	var min_x = cam.global_position.x - half_w + screen_margin
 	var max_x = cam.global_position.x + half_w - screen_margin
 	var pos_x = randf_range(min_x, max_x)
 
-	# 🎲 Decide qual plataforma spawnar
-	var chance = _get_moving_platform_chance()
+	# 🎲 Sorteio profissional
+	var falling_chance = _get_falling_platform_chance()
+	var moving_chance = _get_moving_platform_chance()
+	var roll = randf()
 
 	var p
-	if randf() < chance and moving_platform_scene:
+
+	if roll < falling_chance and falling_platform_scene:
+		p = falling_platform_scene.instantiate()
+
+	elif roll < falling_chance + moving_chance and moving_platform_scene:
 		p = moving_platform_scene.instantiate()
+
 	else:
 		p = platform_scene.instantiate()
 

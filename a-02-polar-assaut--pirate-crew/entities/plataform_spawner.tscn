@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc0i87l5k4l7w"]
+[gd_scene load_steps=5 format=3 uid="uid://bc0i87l5k4l7w"]
 
 [ext_resource type="Script" uid="uid://by0wxf00ju5xl" path="res://scripts/plataform_spawner.gd" id="1_p72dp"]
 [ext_resource type="PackedScene" uid="uid://br67ppirdrfo3" path="res://plataforms/plataforma.tscn" id="2_24kpj"]
 [ext_resource type="PackedScene" uid="uid://csxuac52paj6y" path="res://plataforms/plataform_up_down.tscn" id="3_7lp3a"]
+[ext_resource type="PackedScene" uid="uid://bsug3gp8jxs8s" path="res://plataforms/plataform_breaking.tscn" id="4_7lp3a"]
 
 [node name="PlataformSpawner" type="Node2D"]
 script = ExtResource("1_p72dp")
 platform_scene = ExtResource("2_24kpj")
 moving_platform_scene = ExtResource("3_7lp3a")
+falling_platform_scene = ExtResource("4_7lp3a")

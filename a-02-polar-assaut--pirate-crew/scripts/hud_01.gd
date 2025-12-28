@@ -16,7 +16,7 @@ func _ready() -> void:
 	Nglobal.autura_changed.connect(_on_altura_changed)
 	Nglobal.lives_changed.connect(_on_lives_changed)
 	
-func _on_coin_collected(value):
+func _on_coin_collected():
 	_update_itens()
 
 func _update_itens():

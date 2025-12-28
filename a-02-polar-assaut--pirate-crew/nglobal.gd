@@ -6,10 +6,12 @@ var coin_value = 1
 var gem_value = 100
 
 var last_safe_position
+var last_safe_platform: Node = null
+
 signal autura_changed(value)
 signal lives_changed
 signal morreu
-
+#signal collect_life
 
 
 #func add_score(value):	#add ponto extra ao score
