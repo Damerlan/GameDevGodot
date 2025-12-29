@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy5axylkqgstd"]
+
+[ext_resource type="Texture2D" uid="uid://8cxff667soc7" path="res://Assets/prototypes/Navinha01.png" id="1_dc4jl"]
+[ext_resource type="Texture2D" uid="uid://dgst1to0yi72t" path="res://Assets/prototypes/Navinha02.png" id="2_n3byj"]
+[ext_resource type="Texture2D" uid="uid://bqqfycjs3f78m" path="res://Assets/prototypes/Navinha03.png" id="3_n3byj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5xqd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sx350"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dc4jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n3byj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_dc4jl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_n3byj")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="BasePrototype" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -69.0
+offset_top = -37.0
+offset_right = 428.0
+offset_bottom = 786.0
+
+[node name="playerPrototype" type="CharacterBody2D" parent="."]
+position = Vector2(180, 567)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerPrototype"]
+shape = SubResource("CapsuleShape2D_g5xqd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="playerPrototype"]
+sprite_frames = SubResource("SpriteFrames_sx350")
+animation = &"fly"
+autoplay = "default"
