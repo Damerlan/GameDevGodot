@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://i01paqase5ii"]
+[gd_scene load_steps=13 format=3 uid="uid://i01paqase5ii"]
 
 [ext_resource type="Script" uid="uid://c83hwukfslhad" path="res://scripts/loby_01.gd" id="1_fjhom"]
 [ext_resource type="Texture2D" uid="uid://bvw8c8orbw5ba" path="res://assets/Sprite Pack 6/1 - Penguin/Looking_Up (16 x 16).png" id="1_w56s8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://5w4qnqijixji" path="res://scripts/background.gd" id="3_daitt"]
 [ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="3_fjhom"]
 [ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="4_xk8rn"]
+
+[sub_resource type="Theme" id="Theme_hfbrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_blcqn"]
 atlas = ExtResource("1_w56s8")
@@ -99,24 +101,25 @@ offset_left = 25.0
 offset_top = 69.0
 offset_right = 110.0
 offset_bottom = 93.0
+theme = SubResource("Theme_hfbrr")
 theme_override_font_sizes/font_size = 11
 text = "Start Game"
 
 [node name="BtnRanking" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 97.0
-offset_right = 109.0
-offset_bottom = 121.0
+offset_left = 26.0
+offset_top = 99.0
+offset_right = 110.0
+offset_bottom = 123.0
 theme_override_font_sizes/font_size = 11
 text = "Ranking"
 
 [node name="BtnExit" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 125.0
+offset_top = 128.0
 offset_right = 110.0
-offset_bottom = 149.0
+offset_bottom = 152.0
 theme_override_font_sizes/font_size = 11
 text = "Sair"
 
