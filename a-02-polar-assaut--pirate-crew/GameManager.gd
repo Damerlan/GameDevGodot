@@ -7,7 +7,7 @@ var contando: bool = false
 #@export var emergency_platform_scene: PackedScene
 @export var emergency_offset := Vector2(0, 64)
 
-enum GameState { LOBBY, PLAYING, GAME_OVER }
+enum GameState { LOBBY, PLAYING, RANKING, GAME_OVER }
 
 var state: GameState = GameState.LOBBY
 var next_scene = "sala_01"

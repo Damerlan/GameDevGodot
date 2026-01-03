@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://dftlh3qy6fn4w"]
+
+[ext_resource type="Texture2D" uid="uid://clejaal2yjv3o" path="res://assets/botoes/Pannel.png" id="1_47i67"]
+[ext_resource type="Script" uid="uid://cg2cfbgv02r0p" path="res://scripts/ranking.gd" id="1_lxf5l"]
+[ext_resource type="FontFile" uid="uid://dxl1vm7aodpvi" path="res://assets/Fonts/polar/PolarSnow2.ttf" id="2_lxf5l"]
+[ext_resource type="FontFile" uid="uid://oydebdso885q" path="res://assets/Fonts/polar/PolarSnow1.otf" id="3_6w35i"]
+[ext_resource type="FontFile" uid="uid://djeagthsui713" path="res://assets/Fonts/ARCADECLASSIC.TTF" id="3_7vs85"]
+[ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_wgolm"]
+[ext_resource type="Texture2D" uid="uid://cs468qi6l7o6k" path="res://assets/botoes/g58.png" id="4_l2su2"]
+[ext_resource type="Texture2D" uid="uid://bws2o2x8a2l5e" path="res://assets/botoes/g59.png" id="5_6w35i"]
+[ext_resource type="PackedScene" uid="uid://baelgfaeel8p2" path="res://scenes/back_ground_loby.tscn" id="5_7vs85"]
+[ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="7_wgolm"]
+[ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="11_lnun7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vs85"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+texture = ExtResource("4_l2su2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnun7"]
+texture = ExtResource("5_6w35i")
+
+[node name="Ranking" type="Node2D"]
+script = ExtResource("1_lxf5l")
+ranking_font = ExtResource("3_wgolm")
+font_score = ExtResource("3_7vs85")
+font_nome = ExtResource("3_wgolm")
+font_posicao = ExtResource("3_6w35i")
+
+[node name="BackGroundLoby" parent="." instance=ExtResource("5_7vs85")]
+position = Vector2(250, 180)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 477.0
+offset_bottom = 268.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+modulate = Color(1, 1, 0.9647059, 1)
+position = Vector2(121.5, 124.50169)
+scale = Vector2(0.22963803, 0.22963804)
+texture = ExtResource("1_47i67")
+
+[node name="BoxContainer" type="BoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -101.0
+offset_right = -37.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.64705884, 0.64705884, 0.64705884, 0.8745098)
+theme_override_fonts/font = ExtResource("2_lxf5l")
+theme_override_font_sizes/font_size = 24
+text = "RANKING"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="VBoxRanking" type="VBoxContainer" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label6" type="Label" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="BtnReturn" type="Button" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wgolm")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_7vs85")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lnun7")
+text = "Voltar"
+
+[node name="ui_efect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wgolm")
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lnun7")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="pressed" from="Control/BoxContainer/VBoxContainer/BtnReturn" to="." method="_on_btn_return_pressed"]

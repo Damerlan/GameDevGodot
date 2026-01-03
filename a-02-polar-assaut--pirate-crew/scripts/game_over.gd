@@ -131,7 +131,7 @@ func _on_button_salvar_pressed() -> void:
 
 
 func _on_button_sair_pressed() -> void:
-	var next_scene = "loby_01"
+	var next_scene = "loby_02"
 	clear_instance()
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
 
