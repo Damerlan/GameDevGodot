@@ -10,7 +10,7 @@ var contando: bool = false
 enum GameState { LOBBY, PLAYING, RANKING, GAME_OVER }
 
 var state: GameState = GameState.LOBBY
-var next_scene = "sala_01"
+var next_scene = "loading_screen"
 
 const EMERGENCY_PLATFORM_SCENE := preload(
 	"res://plataforms/safe_plataform.tscn"

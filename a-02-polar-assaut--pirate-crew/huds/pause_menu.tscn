@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7f6y70a30w2r"]
+
+[ext_resource type="Script" uid="uid://g84fuvmmmbs3" path="res://scripts/pause_menu.gd" id="1_eo0ky"]
+[ext_resource type="Texture2D" uid="uid://clejaal2yjv3o" path="res://assets/botoes/Pannel.png" id="1_pc5r0"]
+[ext_resource type="FontFile" uid="uid://dxl1vm7aodpvi" path="res://assets/Fonts/polar/PolarSnow2.ttf" id="2_eo0ky"]
+[ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_f1gm8"]
+[ext_resource type="Texture2D" uid="uid://cs468qi6l7o6k" path="res://assets/botoes/g58.png" id="4_122n7"]
+[ext_resource type="Texture2D" uid="uid://bws2o2x8a2l5e" path="res://assets/botoes/g59.png" id="5_8i7lg"]
+[ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="7_f1gm8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppej0"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+texture = ExtResource("4_122n7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hcv21"]
+texture = ExtResource("5_8i7lg")
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eo0ky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0.9647059, 1)
+position = Vector2(121.5, 124.50169)
+scale = Vector2(0.22963803, 0.22963804)
+texture = ExtResource("1_pc5r0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2665752, 0.26657522, 0.26657513, 0.89500004)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -82.5
+offset_right = 65.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_eo0ky")
+theme_override_font_sizes/font_size = 22
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="BtnReturn" type="Button" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_f1gm8")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_ppej0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hcv21")
+text = "Retornar"
+
+[node name="Label6" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="BtnLoby" type="Button" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_f1gm8")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_ppej0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hcv21")
+text = "Abandonar"
+
+[node name="Label7" type="Label" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="BtnReturn3" type="Button" parent="Panel/BoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("3_f1gm8")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxTexture_ppej0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hcv21")
+text = "Sair"
+
+[node name="ui_efect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f1gm8")
+
+[connection signal="pressed" from="Panel/BoxContainer/VBoxContainer/BtnReturn" to="." method="_on_btn_return_pressed"]
+[connection signal="pressed" from="Panel/BoxContainer/VBoxContainer/BtnLoby" to="." method="_on_btn_loby_pressed"]
+[connection signal="pressed" from="Panel/BoxContainer/VBoxContainer/BtnReturn3" to="." method="_on_btn_return_3_pressed"]

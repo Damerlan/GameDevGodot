@@ -12,14 +12,16 @@ script = ExtResource("1_ekgif")
 scroll_scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxFundo"]
-scale = Vector2(0.4023437, 0.39648432)
+position = Vector2(52.51479, 34.500015)
+scale = Vector2(0.47072235, 0.46386716)
 texture = ExtResource("2_ml7ln")
 
 [node name="ParallaxMeio" type="Parallax2D" parent="."]
 scroll_scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxMeio"]
-scale = Vector2(0.41503906, 0.41503906)
+position = Vector2(31.625004, 13.250023)
+scale = Vector2(0.45621744, 0.44091803)
 texture = ExtResource("3_yf8v5")
 
 [node name="ParallaxFrente" type="Parallax2D" parent="."]

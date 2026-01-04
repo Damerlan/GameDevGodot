@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqmj6xjhfrsj0"]
+[gd_scene load_steps=13 format=3 uid="uid://dqmj6xjhfrsj0"]
 
 [ext_resource type="Script" uid="uid://c8v0lnd5nlf6w" path="res://scripts/sala_01.gd" id="1_3m7pq"]
 [ext_resource type="PackedScene" uid="uid://bc0i87l5k4l7w" path="res://entities/plataform_spawner.tscn" id="1_td87b"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://qt7a0n0ie1d0" path="res://audio/music/ClementPanchout_ Life_is_full_of_Joy.mp3" id="9_laal3"]
 [ext_resource type="AudioStream" uid="uid://b8lbrlv8oy3to" path="res://audio/GameOver.wav" id="10_h4u88"]
 [ext_resource type="PackedScene" uid="uid://1rjyv6tknklg" path="res://huds/hud_mobile_control.tscn" id="11_7tqet"]
+[ext_resource type="PackedScene" uid="uid://c7f6y70a30w2r" path="res://huds/pause_menu.tscn" id="12_h476b"]
 
 [node name="Sala01" type="Node2D"]
 script = ExtResource("1_3m7pq")
@@ -66,3 +67,22 @@ autoplay = true
 stream = ExtResource("10_h4u88")
 
 [node name="HudMobileControl" parent="." instance=ExtResource("11_7tqet")]
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+process_priority = 5
+layer = 10
+
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("12_h476b")]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+size_flags_horizontal = 4
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true

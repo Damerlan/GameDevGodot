@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://brs8naxlglhr7"]
+[gd_scene load_steps=4 format=3 uid="uid://brs8naxlglhr7"]
+
+[ext_resource type="Script" uid="uid://dp5lnkh7vpnlp" path="res://scripts/loading_screen.gd" id="1_ep5rh"]
+[ext_resource type="Texture2D" uid="uid://dybjs2do1xnvc" path="res://assets/A01ParalaxLoby/loading.png" id="2_hprjd"]
+[ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_ku3bi"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -7,26 +11,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ep5rh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(287, 201)
+scale = Vector2(0.41992185, 0.41992188)
+texture = ExtResource("2_hprjd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -35.0
+offset_right = 897.0
+offset_bottom = 719.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hprjd")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = 20.0
+offset_right = 69.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 140.0
-offset_right = 228.0
-offset_bottom = 167.0
-
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 179.0
-offset_top = 99.0
-offset_right = 283.0
-offset_bottom = 122.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -11.5
+offset_right = 52.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.243711, 0.6193372, 0.69101346, 1)
+theme_override_fonts/font = ExtResource("3_ku3bi")
+theme_override_font_sizes/font_size = 18
 text = "Carregando..."
+horizontal_alignment = 1
+
+[node name="min_time" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="min_time" to="." method="_on_min_time_timeout"]

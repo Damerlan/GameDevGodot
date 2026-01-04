@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3nb3tlny3smm"]
+[gd_scene load_steps=17 format=3 uid="uid://b3nb3tlny3smm"]
 
 [ext_resource type="Texture2D" uid="uid://wf2fiiwi17ku" path="res://assets/Sprite Pack 6/1 - Penguin/Sitting (16 x 16).png" id="1_804e5"]
 [ext_resource type="Script" uid="uid://wjfieuehp3q5" path="res://scripts/game_over.gd" id="1_b1y67"]
+[ext_resource type="PackedScene" uid="uid://baelgfaeel8p2" path="res://scenes/back_ground_loby.tscn" id="1_iopph"]
 [ext_resource type="FontFile" uid="uid://b11e6e3ui7r5k" path="res://assets/Fonts/ARCADE_I.TTF" id="2_jril1"]
 [ext_resource type="AudioStream" uid="uid://c7jxevq1kylyj" path="res://audio/GameOver_new.wav" id="3_2nm1i"]
 [ext_resource type="FontFile" uid="uid://dowhcnoqkx8vc" path="res://assets/Fonts/ARCADE_R.TTF" id="3_q6qcq"]
@@ -60,6 +61,9 @@ animations = [{
 }]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="BackGroundLoby" parent="." instance=ExtResource("1_iopph")]
+position = Vector2(250, 180)
 
 [node name="GameOver" type="Control" parent="."]
 layout_mode = 3

@@ -15,15 +15,11 @@ func _ready() -> void:
 		gm.state = GameManager.GameState.LOBBY
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_btn_start_pressed() -> void:
 	ui_efx()
-	var next_scene = "sala_01"
+	var next_scene = "loading_screen"
 	get_tree().change_scene_to_file("res://scenes/" + next_scene +".tscn")
+	#get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 
 
 func _on_btn_ranking_pressed() -> void:
