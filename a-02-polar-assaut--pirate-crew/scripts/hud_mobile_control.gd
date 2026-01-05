@@ -8,10 +8,10 @@ extends CanvasLayer
 func _ready():
 	#escondendo os labels, os botões são ocultos na propriedade visibility mode = tochscreen
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
-		return
-	else:
-		lb_full.visible = false
-		lb_menu.visible = false
+		lb_full.visible = true
+		lb_menu.visible = true
+	
+	
 	
 func _on_ts_button_left_pressed() -> void:
 	Input.action_press("move_left")

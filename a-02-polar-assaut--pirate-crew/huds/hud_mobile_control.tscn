@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://1rjyv6tknklg"]
 
-[ext_resource type="Script" uid="uid://d2p1mbirod3dr" path="res://scripts/hud_mobile_control.gd" id="1_qalr5"]
+[ext_resource type="Script" uid="uid://bp34daxvk10ox" path="res://scripts/hud_mobile_control.gd" id="1_qalr5"]
 [ext_resource type="Texture2D" uid="uid://c6his0q2gd0jr" path="res://assets/mobile-controls-1.0/Sprites/Style H/Default/button_circle_wide.png" id="2_ln3by"]
 [ext_resource type="Texture2D" uid="uid://covibomyubk8m" path="res://assets/mobile-controls-1.0/Sprites/Style G/Default/button_circle_wide.png" id="3_wfmeb"]
 [ext_resource type="Texture2D" uid="uid://b175inyj6tm8x" path="res://assets/mobile-controls-1.0/Sprites/Style H/Default/button_diamond_wide.png" id="4_ln3by"]
@@ -33,6 +33,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LbMenu" type="Label" parent="TouchRoot/TopControl"]
+visible = false
 layout_mode = 0
 offset_left = 20.0
 offset_top = 73.0
@@ -51,6 +52,7 @@ texture_pressed = ExtResource("3_wfmeb")
 visibility_mode = 1
 
 [node name="LbFull" type="Label" parent="TouchRoot/TopControl"]
+visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 42.0

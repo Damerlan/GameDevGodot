@@ -67,6 +67,7 @@ autoplay = true
 stream = ExtResource("10_h4u88")
 
 [node name="HudMobileControl" parent="." instance=ExtResource("11_7tqet")]
+script = null
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 3
