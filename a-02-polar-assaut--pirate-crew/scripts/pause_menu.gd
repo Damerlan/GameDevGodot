@@ -2,9 +2,18 @@ extends Control
 
 @export var main_menu_scene := "res://scenes/loby_02.tscn"
 @onready var ui_efect: AudioStreamPlayer = $ui_efect
+@onready var btn_sair: Button = $Panel/BoxContainer/VBoxContainer/BtnReturn3
+
 
 func _ready():
+	Nglobal.pause_requested.connect(toggle_pause)
 	hide()
+	
+	#esconder o botão sair no web e mobile
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		btn_sair.disabled = true
+
+
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

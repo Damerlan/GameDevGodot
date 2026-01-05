@@ -1,6 +1,5 @@
 extends Node
 
-
 var tempo_partida: float = 0.0
 var contando: bool = false
 
@@ -88,9 +87,8 @@ func start_game():
 			_start_from_lobby()
 		GameState.GAME_OVER:
 			_restart_from_game_over()
-			
-			
-	
+
+
 func _start_from_lobby():
 	Nglobal.reset_run()
 	state = GameState.PLAYING

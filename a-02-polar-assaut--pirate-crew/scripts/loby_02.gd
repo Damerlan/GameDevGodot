@@ -8,12 +8,16 @@ enum GameState {
 	}
 
 @onready var ui_efect: AudioStreamPlayer = $ui_efect
+@onready var btn_sair: Button = $Control/BoxContainer/VBoxContainer/BtnSair
 
 func _ready() -> void:
 	var gm = get_tree().get_first_node_in_group("GameManager")
 	if gm:
 		gm.state = GameManager.GameState.LOBBY
 
+	#esconder o botão sair no web e mobile
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		btn_sair.disabled = true
 
 func _on_btn_start_pressed() -> void:
 	ui_efx()

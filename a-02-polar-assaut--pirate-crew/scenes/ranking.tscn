@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dftlh3qy6fn4w"]
+[gd_scene load_steps=15 format=3 uid="uid://dftlh3qy6fn4w"]
 
 [ext_resource type="Texture2D" uid="uid://clejaal2yjv3o" path="res://assets/botoes/Pannel.png" id="1_47i67"]
 [ext_resource type="Script" uid="uid://cg2cfbgv02r0p" path="res://scripts/ranking.gd" id="1_lxf5l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cs468qi6l7o6k" path="res://assets/botoes/g58.png" id="4_l2su2"]
 [ext_resource type="Texture2D" uid="uid://bws2o2x8a2l5e" path="res://assets/botoes/g59.png" id="5_6w35i"]
 [ext_resource type="PackedScene" uid="uid://baelgfaeel8p2" path="res://scenes/back_ground_loby.tscn" id="5_7vs85"]
+[ext_resource type="Texture2D" uid="uid://dyp475xkbbubh" path="res://assets/A01ParalaxLoby/ranking.png" id="7_ai6ui"]
 [ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="7_wgolm"]
 [ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="11_lnun7"]
 
@@ -40,8 +41,8 @@ offset_bottom = 268.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 modulate = Color(1, 1, 0.9647059, 1)
-position = Vector2(121.5, 124.50169)
-scale = Vector2(0.22963803, 0.22963804)
+position = Vector2(121.5, 135.92139)
+scale = Vector2(0.22963803, 0.20587178)
 texture = ExtResource("1_47i67")
 
 [node name="BoxContainer" type="BoxContainer" parent="Control"]
@@ -62,12 +63,17 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BoxContainer"]
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/BoxContainer/VBoxContainer"]
+position = Vector2(59, 15)
+scale = Vector2(0.17816082, 0.17816089)
+texture = ExtResource("7_ai6ui")
+
 [node name="Label" type="Label" parent="Control/BoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.64705884, 0.64705884, 0.64705884, 0.8745098)
 theme_override_fonts/font = ExtResource("2_lxf5l")
 theme_override_font_sizes/font_size = 24
-text = "RANKING"
+text = "                    "
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Control/BoxContainer/VBoxContainer"]
@@ -80,6 +86,10 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="Label6" type="Label" parent="Control/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+
+[node name="Label7" type="Label" parent="Control/BoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 1
 

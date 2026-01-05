@@ -59,6 +59,7 @@ Music=false
 [global_group]
 
 Player=""
+menu=""
 
 [input]
 

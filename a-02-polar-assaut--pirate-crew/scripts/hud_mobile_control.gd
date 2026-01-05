@@ -1,15 +1,18 @@
 extends CanvasLayer
 
 @onready var btn_left = $TouchRoot/LeftControl/TSButtonLeft
-
-#@onready var btn_right = $TouchRoot/TSButtonRight
 @onready var btn_jump = $TouchRoot/RightControl/TSButtonJump
-
-
+@onready var lb_menu: Label = $TouchRoot/TopControl/LbMenu
+@onready var lb_full: Label = $TouchRoot/TopControl/LbFull
 
 func _ready():
-	pass
-
+	#escondendo os labels, os botões são ocultos na propriedade visibility mode = tochscreen
+	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		return
+	else:
+		lb_full.visible = false
+		lb_menu.visible = false
+	
 func _on_ts_button_left_pressed() -> void:
 	Input.action_press("move_left")
 	print("Botão Esquerdo Pressionado")
@@ -50,3 +53,11 @@ func _on_ts_button_soft_jump_pressed() -> void:
 
 func _on_ts_button_soft_jump_released() -> void:
 	Input.action_release("jump_soft")
+
+
+func _on_ts_button_menu_pressed() -> void:
+	Nglobal.request_pause()
+
+
+func _on_ts_button_menu_released() -> void:
+	pass # Replace with function body.

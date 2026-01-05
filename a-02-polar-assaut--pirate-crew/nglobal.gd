@@ -11,12 +11,20 @@ var last_safe_platform: Node = null
 signal autura_changed(value)
 signal lives_changed
 signal morreu
+
+signal pause_requested
+
+signal show_teclado
 #signal collect_life
 
+#@export var pause_menu = Control: get_tree()
+@onready var pause_menu: Control = $PauseLayer/PauseMenu
 
-#func add_score(value):	#add ponto extra ao score
-#	altura += value
-#	emit_signal("score_changed", altura)
+func request_pause():#função para ativar o menu no mobile
+	emit_signal("pause_requested")
+
+func teclado_show() -> void:
+	emit_signal("show_teclado")
 
 func add_life(): #add +1 vida
 	lives += 1
@@ -41,11 +49,6 @@ func reset_run():
 	ScoreManager.itens = 0
 	last_safe_position = Vector2.ZERO
 
-#func update_score(player_y):
-	# Exemplo: quanto mais sobe menor Y → score aumenta
-	#score = max(score, -player_y)
-	#emit_signal("score_changed", score)
-	#pass
 
 func update_autura(player_y):
 	ScoreManager.altura = max(ScoreManager.altura, -player_y)
@@ -55,7 +58,6 @@ func update_autura(player_y):
 func update_coleta(item):
 	ScoreManager.itens = ScoreManager.itens + item
 	return
-	
 
 
 func _process(_delta: float) -> void:
@@ -72,4 +74,7 @@ func toggle_fullscreen():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			
+
+#implementar para o menu
+func toggle_menu() -> void:
+	pass

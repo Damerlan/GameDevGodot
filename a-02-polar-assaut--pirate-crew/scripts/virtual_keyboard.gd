@@ -6,6 +6,8 @@ class_name  VirtualKeyboard
 
 
 func _ready() -> void:
+	Nglobal.show_teclado.connect(show)
+	
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		return
 	hide()

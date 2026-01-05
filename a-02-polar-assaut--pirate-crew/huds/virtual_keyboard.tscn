@@ -8,12 +8,12 @@ corner_radius_top_right = 6
 
 [node name="VirtualKeyboard" type="Control"]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 174.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_ka2j0")
 
 [node name="Panel" type="Panel" parent="."]
@@ -22,8 +22,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -88.0
-offset_bottom = -1.0
+offset_top = -87.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ka2j0")

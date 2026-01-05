@@ -44,9 +44,9 @@ func update_ranking():
 	var pos := 1
 
 	for entry in SaveManager.ranking:
-		var cor_posicao = Color(0.90, 0.93, 0.96)
+		var cor_posicao = Color(0.212, 0.576, 0.846, 1.0)
 		var cor_nome = Color(0.90, 0.93, 0.96)
-		var cor_score = Color(0.50, 0.70, 0.80)
+		var cor_score = Color(0.212, 0.576, 0.846, 1.0)
 
 		var row = HBoxContainer.new()
 		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -83,9 +83,9 @@ func update_ranking():
 
 		
 		if pos == 1:
-			#lbl_nome.add_theme_color_override("font_color", Color(0.65, 0.90, 0.95))
-			lbl_score.add_theme_color_override("font_color", Color(0.90, 0.65, 0.35))
-			lbl_nome.add_theme_color_override("font_color", Color.YELLOW)
+			lbl_nome.add_theme_color_override("font_color", Color(1.0, 0.253, 0.419, 1.0))
+			lbl_score.add_theme_color_override("font_color", Color(0.816, 0.68, 0.143, 1.0))
+			#lbl_nome.add_theme_color_override("font_color", Color.YELLOW)
 			#lbl_score.add_theme_color_override("font_color", Color.ORANGE)
 			lbl_nome.add_theme_font_size_override("font_size", 12)
 

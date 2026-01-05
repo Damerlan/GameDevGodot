@@ -1,8 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://brs8naxlglhr7"]
+[gd_scene load_steps=12 format=3 uid="uid://brs8naxlglhr7"]
 
 [ext_resource type="Script" uid="uid://dp5lnkh7vpnlp" path="res://scripts/loading_screen.gd" id="1_ep5rh"]
 [ext_resource type="Texture2D" uid="uid://dybjs2do1xnvc" path="res://assets/A01ParalaxLoby/loading.png" id="2_hprjd"]
+[ext_resource type="Texture2D" uid="uid://ck41fkuhlna70" path="res://assets/Sprite Pack 6/1 - Penguin/Waddling (16 x 16).png" id="3_5phy8"]
 [ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_ku3bi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djmwj"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qygbf"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu4a1"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if62a"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7y4a"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcv3i"]
+atlas = ExtResource("3_5phy8")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amnj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djmwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qygbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu4a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if62a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7y4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcv3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -17,6 +68,13 @@ script = ExtResource("1_ep5rh")
 position = Vector2(287, 201)
 scale = Vector2(0.41992185, 0.41992188)
 texture = ExtResource("2_hprjd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(235, 78)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_amnj2")
+autoplay = "default"
+frame_progress = 0.09639543
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -54,9 +112,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -52.0
-offset_top = -11.5
+offset_top = -24.5
 offset_right = 52.0
-offset_bottom = 11.5
+offset_bottom = -1.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.243711, 0.6193372, 0.69101346, 1)

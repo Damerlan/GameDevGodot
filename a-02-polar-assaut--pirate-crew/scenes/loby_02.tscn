@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwlcqmqkqnhma"]
+[gd_scene load_steps=13 format=3 uid="uid://dwlcqmqkqnhma"]
 
 [ext_resource type="FontFile" uid="uid://dxl1vm7aodpvi" path="res://assets/Fonts/polar/PolarSnow2.ttf" id="1_dvvqo"]
 [ext_resource type="Texture2D" uid="uid://clejaal2yjv3o" path="res://assets/botoes/Pannel.png" id="1_o4t3g"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://baelgfaeel8p2" path="res://scenes/back_ground_loby.tscn" id="2_ontmj"]
 [ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_1rpp0"]
 [ext_resource type="Texture2D" uid="uid://cs468qi6l7o6k" path="res://assets/botoes/g58.png" id="4_vdui6"]
+[ext_resource type="Texture2D" uid="uid://cqwiach2hau4s" path="res://assets/A01ParalaxLoby/log.png" id="4_yim40"]
 [ext_resource type="Texture2D" uid="uid://bws2o2x8a2l5e" path="res://assets/botoes/g59.png" id="5_8u6bm"]
 [ext_resource type="AudioStream" uid="uid://c00pnhyqgarhq" path="res://assets/outros/Clement Panchout _ Fluttering in the Sun _ (The GodMOTHer).wav" id="6_8vd6o"]
 [ext_resource type="AudioStream" uid="uid://c2d4i1tvfeqvd" path="res://assets/outros/FastUiSoundsSFX/SFX_FastUiClickMetal05.wav" id="7_gaxv2"]
@@ -34,8 +35,8 @@ offset_bottom = 268.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.966)
-position = Vector2(121.5, 124.50169)
-scale = Vector2(0.22963803, 0.22963804)
+position = Vector2(121.5, 137.92139)
+scale = Vector2(0.22963803, 0.20170943)
 texture = ExtResource("1_o4t3g")
 
 [node name="BoxContainer" type="BoxContainer" parent="Control"]
@@ -56,12 +57,17 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BoxContainer"]
 layout_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Control/BoxContainer/VBoxContainer"]
+position = Vector2(48, 11)
+scale = Vector2(0.14351836, 0.14351852)
+texture = ExtResource("4_yim40")
+
 [node name="Label" type="Label" parent="Control/BoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.646029, 0.646029, 0.64602923, 0.8745098)
 theme_override_fonts/font = ExtResource("1_dvvqo")
 theme_override_font_sizes/font_size = 24
-text = "Polar Assaut"
+text = "                "
 
 [node name="Label5" type="Label" parent="Control/BoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -110,7 +116,7 @@ theme_override_font_sizes/font_size = 6
 [node name="Label2" type="Label" parent="Control/BoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
-text = "v0.1.1 Alfa"
+text = "v0.3.3 Alfa"
 
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_8vd6o")

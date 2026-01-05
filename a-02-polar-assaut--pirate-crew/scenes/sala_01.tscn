@@ -73,7 +73,7 @@ process_mode = 3
 process_priority = 5
 layer = 10
 
-[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("12_h476b")]
+[node name="PauseMenu" parent="PauseLayer" groups=["menu"] instance=ExtResource("12_h476b")]
 process_thread_group = 1
 process_thread_group_order = 0
 process_thread_messages = 0
