@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwigvr2cn1sjp"]
+
+[ext_resource type="Script" uid="uid://t72ro2uquedm" path="res://entities/damage_popup.gd" id="1_i85k5"]
+
+[node name="DamagePopup" type="Node2D"]
+script = ExtResource("1_i85k5")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "-0"

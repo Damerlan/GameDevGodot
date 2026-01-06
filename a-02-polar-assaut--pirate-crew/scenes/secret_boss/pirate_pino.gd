@@ -7,6 +7,8 @@ enum State {
 	DEAD
 }
 
+@export var damage_popup_scene: PackedScene
+
 @export var speed: float = 140.0
 @export var push_force: float = 260.0
 @export var gravity: float = 900.0
@@ -23,7 +25,7 @@ var player: CharacterBody2D
 
 @export var max_life := 1000
 @export var life := 1000
-@export var head_hit_damage := 150
+@export var head_hit_damage := 50
 
 #avisando a plataforma do empacto
 var was_airborne := false
@@ -135,6 +137,7 @@ func on_player_jump_on_head(player: CharacterBody2D):
 	
 	# 🔴 CAUSA DANO
 	life -= head_hit_damage
+	_show_damage(head_hit_damage)
 	print("💀 Boss life:", life)
 		
 	anim.play("hit")
@@ -165,6 +168,17 @@ func on_player_jump_on_head(player: CharacterBody2D):
 	if life <= 0:
 		die()
 
+
+func _show_damage(amount: int):
+	if damage_popup_scene == null:
+		return
+
+	var popup := damage_popup_scene.instantiate()
+	get_parent().add_child(popup)
+
+	popup.global_position = global_position + Vector2(0, -24)
+	popup.setup(-amount)
+	
 
 func die():
 	state = State.DEAD
