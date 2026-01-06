@@ -1,57 +1,70 @@
 extends Node2D
 
-@export var float_distance := 20.0
-@export var duration := 0.5
-@export var start_scale := Vector2(0.6, 0.6)
-@export var end_scale := Vector2(1.2, 1.2)
+@export var float_distance := 24.0
+@export var duration := 0.6
+
+@export var start_scale := 0.7
+@export var end_scale := 1.2
+
+@export var shake_strength := 2.0
 
 @onready var label: Label = $Label
 
+var start_pos: Vector2
+var elapsed := 0.0
+var rng := RandomNumberGenerator.new()
+
 func setup(value: int):
-	label.text = str(value)
-	label.modulate = Color(1, 1, 0) # amarelo
-	scale = start_scale
+	# texto com sinal negativo
+	label.text = "-" + str(value)
 
-func _ready():
-	# 🔥 ISSO RESOLVE O PROBLEMA DO "CANTO DA TELA"
-	top_level = true
+	start_pos = global_position
+	scale = Vector2.ONE * start_scale
 
-	var start_pos := global_position
-	var end_pos := start_pos + Vector2(0, -float_distance)
+	# COR INICIAL (amarelo)
+	label.modulate = Color(1.0, 1.0, 0.2, 1.0)
 
-	var tween := create_tween()
-	tween.set_parallel(true)
+	# OUTLINE PIXEL ART
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 2)
 
-	# 🔼 sobe
-	tween.tween_property(
-		self,
-		"global_position",
-		end_pos,
-		duration
-	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	rng.randomize()
 
-	# 🔍 cresce
-	tween.tween_property(
-		self,
-		"scale",
-		end_scale,
-		duration
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-	# 🎨 amarelo → vermelho
-	tween.tween_property(
-		label,
-		"modulate",
-		Color(1, 0.2, 0.2),
-		duration
+func _process(delta):
+	elapsed += delta
+	var t := elapsed / duration
+	t = clamp(t, 0.0, 1.0)
+
+	# SUBIR
+	global_position.y = lerp(
+		start_pos.y,
+		start_pos.y - float_distance,
+		t
 	)
 
-	# 🌫️ fade
-	tween.tween_property(
-		label,
-		"modulate:a",
-		0.0,
-		duration
-	)
+	# SCALE (pequeno → grande)
+	var s: float = lerp(start_scale, end_scale, ease_out(t))
+	scale = Vector2.ONE * s
 
-	tween.finished.connect(queue_free)
+	# COR (amarelo → vermelho)
+	label.modulate.r = lerp(1.0, 1.0, t)
+	label.modulate.g = lerp(1.0, 0.2, t)
+	label.modulate.b = lerp(0.2, 0.2, t)
+
+	# SHAKE LEVE
+	var shake := Vector2(
+		rng.randf_range(-shake_strength, shake_strength),
+		rng.randf_range(-shake_strength, shake_strength)
+	)
+	position += shake * (1.0 - t)
+
+	# FADE OUT
+	label.modulate.a = lerp(1.0, 0.0, t)
+
+	if t >= 1.0:
+		queue_free()
+
+
+func ease_out(t: float) -> float:
+	return 1.0 - pow(1.0 - t, 3)

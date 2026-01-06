@@ -100,13 +100,27 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 			if collision:
 				var obj = collision.get_collider()
 
+				if obj:#verifica se está no gelo
+					# Se a plataforma TEM gelo
+					if obj.has_method("is_ice") and obj.is_ice():
+						enter_ice(
+							obj.ice_accel_multiplier,
+							obj.ice_decel_multiplier
+						)
+					else:
+						exit_ice()
+
 				if obj and obj.has_method("register_as_safe"):
 					obj.register_as_safe()
 		else:
 			# Aqui evitamos registrar plataformas onde o player
 			# pousou na quina ou numa lateral
 			print("Ignorado: pousou na quina / lateral.")
+	# Saiu do chão? NÃO pode continuar no gelo
 	
+	#detecta se o player esta no jelo
+	if not is_on_floor() and on_ice:
+		exit_ice()
 	# --- State Machine ---
 	match status:
 		PlayerState.idle:

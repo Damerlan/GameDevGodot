@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum State {
 	IDLE,
 	CHASE,
+	REPOSITION,
 	STUN,
 	DEAD
 }
@@ -15,6 +16,16 @@ enum State {
 
 @export var stun_time: float = 0.8
 
+@export var max_life := 1000
+@export var life := 1000
+@export var head_hit_damage := 50
+
+@export var reposition_time := 0.4
+@export var reposition_speed := 90.0
+
+@export var decision_cooldown := 0.5  # tempo entre decisões
+var decision_timer := 0.0
+
 @onready var ray_left: RayCast2D = $LeftEdge
 @onready var ray_right: RayCast2D = $RightEdge
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,9 +34,11 @@ var state := State.CHASE
 var stun_timer: float = 0.0
 var player: CharacterBody2D
 
-@export var max_life := 1000
-@export var life := 1000
-@export var head_hit_damage := 50
+@export var reposition_cooldown := 0.6
+var reposition_cd := 0.0
+
+var reposition_timer := 0.0
+var reposition_dir := 0
 
 #avisando a plataforma do empacto
 var was_airborne := false
@@ -47,14 +60,39 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 		
-	_apply_gravity(delta)
+	_apply_gravity(delta)#tremor
+	
+	# Atualiza timer
+	decision_timer -= delta
+	
+	if state == State.CHASE and player:
+		var player_above := player.global_position.y < global_position.y - 12
+		var player_falling := player.velocity.y > 0
 
+		if player_above and not player_falling:
+			var safe := true
+
+			reposition_dir = sign(global_position.x - player.global_position.x)
+			if reposition_dir == 0:
+				reposition_dir = -1 if randf() < 0.5 else 1
+
+			if reposition_dir < 0 and not ray_left.is_colliding():
+				safe = false
+			elif reposition_dir > 0 and not ray_right.is_colliding():
+				safe = false
+
+			if safe:
+				state = State.REPOSITION
+				reposition_timer = reposition_time
+			
 	match state:
 		State.CHASE:
 			_chase_player(delta)
 			_update_animation()
 		State.STUN:
 			_update_stun(delta)
+		State.REPOSITION:
+			_update_reposition(delta)
 
 	# ⚠️ MOVE PRIMEIRO
 	move_and_slide()
@@ -91,6 +129,28 @@ func _update_animation() -> void:
 	anim.flip_h = velocity.x > 0
 
 
+func _update_reposition(delta):
+	reposition_timer -= delta
+
+	# checagem de borda (IGUAL ao chase)
+	if reposition_dir < 0 and not ray_left.is_colliding():
+		velocity.x = 0
+		state = State.CHASE
+		return
+	elif reposition_dir > 0 and not ray_right.is_colliding():
+		velocity.x = 0
+		state = State.CHASE
+		return
+
+	# movimento mais suave
+	velocity.x = lerp(
+		velocity.x,
+		reposition_dir * reposition_speed,
+		delta * 4
+	)
+
+	if reposition_timer <= 0:
+		state = State.CHASE
 
 func _chase_player(_delta):
 	if player == null:
@@ -173,12 +233,20 @@ func _show_damage(amount: int):
 	if damage_popup_scene == null:
 		return
 
-	var popup := damage_popup_scene.instantiate()
-	get_parent().add_child(popup)
+	var popup = damage_popup_scene.instantiate()
 
-	popup.global_position = global_position + Vector2(0, -24)
-	popup.setup(-amount)
-	
+	# adiciona no mundo (não como filho do boss)
+	get_tree().current_scene.add_child(popup)
+
+	# posição baseada no Marker
+	var spawn = $DamageSpawn.global_position
+
+	# pequeno offset aleatório (vida!)
+	spawn.x += randf_range(-6, 6)
+	spawn.y += randf_range(-4, 4)
+
+	popup.global_position = spawn
+	popup.setup(amount)
 
 func die():
 	state = State.DEAD

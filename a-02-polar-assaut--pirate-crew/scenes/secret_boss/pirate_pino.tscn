@@ -371,5 +371,8 @@ collision_mask = 2
 position = Vector2(0, -19)
 shape = SubResource("CapsuleShape2D_7p5sc")
 
+[node name="DamageSpawn" type="Marker2D" parent="."]
+position = Vector2(0, -41)
+
 [connection signal="body_entered" from="Heady" to="." method="_on_heady_body_entered"]
 [connection signal="body_entered" from="BodyHitArea" to="." method="_on_body_hit_area_body_entered"]

@@ -49,3 +49,6 @@ func _on_ice_area_body_entered(body: Node2D) -> void:
 func _on_ice_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.exit_ice()
+
+func is_ice() -> bool:
+	return true
