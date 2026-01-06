@@ -44,6 +44,15 @@ signal morreu
 #---------------------------------------------
 # Internas
 #---------------------------------------------
+# ---------------------------------------------
+# Plataforma escorregadia (ICE)
+# ---------------------------------------------
+var on_ice: bool = false
+
+@export var ice_accel_multiplier: float = 0.25   # menos resposta ao input
+@export var ice_decel_multiplier: float = 0.1    # demora pra parar
+
+
 var status: PlayerState	#variável de status
 @export var input_dir := 0.0
 
@@ -83,10 +92,8 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	
 	if is_on_floor(): #registrando a plataforma
 		var normal = get_floor_normal()
-
 		# Garante que o player pousou no topo plano da plataforma
 		if normal.is_equal_approx(Vector2.UP):
-			
 			# Pegamos a plataforma pela última colisão do slide
 			var collision = get_last_slide_collision()
 			
@@ -117,13 +124,23 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	#fim do Switch
 	update_jump_ui()#jump UI
 	move_and_slide()#calcula a posição do player com base no movimento
+ 	#debug
+	#if on_ice:
+	#print("🧊 ICE ATIVO")
 
-	
-	
-	
-		
 
+
+func enter_ice(accel_mult: float, decel_mult: float):
+	on_ice = true
+	ice_accel_multiplier = accel_mult
+	ice_decel_multiplier = decel_mult
+
+func exit_ice():
+	on_ice = false
+	ice_accel_multiplier = 1.0
+	ice_decel_multiplier = 1.0
 #---#funçoes de preparação para o status do player-------#
+
 
 func go_to_idle_state():#entrada idle state
 	status = PlayerState.idle	 #define o estado
@@ -170,7 +187,6 @@ func idle_state(delta):
 		return
 
 
-
 func run_state(delta):
 	apply_movement(delta)
 	
@@ -193,6 +209,7 @@ func run_state(delta):
 		soft_jump()
 		return
 
+
 func jump_state(delta):
 	apply_movement(delta)
 	
@@ -207,8 +224,6 @@ func jump_state(delta):
 			go_to_idle_state()
 		else:
 			go_to_run_state()
-			
-
 
 
 func fall_state(delta):
@@ -229,8 +244,6 @@ func hit_state(delta):
 	# Player não mexe horizontalmente enquanto leva dano
 	velocity.x = move_toward(velocity.x, 0, 30 * delta)
 	
-	# mantém a física
-	# move_and_slide() é chamado fora
 
 func death_state(_delta):
 	pass
@@ -251,7 +264,8 @@ func aplyca_gravity(_delta):
 func update_direction():
 	pass
 
-func apply_movement(delta):
+
+func apply_movement_old(delta):
 	# aplica movimento horizontal
 	if input_dir != 0:
 		var speed_with_momentum = move_speed + (run_momentum * 0.3)
@@ -266,8 +280,32 @@ func apply_movement(delta):
 	elif input_dir > 0:
 		anim.flip_h = false
 
-#func read_input():
-#	input_dir = Input.get_axis("left", "right")
+func apply_movement(delta):
+	var accel := acceleration * ice_accel_multiplier
+	var decel := deceleration * ice_decel_multiplier
+
+	if input_dir != 0:
+		var speed_with_momentum = move_speed + (run_momentum * 0.3)
+		velocity.x = move_toward(
+			velocity.x,
+			input_dir * speed_with_momentum,
+			accel * delta
+		)
+	else:
+		velocity.x = move_toward(
+			velocity.x,
+			0,
+			decel * delta
+		)
+
+	if input_dir < 0:
+		anim.flip_h = true
+	elif input_dir > 0:
+		anim.flip_h = false
+
+
+
+
 
 func read_input():
 	input_dir = Input.get_axis("move_left", "move_right")
@@ -286,6 +324,13 @@ func soft_jump():
 	var extra_force = run_momentum * 0.2 #menos influencia do momentum
 	velocity.y = (jump_force * soft_jump_multiplier) - extra_force
 	go_to_jump_state()
+
+func apply_knockback(dir) -> void:
+	if not is_on_floor():
+		return
+	
+	velocity.x = dir * 180
+	velocity.y = -420
 #-----------------------------------------#
 
 func update_jump_ui():
