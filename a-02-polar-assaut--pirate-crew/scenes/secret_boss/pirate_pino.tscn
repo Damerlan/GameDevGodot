@@ -1,8 +1,9 @@
-[gd_scene load_steps=78 format=3 uid="uid://c6lgmiyuljosp"]
+[gd_scene load_steps=79 format=3 uid="uid://c6lgmiyuljosp"]
 
 [ext_resource type="Texture2D" uid="uid://ca5legom6l2my" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/1.png" id="1_c4wy2"]
 [ext_resource type="Script" uid="uid://kxu8ibef88xu" path="res://scenes/secret_boss/pirate_pino.gd" id="1_dxj6c"]
 [ext_resource type="Texture2D" uid="uid://byjq25lb057u2" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/2.png" id="2_x8fj7"]
+[ext_resource type="PackedScene" uid="uid://b2qertf3mu73u" path="res://entities/dialogue_balloon.tscn" id="3_6borx"]
 [ext_resource type="Texture2D" uid="uid://b4dqgdhfawjnd" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/3.png" id="3_gwq3q"]
 [ext_resource type="Texture2D" uid="uid://cbaq3l1rgaam" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/4.png" id="4_wlu8a"]
 [ext_resource type="Texture2D" uid="uid://b1uef08o3qjig" path="res://assets/PirateBombs/3-Enemy-Cucumber/7-Attack/5.png" id="5_mvk8q"]
@@ -326,9 +327,10 @@ radius = 11.0
 radius = 12.0
 height = 38.0
 
-[node name="PiratePino" type="CharacterBody2D"]
+[node name="PiratePino" type="CharacterBody2D" groups=["Boss"]]
 script = ExtResource("1_dxj6c")
 damage_popup_scene = ExtResource("73_3q0jk")
+dialogue_balloon_scene = ExtResource("3_6borx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -337,10 +339,8 @@ texture = ExtResource("12_hssbb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -33)
 sprite_frames = SubResource("SpriteFrames_dlt2i")
-animation = &"death"
+animation = &"attack"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -373,6 +373,9 @@ shape = SubResource("CapsuleShape2D_7p5sc")
 
 [node name="DamageSpawn" type="Marker2D" parent="."]
 position = Vector2(0, -41)
+
+[node name="DialogBallom" type="Marker2D" parent="."]
+position = Vector2(0, -75)
 
 [connection signal="body_entered" from="Heady" to="." method="_on_heady_body_entered"]
 [connection signal="body_entered" from="BodyHitArea" to="." method="_on_body_hit_area_body_entered"]

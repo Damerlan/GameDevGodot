@@ -15,6 +15,7 @@ enum PlayerState{
 @onready var fx_jump: AudioStreamPlayer = $Souds/fx_jump
 @onready var fx_damage: AudioStreamPlayer = $Souds/fx_damage
 @onready var fx_teleport: AudioStreamPlayer = $Souds/fx_teleport
+@onready var dialog_ballom: Marker2D = $DialogBallom
 
 #---------------------------------------------
 # Nodes
@@ -36,6 +37,10 @@ enum PlayerState{
 @export var jump_force := -600.0
 
 @export var soft_jump_multiplier := 0.55
+
+#sistema de baloes de dialogo
+@export var dialogue_balloon_scene: PackedScene
+var current_balloon: Node2D
 #---------------------------------------------
 # Sinais
 #---------------------------------------------
@@ -44,6 +49,8 @@ signal morreu
 #---------------------------------------------
 # Internas
 #---------------------------------------------
+var can_control := true #trava de controle para boss fight
+
 # ---------------------------------------------
 # Plataforma escorregadia (ICE)
 # ---------------------------------------------
@@ -67,15 +74,23 @@ var SPEED = 80.0
 
 #-----------funçoes do sistema e fisica------------------#
 func _ready() -> void:
+	#can_control = false # teste
 	go_to_idle_state()	#coloca o player em idle state
 	jump_ui.position = Vector2(9, -7)
-	
+	#show_dialogue("Teste funcionando")
+	#show_dialogue("Teste de fala")
 	if OS.has_feature("web") or OS.has_feature("mobile"):
 		if dust_particles:
 			dust_particles.queue_free()
    
 
 func _physics_process(delta: float) -> void:	#processo de fisica
+	#mecanica de controle das salas de boss
+	if not can_control:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	#-----
 	read_input()
 	#gravidade
 	if not is_on_floor():	#se o player nao está no chão
@@ -142,7 +157,26 @@ func _physics_process(delta: float) -> void:	#processo de fisica
 	#if on_ice:
 	#print("🧊 ICE ATIVO")
 
+#balao de dialogo
+func show_dialogue(text: String) -> Node2D:
+	if current_balloon:
+		current_balloon.queue_free()
 
+	current_balloon = dialogue_balloon_scene.instantiate()
+	get_tree().current_scene.add_child(current_balloon)
+
+	current_balloon.show_at(dialog_ballom.global_position)
+	current_balloon.set_text(text)
+
+	return current_balloon
+
+
+
+func clear_dialogue():
+	if current_balloon:
+		current_balloon.queue_free()
+		current_balloon = null	
+	
 
 func enter_ice(accel_mult: float, decel_mult: float):
 	on_ice = true

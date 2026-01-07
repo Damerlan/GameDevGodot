@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6axpcuym8so6"]
+[gd_scene load_steps=10 format=3 uid="uid://b6axpcuym8so6"]
 
 [ext_resource type="Texture2D" uid="uid://cqmjnpagkreik" path="res://assets/botoes/normal.png" id="1_6b6xl"]
+[ext_resource type="Script" uid="uid://c436p45wgdngo" path="res://scenes/secret_rooms/boss_room_01.gd" id="1_aamui"]
 [ext_resource type="PackedScene" uid="uid://bi3sx87m8rh31" path="res://entities/plat_form_ring.tscn" id="1_yxynw"]
 [ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="2_fmldw"]
 [ext_resource type="PackedScene" uid="uid://c6lgmiyuljosp" path="res://scenes/secret_boss/pirate_pino.tscn" id="3_8ulpx"]
@@ -16,6 +17,7 @@ size = Vector2(377, 20)
 size = Vector2(499, 20)
 
 [node name="BossRoom01" type="Node2D"]
+script = ExtResource("1_aamui")
 metadata/_edit_vertical_guides_ = [50.0, 480.0, 430.0]
 
 [node name="PlatFormRing2" parent="." instance=ExtResource("1_yxynw")]
@@ -40,7 +42,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_yxynw")
 
 [node name="PlayerPeko" parent="." instance=ExtResource("2_fmldw")]
-position = Vector2(140, 54)
+position = Vector2(74, 222)
 
 [node name="Parede" type="StaticBody2D" parent="."]
 
@@ -59,19 +61,7 @@ rotation = -1.5726173
 shape = SubResource("RectangleShape2D_8ulpx")
 
 [node name="PiratePino" parent="." instance=ExtResource("3_8ulpx")]
-position = Vector2(346, 218)
-speed = null
-push_force = null
-gravity = null
-stun_time = null
-max_life = null
-life = null
-head_hit_damage = null
-reposition_time = null
-reposition_speed = null
-decision_cooldown = null
-reposition_cooldown = null
-body_hit_cooldown = null
+position = Vector2(360, 231)
 
 [node name="Plataforma" parent="." instance=ExtResource("5_1tutx")]
 position = Vector2(591, 85)

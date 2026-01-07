@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 enum State {
+	INTRO,
 	IDLE,
 	CHASE,
 	REPOSITION,
@@ -29,8 +30,9 @@ var decision_timer := 0.0
 @onready var ray_left: RayCast2D = $LeftEdge
 @onready var ray_right: RayCast2D = $RightEdge
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dialog_ballom: Marker2D = $DialogBallom
 
-var state := State.CHASE
+var state := State.INTRO
 var stun_timer: float = 0.0
 var player: CharacterBody2D
 
@@ -44,18 +46,31 @@ var reposition_dir := 0
 var was_airborne := false
 var heavy_landing := false
 
+#sistema de dialogo
+@export var dialogue_balloon_scene: PackedScene
+var current_balloon: Node2D
 
 #empurrando o player
 @export var body_hit_cooldown := 0.2
 
 var can_body_hit := true
 
+signal boss_defeated #sinal para quando o boss morre
+
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	anim.play("idle")
-
+	#show_dialogue("Teste de fala")
 
 func _physics_process(delta: float) -> void:
+	#stado de introdução
+	if state == State.INTRO:
+		velocity = Vector2.ZERO
+		anim.play("idle")
+		move_and_slide()
+		return
+	#se moreu
 	if state == State.DEAD:
 		move_and_slide()
 		return
@@ -152,6 +167,19 @@ func _update_reposition(delta):
 	if reposition_timer <= 0:
 		state = State.CHASE
 
+func show_dialogue(text: String) -> Node2D:
+	if current_balloon:
+		current_balloon.queue_free()
+
+	current_balloon = dialogue_balloon_scene.instantiate()
+	get_tree().current_scene.add_child(current_balloon)
+
+	current_balloon.show_at(dialog_ballom.global_position)
+	current_balloon.set_text(text)
+
+	return current_balloon
+
+
 func _chase_player(_delta):
 	if player == null:
 		velocity.x = 0
@@ -176,7 +204,10 @@ func _chase_player(_delta):
 
 	velocity.x = dir * speed
 
-
+func clear_dialogue():
+	if current_balloon:
+		current_balloon.queue_free()
+		current_balloon = null
 
 func _update_stun(delta):
 	if state == State.DEAD:
@@ -259,6 +290,8 @@ func die():
 	velocity.y = -20
 
 	print("☠️ Boss morreu de verdade")
+	emit_signal("boss_defeated")
+
 
 	await anim.animation_finished
 	queue_free()
