@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2qertf3mu73u"]
+[gd_scene load_steps=3 format=3 uid="uid://b2qertf3mu73u"]
 
 [ext_resource type="Script" uid="uid://dyfawbqadqyfp" path="res://entities/dialogue_balloon.gd" id="1_xcc8j"]
+[ext_resource type="AudioStream" uid="uid://bmdovmejehrwk" path="res://assets/fx/beep-22.wav" id="2_3sqwv"]
 
 [node name="DialogueBalloon" type="Node2D"]
 script = ExtResource("1_xcc8j")
@@ -57,3 +58,7 @@ offset_bottom = 40.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 7
 text = "Teste diálogo..."
+
+[node name="TypeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3sqwv")
+volume_db = -10.0

@@ -2,8 +2,12 @@ extends Node2D
 
 @onready var label := $Panel2/MarginContainer/Label
 @onready var panel := $Panel2
+@onready var type_sound: AudioStreamPlayer = $TypeSound
 
 @export var max_text_width := 100
+
+@export var sound_every := 2
+var sound_counter := 0
 
 var full_text := ""
 var char_index := 0
@@ -57,9 +61,16 @@ func set_text(text: String):
 
 func _start_typing():
 	while char_index < full_text.length():
-		label.text += full_text[char_index]
+		var char := full_text[char_index]
+		label.text += char
 		char_index += 1
 		update_size()
+
+		# 🔊 Som só em letras visíveis
+		if char != " " and char != "\n" and type_sound:
+			if not type_sound.playing:
+				type_sound.play()
+
 		await get_tree().create_timer(typing_speed).timeout
 
 	typing = false

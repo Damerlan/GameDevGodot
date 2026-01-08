@@ -32,6 +32,8 @@ var decision_timer := 0.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dialog_ballom: Marker2D = $DialogBallom
 
+@onready var hit_efect: AudioStreamPlayer = $HitEfect
+
 var state := State.INTRO
 var stun_timer: float = 0.0
 var player: CharacterBody2D
@@ -229,6 +231,7 @@ func on_player_jump_on_head(player: CharacterBody2D):
 	# 🔴 CAUSA DANO
 	life -= head_hit_damage
 	_show_damage(head_hit_damage)
+	hit_efect.play()
 	print("💀 Boss life:", life)
 		
 	anim.play("hit")
