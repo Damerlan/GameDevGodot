@@ -30,6 +30,8 @@ enum PlayerState{
 #---------------------------------------------
 # Variáveis exportáveis
 #---------------------------------------------
+@export var momentum_move_multiplier := 0.15 # antes era 0.3
+
 @export var max_speed = 250
 @export var move_speed := 160.0
 @export var acceleration := 600.0
@@ -37,6 +39,13 @@ enum PlayerState{
 @export var jump_force := -600.0
 
 @export var soft_jump_multiplier := 0.55
+
+# --- Modificadores de sala ---
+var base_jump_force: float
+var base_soft_jump_multiplier: float
+var base_momentum_jump_multiplier := 0.4
+
+@export var min_accel_factor := 0.5 #movimento 
 
 #sistema de baloes de dialogo
 @export var dialogue_balloon_scene: PackedScene
@@ -56,10 +65,12 @@ var can_control := true #trava de controle para boss fight
 # ---------------------------------------------
 var on_ice: bool = false
 
-@export var ice_accel_multiplier: float = 0.25   # menos resposta ao input
-@export var ice_decel_multiplier: float = 0.1    # demora pra parar
+@export var ice_accel_multiplier: float = 0.6   # menos resposta ao input
+@export var ice_decel_multiplier: float = 0.05    # demora pra parar
 
-
+# Gelo
+#ice_accel_multiplier = 0.6   # responde melhor ao input
+#ice_decel_multiplier = 0.05 # demora MUITO pra parar
 var status: PlayerState	#variável de status
 @export var input_dir := 0.0
 
@@ -74,6 +85,11 @@ var SPEED = 80.0
 
 #-----------funçoes do sistema e fisica------------------#
 func _ready() -> void:
+	#criando bkp das mecanicas de pulo
+	base_jump_force = jump_force
+	base_soft_jump_multiplier = soft_jump_multiplier
+	base_momentum_jump_multiplier = 0.4
+	
 	#can_control = false # teste
 	go_to_idle_state()	#coloca o player em idle state
 	jump_ui.position = Vector2(9, -7)
@@ -239,7 +255,9 @@ func run_state(delta):
 	apply_movement(delta)
 	
 	# acumula momentum enquanto corre
-	if input_dir != 0:
+	var is_actually_moving: bool = abs(velocity.x) > 5.0
+	
+	if input_dir != 0 and is_actually_moving:
 		run_momentum += momentum_gain * delta
 	else:
 		run_momentum -= momentum_decay * delta
@@ -313,27 +331,20 @@ func update_direction():
 	pass
 
 
-func apply_movement_old(delta):
-	# aplica movimento horizontal
-	if input_dir != 0:
-		var speed_with_momentum = move_speed + (run_momentum * 0.3)
-		velocity.x = move_toward(velocity.x, input_dir * speed_with_momentum, acceleration * delta)
-		#velocity.x = move_toward(velocity.x, input_dir * move_speed, acceleration * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-
-	# vira sprite
-	if input_dir < 0:
-		anim.flip_h = true
-	elif input_dir > 0:
-		anim.flip_h = false
-
 func apply_movement(delta):
 	var accel := acceleration * ice_accel_multiplier
 	var decel := deceleration * ice_decel_multiplier
 
+	# 🔒 REDUZ aceleração conforme momentum cresce
+	if not on_ice:
+		var momentum_ratio: float = float(run_momentum) / float(max_momentum)
+		var accel_factor: float = lerp(1.0, min_accel_factor, momentum_ratio)
+		accel *= accel_factor
+
 	if input_dir != 0:
-		var speed_with_momentum = move_speed + (run_momentum * 0.3)
+		var speed_with_momentum = move_speed + (run_momentum * momentum_move_multiplier)
+		speed_with_momentum = min(speed_with_momentum, max_speed)
+
 		velocity.x = move_toward(
 			velocity.x,
 			input_dir * speed_with_momentum,
@@ -346,6 +357,9 @@ func apply_movement(delta):
 			decel * delta
 		)
 
+	# trava final de segurança
+	velocity.x = clamp(velocity.x, -max_speed, max_speed)
+
 	if input_dir < 0:
 		anim.flip_h = true
 	elif input_dir > 0:
@@ -354,24 +368,38 @@ func apply_movement(delta):
 
 
 
-
 func read_input():
 	input_dir = Input.get_axis("move_left", "move_right")
 
-func jump():
+func jump_old():#Jump antigo
 	#velocity.y = jump_force
 	var extra_force = run_momentum * 0.4    # 40% do momentum vira força no pulo
 	velocity.y = jump_force - extra_force
 	go_to_jump_state()
 	#change_state(PlayerState.jump)
+
+func jump(): #novo Jump
+	var extra_force = run_momentum * base_momentum_jump_multiplier
+	velocity.y = jump_force - extra_force
+	go_to_jump_state()	
 	
-func soft_jump():
+func soft_jump_old():#soft antigo
 	if not is_on_floor():
 		return
 		
 	var extra_force = run_momentum * 0.2 #menos influencia do momentum
 	velocity.y = (jump_force * soft_jump_multiplier) - extra_force
 	go_to_jump_state()
+
+
+func soft_jump():#soft jump novo
+	if not is_on_floor():
+		return
+
+	var extra_force = run_momentum * (base_momentum_jump_multiplier * 0.5)
+	velocity.y = (jump_force * soft_jump_multiplier) - extra_force
+	go_to_jump_state()
+
 
 func apply_knockback(dir) -> void:
 	if not is_on_floor():
@@ -468,3 +496,21 @@ func _do_respawn():
 	await get_tree().create_timer(0.2).timeout
 	
 	go_to_idle_state()
+
+# ===============================
+# CONTROLE DE MECÂNICA POR SALA
+# ===============================
+func apply_boss_room_jump(
+	new_jump_force: float,
+	new_soft_multiplier: float,
+	new_momentum_multiplier: float
+) -> void:
+	jump_force = new_jump_force
+	soft_jump_multiplier = new_soft_multiplier
+	base_momentum_jump_multiplier = new_momentum_multiplier
+
+
+func restore_default_jump() -> void:
+	jump_force = base_jump_force
+	soft_jump_multiplier = base_soft_jump_multiplier
+	base_momentum_jump_multiplier = 0.4

@@ -351,4 +351,4 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_7np5p")
 
 [node name="DialogBallom" type="Marker2D" parent="."]
-position = Vector2(0, -18)
+position = Vector2(-23, -41)

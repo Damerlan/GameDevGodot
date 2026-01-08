@@ -338,11 +338,10 @@ visible = false
 texture = ExtResource("12_hssbb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -33)
+position = Vector2(0, -34)
 sprite_frames = SubResource("SpriteFrames_dlt2i")
 animation = &"attack"
 autoplay = "idle"
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -30)
@@ -376,7 +375,7 @@ shape = SubResource("CapsuleShape2D_7p5sc")
 position = Vector2(0, -41)
 
 [node name="DialogBallom" type="Marker2D" parent="."]
-position = Vector2(0, -75)
+position = Vector2(-37, -99)
 
 [node name="HitEfect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("75_mhbma")

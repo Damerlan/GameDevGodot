@@ -20,8 +20,10 @@ size = Vector2(499, 20)
 script = ExtResource("1_aamui")
 metadata/_edit_vertical_guides_ = [50.0, 480.0, 430.0]
 
-[node name="PlatFormRing2" parent="." instance=ExtResource("1_yxynw")]
-position = Vector2(236, 243)
+[node name="Platform" type="Node2D" parent="."]
+
+[node name="PlatFormRing2" parent="Platform" instance=ExtResource("1_yxynw")]
+position = Vector2(52.000004, 248.00002)
 
 [node name="PlatFormRing" type="StaticBody2D" parent="."]
 visible = false
@@ -42,12 +44,12 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_yxynw")
 
 [node name="PlayerPeko" parent="." instance=ExtResource("2_fmldw")]
-position = Vector2(74, 222)
+position = Vector2(80, 225)
 
 [node name="Parede" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parede"]
-position = Vector2(239.5, -12)
+position = Vector2(240, -14)
 shape = SubResource("RectangleShape2D_8ulpx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Parede"]
@@ -61,7 +63,7 @@ rotation = -1.5726173
 shape = SubResource("RectangleShape2D_8ulpx")
 
 [node name="PiratePino" parent="." instance=ExtResource("3_8ulpx")]
-position = Vector2(360, 231)
+position = Vector2(360, 233)
 
 [node name="Plataforma" parent="." instance=ExtResource("5_1tutx")]
 position = Vector2(591, 85)

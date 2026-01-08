@@ -6,8 +6,8 @@ extends Node2D
 
 @export var dialogue_sequence := [
 	{"speaker": "boss", "text": "Eu vou te fazer andar na prancha, intruso!"},
-	{"speaker": "player", "text": "Devolva meu tesouro, Pirata Pepino!"},
-	{"speaker": "boss", "text": "Hahaha! Só passando por cima de mim!"}
+	{"speaker": "player", "text": "Devolva meu tesouro, Pirata!"},
+	{"speaker": "boss", "text": "Hahaha! Venha pegar, projeto de marujo!"}
 ]
 
 #@onready var player: CharacterBody2D = $PlayerPeko
@@ -16,7 +16,10 @@ extends Node2D
 @onready var player := get_tree().get_first_node_in_group("Player")
 @onready var boss := get_tree().get_first_node_in_group("Boss")
 
-
+#parametros de ajustes do player
+@export var boss_jump_force := -420.0
+@export var boss_soft_jump_multiplier := 0.8
+@export var boss_momentum_jump_multiplier := 0.25
 
 
 var dialogue_index := 0
@@ -32,7 +35,8 @@ func _ready():
 
 
 func on_boss_defeated():
-	GameManager.finalizar_partida()
+	player.restore_default_jump()
+	#GameManager.finalizar_partida()
 	abrir_portas()
 
 
@@ -42,12 +46,18 @@ func abrir_portas() -> void:
 
 func start_intro():
 	player.can_control = false
-	boss.state = boss.State.INTRO
 
+	# 🔽 APLICA MECÂNICA DA SALA
+	player.apply_boss_room_jump(
+		boss_jump_force,
+		boss_soft_jump_multiplier,
+		boss_momentum_jump_multiplier
+	)
+
+	boss.state = boss.State.INTRO
 	dialogue_index = 0
 	in_dialogue = true
 	waiting_clear = false
-
 	show_next_dialogue()
 
 
