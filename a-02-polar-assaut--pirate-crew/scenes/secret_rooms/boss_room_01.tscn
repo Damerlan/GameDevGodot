@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6axpcuym8so6"]
+[gd_scene load_steps=9 format=3 uid="uid://b6axpcuym8so6"]
 
 [ext_resource type="Texture2D" uid="uid://cqmjnpagkreik" path="res://assets/botoes/normal.png" id="1_6b6xl"]
 [ext_resource type="Script" uid="uid://c436p45wgdngo" path="res://scenes/secret_rooms/boss_room_01.gd" id="1_aamui"]
 [ext_resource type="PackedScene" uid="uid://bi3sx87m8rh31" path="res://entities/plat_form_ring.tscn" id="1_yxynw"]
 [ext_resource type="PackedScene" uid="uid://b4ogkwmkdhmb7" path="res://entities/player_peko.tscn" id="2_fmldw"]
 [ext_resource type="PackedScene" uid="uid://c6lgmiyuljosp" path="res://scenes/secret_boss/pirate_pino.tscn" id="3_8ulpx"]
-[ext_resource type="PackedScene" uid="uid://br67ppirdrfo3" path="res://plataforms/plataforma.tscn" id="5_1tutx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmldw"]
 size = Vector2(377, 20)
@@ -64,6 +63,3 @@ shape = SubResource("RectangleShape2D_8ulpx")
 
 [node name="PiratePino" parent="." instance=ExtResource("3_8ulpx")]
 position = Vector2(360, 233)
-
-[node name="Plataforma" parent="." instance=ExtResource("5_1tutx")]
-position = Vector2(591, 85)
