@@ -1,36 +1,32 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi3sx87m8rh31"]
 
 [ext_resource type="Script" uid="uid://cu4cp48fvxul4" path="res://entities/plat_form_ring.gd" id="1_atwwy"]
-[ext_resource type="Texture2D" uid="uid://cqmjnpagkreik" path="res://assets/botoes/normal.png" id="1_caomk"]
+[ext_resource type="Texture2D" uid="uid://0vrxf5lpexc" path="res://assets/Plataformas/PlatformBoss1.png" id="2_atwwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmldw"]
-size = Vector2(250, 20)
+size = Vector2(109.333336, 9.333333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxynw"]
-size = Vector2(250, 21)
+size = Vector2(108, 8)
 
 [node name="PlatFormRing" type="StaticBody2D" groups=["IcePlatform"]]
-scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("1_atwwy")
 metadata/_edit_vertical_guides_ = [250.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(125, 0)
+position = Vector2(-1.9073486e-06, -2.6666667)
 shape = SubResource("RectangleShape2D_fmldw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(125, 0.0625)
-scale = Vector2(3.4246573, 1.00625)
-texture = ExtResource("1_caomk")
-
 [node name="IceArea" type="Area2D" parent="."]
-position = Vector2(28.000002, 0)
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea"]
-position = Vector2(97, -0.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_yxynw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_atwwy")
 
 [connection signal="body_entered" from="IceArea" to="." method="_on_ice_area_body_entered"]
 [connection signal="body_exited" from="IceArea" to="." method="_on_ice_area_body_exited"]
