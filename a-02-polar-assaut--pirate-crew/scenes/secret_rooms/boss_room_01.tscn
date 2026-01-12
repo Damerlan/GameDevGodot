@@ -19,7 +19,7 @@ boss_jump_force = -520.0
 intro_camera_position = Vector2(240, 134)
 pan_offset = Vector2(100, 0)
 intro_zoom = Vector2(0.85, 0.85)
-metadata/_edit_vertical_guides_ = [50.0, 480.0, 430.0]
+metadata/_edit_vertical_guides_ = [480.0]
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(230, 122)
