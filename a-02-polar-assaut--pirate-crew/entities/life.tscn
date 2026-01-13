@@ -147,7 +147,6 @@ shape = SubResource("CircleShape2D_eh3wu")
 [node name="Anim" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.6666667)
 sprite_frames = SubResource("SpriteFrames_k2bjc")
-animation = &"collect"
 autoplay = "default"
 
 [node name="cllect_sound" type="AudioStreamPlayer2D" parent="."]
