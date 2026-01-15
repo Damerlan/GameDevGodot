@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7f6y70a30w2r"]
+[gd_scene load_steps=10 format=3 uid="uid://c7f6y70a30w2r"]
 
 [ext_resource type="Script" uid="uid://g84fuvmmmbs3" path="res://scripts/pause_menu.gd" id="1_eo0ky"]
-[ext_resource type="Texture2D" uid="uid://clejaal2yjv3o" path="res://assets/botoes/Pannel.png" id="1_pc5r0"]
 [ext_resource type="FontFile" uid="uid://dxl1vm7aodpvi" path="res://assets/Fonts/polar/PolarSnow2.ttf" id="2_eo0ky"]
 [ext_resource type="Texture2D" uid="uid://cimbbo4da5nfh" path="res://assets/A01ParalaxLoby/menu.png" id="3_122n7"]
 [ext_resource type="FontFile" uid="uid://dj7yafnlopmlo" path="res://assets/Fonts/polar/SnowHut.ttf" id="3_f1gm8"]
@@ -28,23 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eo0ky")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 0.9647059, 1)
-position = Vector2(121.5, 124.50169)
-scale = Vector2(0.22963803, 0.22963804)
-texture = ExtResource("1_pc5r0")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.2665752, 0.26657522, 0.26657513, 0.89500004)
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(0.11375768, 0.97652155, 0.9999986, 0.88235295)
