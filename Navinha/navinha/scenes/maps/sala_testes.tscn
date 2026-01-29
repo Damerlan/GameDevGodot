@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyc2yihieqhih"]
+[gd_scene load_steps=6 format=3 uid="uid://cyc2yihieqhih"]
 
+[ext_resource type="Script" uid="uid://ux3fd5rthm73" path="res://scenes/maps/sala_testes.gd" id="1_12xxg"]
 [ext_resource type="PackedScene" uid="uid://e2y5m2070mk6" path="res://scenes/paralax/level.tscn" id="1_f67t4"]
 [ext_resource type="PackedScene" uid="uid://b51g2mnlr14eh" path="res://scenes/entities/player.tscn" id="1_qp0sn"]
 [ext_resource type="PackedScene" uid="uid://b1movke6g7pxa" path="res://scenes/system/spawn_manager.tscn" id="2_f67t4"]
+[ext_resource type="PackedScene" uid="uid://cffk7plfx3uc2" path="res://scenes/huds/main_hud_game_play.tscn" id="4_bvhhq"]
 
 [node name="SalaTestes" type="Node2D"]
+script = ExtResource("1_12xxg")
 
 [node name="Level" parent="." instance=ExtResource("1_f67t4")]
 
@@ -14,3 +17,5 @@ position = Vector2(140, 357)
 [node name="SpawnManager" parent="." instance=ExtResource("2_f67t4")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MainHudGamePlay" parent="." instance=ExtResource("4_bvhhq")]

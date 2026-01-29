@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca7hdfal0dfan"]
+
+[ext_resource type="Script" uid="uid://dv7aypxqoh76w" path="res://scenes/entities/boss_01.gd" id="1_injt1"]
+[ext_resource type="Texture2D" uid="uid://bhxr86xagtnfk" path="res://Assets/Sprites/boss01.png" id="1_rxcqs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_injt1"]
+radius = 13.0
+
+[node name="Boss01" type="CharacterBody2D"]
+script = ExtResource("1_injt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rxcqs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_injt1")
+
+[node name="TimerShoot" type="Timer" parent="."]
+
+[node name="TimerPattern" type="Timer" parent="."]
+
+[node name="GunLeft" type="Marker2D" parent="."]
+position = Vector2(-47, -8)
+
+[node name="GunRight" type="Marker2D" parent="."]
+position = Vector2(-47, 8)
+
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="TimerPattern" to="." method="_on_timer_pattern_timeout"]

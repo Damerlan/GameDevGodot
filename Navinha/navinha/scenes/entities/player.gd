@@ -13,7 +13,13 @@ var invulnerable : bool = false
 var input_direction : Vector2 = Vector2.ZERO
 var can_shoot : bool = true
 
+#respawn seguro
+var spawn_position : Vector2
+var is_dead : bool = false
+
+
 func _ready():
+	spawn_position = global_position
 	health = max_health
 	add_to_group("player")
 	$ShootTimer.wait_time = shoot_cooldown
@@ -83,6 +89,56 @@ func start_invulnerability():
 	modulate.a = 1.0
 	invulnerable = false
 
+
+#func die():
+#	Global.lives -= 1
+	
+#	if Global.lives > 0:
+#		queue_free()
+#	else:
+#		print("GAME OVER")
+#		queue_free()
+
 func die():
-	print("Game Over")
+	if is_dead:
+		return
+		
+	is_dead = true
+	Global.lives -= 1
+	explosion()
+	
+	if Global.lives > 0:
+		respawn()
+	else:
+		game_over()
+		
+func respawn():
+	# Esconde nave
+	visible = false
+	set_physics_process(false)
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	# Reset atributos
+	health = max_health
+	global_position = spawn_position
+	velocity = Vector2.ZERO
+	
+	visible = true
+	set_physics_process(true)
+	
+	start_invulnerability()
+	
+	is_dead = false
+
+
+func game_over():
+	explosion()
+	print("GAME OVER")
 	queue_free()
+
+func explosion():
+	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
+	explosion.global_position = global_position
+	get_tree().current_scene.add_child(explosion)
+	

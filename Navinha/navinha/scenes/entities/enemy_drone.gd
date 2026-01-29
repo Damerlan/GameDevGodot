@@ -60,7 +60,8 @@ func take_damage(amount : int):
 		die()
 
 func die():
-	Global.score += score_value
+	#Global.score += score_value
+	Global.add_score(score_value)
 	spawn_explosion()
 	queue_free()
 

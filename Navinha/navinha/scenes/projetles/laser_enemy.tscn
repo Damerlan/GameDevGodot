@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuaqgbae63arh"]
+
+[ext_resource type="Script" uid="uid://bmtun5eb4ofxe" path="res://scenes/projetles/laser_enemy.gd" id="1_a8sjg"]
+[ext_resource type="Texture2D" uid="uid://4e2kxje3bw8e" path="res://Assets/Sprites/laser1.png" id="1_nf22d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8sjg"]
+size = Vector2(70, 2)
+
+[node name="LaserEnemy" type="Area2D"]
+script = ExtResource("1_a8sjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.88, 1)
+texture = ExtResource("1_nf22d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a8sjg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-35, -2, 70, 4)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

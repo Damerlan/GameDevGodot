@@ -1,0 +1,190 @@
+[gd_scene load_steps=7 format=3 uid="uid://cffk7plfx3uc2"]
+
+[ext_resource type="Script" uid="uid://0ubm521ya1tk" path="res://scenes/huds/main_hud_game_play.gd" id="1_sb6dh"]
+[ext_resource type="FontFile" uid="uid://b156y5fugbxar" path="res://Assets/Fonts/Source_Code_Pro/static/SourceCodePro-ExtraBold.ttf" id="1_ul2d2"]
+[ext_resource type="Texture2D" uid="uid://c3yrm1juycjcp" path="res://Assets/Sprites/barhud/vasio2.png" id="2_c4gkb"]
+[ext_resource type="FontFile" uid="uid://sd4xpcw23w5v" path="res://Assets/Fonts/Source_Code_Pro/static/SourceCodePro-Italic.ttf" id="3_rs8ye"]
+[ext_resource type="Texture2D" uid="uid://w77gskqgo128" path="res://Assets/Sprites/barhud/mascara2.png" id="3_sb6dh"]
+[ext_resource type="Texture2D" uid="uid://cb3b5j7dsbo1u" path="res://Assets/Sprites/barhud/sangria2.png" id="4_rs8ye"]
+
+[node name="MainHudGamePlay" type="CanvasLayer" groups=["hud"]]
+script = ExtResource("1_sb6dh")
+
+[node name="ColorRectTOP" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.10300001
+offset_bottom = 0.2559967
+grow_horizontal = 2
+size_flags_horizontal = 3
+color = Color(0.18431373, 0.18431373, 0.18431373, 0.7176471)
+
+[node name="ColorRectBottom" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_top = 0.901
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.15197754
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+color = Color(0.18431373, 0.18431373, 0.18431373, 0.7176471)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainerTop" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainerTop"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="ScoreContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerTop/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_ul2d2")
+text = "SCORE"
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_ul2d2")
+theme_override_font_sizes/font_size = 22
+text = "0000001"
+horizontal_alignment = 1
+
+[node name="HScoreContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerTop/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/HScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ul2d2")
+text = "HIGHSCORE"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/HScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ul2d2")
+theme_override_font_sizes/font_size = 22
+text = "0000201"
+horizontal_alignment = 1
+
+[node name="StageContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerTop/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="StageLabel" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/StageContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_ul2d2")
+text = "STAGE"
+horizontal_alignment = 1
+
+[node name="Stage" type="Label" parent="MarginContainer/VBoxContainerTop/TopBar/StageContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_ul2d2")
+text = "1-1"
+horizontal_alignment = 1
+
+[node name="VBoxContainerCenter" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StageTransitionLabel" type="Label" parent="MarginContainer/VBoxContainerCenter"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.018182943, 0.018182943, 0.018182943, 0.8235294)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rs8ye")
+theme_override_font_sizes/font_size = 80
+text = "1 - 1"
+horizontal_alignment = 1
+
+[node name="VBoxContainerBottom" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainerBottom"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="EnergyContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerBottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="EnergyBarLabel" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/EnergyContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "ENERGY"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/EnergyContainer"]
+layout_mode = 2
+value = 100.0
+allow_lesser = true
+texture_under = ExtResource("2_c4gkb")
+texture_over = ExtResource("3_sb6dh")
+texture_progress = ExtResource("4_rs8ye")
+
+[node name="VBLiveContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerBottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="LivesLabel" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer"]
+layout_mode = 2
+text = "LIVES"
+horizontal_alignment = 1
+
+[node name="LivesContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Live" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer/LivesContainer"]
+layout_mode = 2
+text = "🚀"
+
+[node name="Live2" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer/LivesContainer"]
+layout_mode = 2
+text = "🚀"
+
+[node name="Live3" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer/LivesContainer"]
+layout_mode = 2
+text = "🚀"
+
+[node name="Live4" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/VBLiveContainer/LivesContainer"]
+layout_mode = 2
+text = "🚀"
+
+[node name="WeaponContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainerBottom/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="WeaponInfoLabel" type="Label" parent="MarginContainer/VBoxContainerBottom/HBoxContainer/WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "WPN ▸ SPREAD"

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum State { ENTER, ATTACK, EXIT }
 
-@export var score_value : int = 200
+@export var score_value : int = 200     #pontuação dada ao player
 @export var enter_speed : float = 400.0
 @export var exit_speed : float = 500.0
 @export var stop_x_position : float = 900.0
@@ -73,7 +73,8 @@ func take_damage(amount: int):
 		die()
 
 func die():
-	Global.score += score_value
+	#Global.score += score_value
+	Global.add_score(score_value)
 	spawn_explosion()
 	queue_free()
 
