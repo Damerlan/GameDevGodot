@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b12dle4nqu03o"]
+
+[ext_resource type="Script" uid="uid://c1vefhd407o24" path="res://scenes/entities/enemy_assault.gd" id="1_c6mpn"]
+[ext_resource type="PackedScene" uid="uid://dwr2bjpoevd18" path="res://scenes/projetles/bullet_enemy.tscn" id="2_17m04"]
+[ext_resource type="Texture2D" uid="uid://dvois5j860h8m" path="res://Assets/Sprites/assautdrone.png" id="2_as2ce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17m04"]
+radius = 12.0
+
+[node name="EnemyAssault" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_c6mpn")
+bullet_scene = ExtResource("2_17m04")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_as2ce")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_17m04")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

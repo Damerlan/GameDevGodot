@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1movke6g7pxa"]
+[gd_scene load_steps=4 format=3 uid="uid://b1movke6g7pxa"]
 
 [ext_resource type="Script" uid="uid://rcx2nqvuwttg" path="res://scenes/system/spawn_manager.gd" id="1_y6lwc"]
 [ext_resource type="PackedScene" uid="uid://cjo15hkgx5kt2" path="res://scenes/entities/enemy_drone.tscn" id="2_c1cwb"]
+[ext_resource type="PackedScene" uid="uid://b12dle4nqu03o" path="res://scenes/entities/enemy_assault.tscn" id="3_c1cwb"]
 
 [node name="SpawnManager" type="Node2D"]
 script = ExtResource("1_y6lwc")
 drone_scene = ExtResource("2_c1cwb")
+assault_scene = ExtResource("3_c1cwb")

@@ -6,12 +6,18 @@ extends CharacterBody2D
 
 @export var shoot_cooldown : float = 0.15
 
+@export var max_health : int = 5
+var health : int
+var invulnerable : bool = false
+
 var input_direction : Vector2 = Vector2.ZERO
 var can_shoot : bool = true
 
 func _ready():
+	health = max_health
+	add_to_group("player")
 	$ShootTimer.wait_time = shoot_cooldown
-
+	
 func _physics_process(delta):
 	handle_input()
 	handle_movement(delta)
@@ -55,3 +61,28 @@ func shoot():
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
+
+
+func take_damage(amount : int):
+	if invulnerable:
+		return 
+	health -= amount
+	
+	if health <= 0:
+		die()
+	else:
+		start_invulnerability()
+		
+
+func start_invulnerability():
+	invulnerable = true
+	modulate.a = 0.5
+	
+	await get_tree().create_timer(1.0).timeout
+
+	modulate.a = 1.0
+	invulnerable = false
+
+func die():
+	print("Game Over")
+	queue_free()

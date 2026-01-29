@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjo15hkgx5kt2"]
+[gd_scene load_steps=6 format=3 uid="uid://cjo15hkgx5kt2"]
 
 [ext_resource type="Script" uid="uid://v385ehbr8qh7" path="res://scenes/entities/enemy_drone.gd" id="1_6ogsu"]
 [ext_resource type="Texture2D" uid="uid://drhtp0g5d4sls" path="res://Assets/Sprites/drone.png" id="2_a4cl0"]
+[ext_resource type="PackedScene" uid="uid://dwr2bjpoevd18" path="res://scenes/projetles/bullet_enemy.tscn" id="2_f814l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f814l"]
 radius = 13.0
@@ -13,6 +14,7 @@ radius = 14.3178215
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_6ogsu")
+bullet_scene = ExtResource("2_f814l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -34,5 +36,8 @@ collision_mask = 2
 position = Vector2(-3, 0)
 shape = SubResource("CircleShape2D_6ogsu")
 
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

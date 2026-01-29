@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://e2y5m2070mk6"]
+
+[ext_resource type="Texture2D" uid="uid://7y163wukjc1e" path="res://Assets/paralax/breu09.png" id="1_ppel6"]
+[ext_resource type="Script" uid="uid://cdrru1v8yjk3c" path="res://scenes/paralax/level.gd" id="1_wiilf"]
+[ext_resource type="Texture2D" uid="uid://cadrgts3l75x3" path="res://Assets/paralax/ceu08.png" id="2_wiilf"]
+[ext_resource type="Texture2D" uid="uid://ciovv27y12xsj" path="res://Assets/paralax/ceuestrelado07.png" id="3_tjrwh"]
+[ext_resource type="Texture2D" uid="uid://50n43b5tkqu3" path="res://Assets/paralax/nuvens06.png" id="4_b7jvm"]
+[ext_resource type="Texture2D" uid="uid://bblhbseq0hghy" path="res://Assets/paralax/atimosfera05.png" id="5_y4cjs"]
+[ext_resource type="Texture2D" uid="uid://csi7jobg771uw" path="res://Assets/paralax/montanhas04.png" id="6_0lnj7"]
+[ext_resource type="Texture2D" uid="uid://dm6am0ht53pfx" path="res://Assets/paralax/montanhas03.png" id="7_1bt4v"]
+[ext_resource type="Texture2D" uid="uid://dy6t10mtpwnoc" path="res://Assets/paralax/monanhas02.png" id="8_0ok83"]
+[ext_resource type="Texture2D" uid="uid://b1l1gr2rucblm" path="res://Assets/paralax/montanhas01.png" id="9_7xfs5"]
+[ext_resource type="Texture2D" uid="uid://d3ctuknd2sldb" path="res://Assets/paralax/ground00.png" id="10_cvg35"]
+[ext_resource type="Texture2D" uid="uid://j1a5qysn4axx" path="res://Assets/paralax/ajuste.png" id="12_tjrwh"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_wiilf")
+
+[node name="09" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.05, 0.05)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="09"]
+texture = ExtResource("1_ppel6")
+
+[node name="08" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.08, 0.08)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="08"]
+texture = ExtResource("2_wiilf")
+
+[node name="07" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="07"]
+position = Vector2(0, -149)
+texture = ExtResource("3_tjrwh")
+
+[node name="06" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="06"]
+position = Vector2(0, -1)
+texture = ExtResource("4_b7jvm")
+
+[node name="05" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.35, 0.35)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="05"]
+position = Vector2(0, 117)
+texture = ExtResource("5_y4cjs")
+
+[node name="04" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.45, 0.45)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="04"]
+position = Vector2(0, 187)
+texture = ExtResource("6_0lnj7")
+
+[node name="03" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="03"]
+position = Vector2(0, 214)
+texture = ExtResource("7_1bt4v")
+
+[node name="02" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.75, 0.75)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="02"]
+position = Vector2(0, 213)
+texture = ExtResource("8_0ok83")
+
+[node name="01" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="01"]
+position = Vector2(0, 244)
+texture = ExtResource("9_7xfs5")
+
+[node name="00" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.2, 1.2)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="00"]
+position = Vector2(0, 360)
+texture = ExtResource("10_cvg35")
+
+[node name="10" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.2, 1.2)
+scroll_offset = Vector2(638, 307)
+repeat_size = Vector2(1460, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="10"]
+position = Vector2(0, 5)
+texture = ExtResource("12_tjrwh")

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var drone_scene : PackedScene
+@export var assault_scene : PackedScene
 @export var spawn_interval : float = 1.5
 @export var wave_size : int = 5
 @export var vertical_margin : float = 80.0
@@ -30,7 +31,7 @@ func start_wave():
 func spawn_wave():
 	if not spawning:
 		return
-	var pattern = randi() % 3
+	var pattern = randi() % 4
 	match pattern:
 		0:
 			await spawn_line_wave()
@@ -38,6 +39,9 @@ func spawn_wave():
 			await spawn_diagonal_wave()
 		2:
 			await spawn_fast_wave()
+		3:
+			await spawn_assault_wave()
+			
 	await get_tree().create_timer(2.0).timeout
 	spawn_wave()
 	
@@ -83,3 +87,14 @@ func spawn_drone():
 	)
 	
 	get_parent().add_child(drone)
+
+func spawn_assault_wave():
+	for i in 3:
+		var drone = assault_scene.instantiate()
+		drone.global_position = Vector2(
+			screen_size.x + 100,
+			randf_range(100, screen_size.y - 100)
+		)
+		get_parent().add_child(drone)
+		
+		await get_tree().create_timer(0.8).timeout
