@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b12dle4nqu03o"]
+[gd_scene load_steps=6 format=3 uid="uid://b12dle4nqu03o"]
 
 [ext_resource type="Script" uid="uid://c1vefhd407o24" path="res://scenes/entities/enemy_assault.gd" id="1_c6mpn"]
 [ext_resource type="PackedScene" uid="uid://dwr2bjpoevd18" path="res://scenes/projetles/bullet_enemy.tscn" id="2_17m04"]
@@ -7,7 +7,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_17m04"]
 radius = 12.0
 
-[node name="EnemyAssault" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7ddb"]
+radius = 13.038404
+
+[node name="EnemyAssault" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_c6mpn")
@@ -25,4 +28,11 @@ shape = SubResource("CircleShape2D_17m04")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_h7ddb")
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

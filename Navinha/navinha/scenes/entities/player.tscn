@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://b51g2mnlr14eh"]
+[gd_scene load_steps=7 format=3 uid="uid://b51g2mnlr14eh"]
 
 [ext_resource type="Script" uid="uid://di5smv5lkiwun" path="res://scenes/entities/player.gd" id="1_1ie0h"]
 [ext_resource type="Texture2D" uid="uid://bnkvjc6ht3ye4" path="res://Assets/Sprites/vertical.png" id="1_08t41"]
 [ext_resource type="Texture2D" uid="uid://mm1saitxtoyf" path="res://Assets/Sprites/lateral.png" id="2_1ie0h"]
+[ext_resource type="PackedScene" uid="uid://bio1yxlf1xcp3" path="res://scenes/projetles/bullet_player.tscn" id="2_5u6hq"]
+[ext_resource type="PackedScene" uid="uid://80jmcmklary7" path="res://scenes/powerups/missile.tscn" id="3_d4qa6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42nxq"]
 radius = 13.0
 height = 26.0
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 8
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 12
 script = ExtResource("1_1ie0h")
+normal_bullet_scene = ExtResource("2_5u6hq")
+missile_scene = ExtResource("3_d4qa6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

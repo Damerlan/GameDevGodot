@@ -2,6 +2,9 @@ extends Area2D
 
 @export var speed : float = 900.0
 
+func _ready():
+	add_to_group("player_bullet")
+
 func _process(delta):
 	position.x += speed * delta
 	
@@ -10,8 +13,13 @@ func _process(delta):
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage"):
-		area.take_damage(1)
+	if area.is_in_group("enemy_bullet"):
+		area.queue_free()
+		spawn_hit()
+		queue_free()
+		
+	elif area.is_in_group("enemy"):
+		area.take_damage(2)
 		spawn_hit()
 		queue_free()
 
@@ -25,3 +33,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.take_damage(2)
 		spawn_hit()
 		queue_free()
+
+	

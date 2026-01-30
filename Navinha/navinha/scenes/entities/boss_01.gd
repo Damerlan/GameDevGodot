@@ -11,6 +11,7 @@ var entering : bool = true
 var direction : int = 1
 
 func _ready():
+	add_to_group("enemy")
 	health = max_health
 	global_position.x = get_viewport_rect().size.x + 200
 	$TimerShoot.start()
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	else:
 		move_pattern(delta)
 
-func move_pattern(delta):
+func move_pattern(_delta):
 	velocity = Vector2(0, speed * direction)
 	move_and_slide()
 
@@ -65,3 +66,18 @@ func shoot_laser():
 	var laser = laser_scene.instantiate()
 	laser.global_position = global_position
 	get_tree().current_scene.add_child(laser)
+
+
+func take_damage(amount:int):
+	health -= amount
+	
+	modulate = Color(1,0.5,0.5)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color.WHITE
+	
+	if health <= 0:
+		die()
+
+func die():
+	Global.add_score(1000)
+	queue_free()

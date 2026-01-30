@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 @onready var shoot_timer = $ShootTimer
 
-
+@export var missile_powerup_scene: PackedScene
 
 @export var wave_amplitude : float = 50.0
 @export var wave_frequency : float = 2.0
@@ -29,6 +29,7 @@ var health : int
 #		shoot_timer.start()
 
 func _ready():
+	add_to_group("enemy")
 	health = max_health
 	
 	if can_shoot:
@@ -62,9 +63,17 @@ func take_damage(amount : int):
 func die():
 	#Global.score += score_value
 	Global.add_score(score_value)
+	spawn_powerup()
 	spawn_explosion()
 	queue_free()
 
+func spawn_powerup():
+	if randi() % 5 == 0: # 20% chance
+		var powerup = missile_powerup_scene.instantiate()
+		powerup.global_position = global_position
+		get_parent().add_child(powerup)
+
+		
 func spawn_explosion():
 	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
 	explosion.global_position = global_position
@@ -102,3 +111,10 @@ func shoot():
 func _on_shoot_timer_timeout() -> void:
 	if randf() <= shoot_probability:
 		shoot()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(1)
+		spawn_explosion()
+		queue_free() # inimigo explode

@@ -1,5 +1,19 @@
 extends CharacterBody2D
 
+enum WeaponType { NORMAL, LASER, MISSILE }
+
+var current_weapon: WeaponType = WeaponType.NORMAL
+
+@export var normal_bullet_scene: PackedScene
+@export var missile_scene: PackedScene
+
+var missile_active : bool = false
+var missile_duration : float = 10.0
+var missile_cooldown : float = 0.6
+var can_fire_missile : bool = true
+
+
+
 @export var max_speed : float = 400.0
 @export var acceleration : float = 2000.0
 @export var friction : float = 1500.0
@@ -27,6 +41,8 @@ func _ready():
 func _physics_process(delta):
 	handle_input()
 	handle_movement(delta)
+	if missile_active:
+		try_fire_missile()
 	move_and_slide()
 	clamp_to_screen()
 	
@@ -47,9 +63,21 @@ func clamp_to_screen():
 	global_position.x = clamp(global_position.x, 0, screen_size.x)
 	global_position.y = clamp(global_position.y, 0, screen_size.y)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
+
+#func shoot():
+#	if not can_shoot:
+#		return
+	
+#	can_shoot = false
+	
+#	var bullet = preload("res://scenes/projetles/bullet_player.tscn").instantiate()
+#	bullet.global_position = $GunPoint.global_position
+#	get_tree().current_scene.add_child(bullet)
+	
+#	$ShootTimer.start()
 
 func shoot():
 	if not can_shoot:
@@ -57,9 +85,17 @@ func shoot():
 	
 	can_shoot = false
 	
-	var bullet = preload("res://scenes/projetles/bullet_player.tscn").instantiate()
-	bullet.global_position = $GunPoint.global_position
-	get_tree().current_scene.add_child(bullet)
+	var projectile
+	
+	match current_weapon:
+		WeaponType.NORMAL:
+			projectile = normal_bullet_scene.instantiate()
+		WeaponType.MISSILE:
+			projectile = missile_scene.instantiate()
+	
+	projectile.global_position = $GunPoint.global_position
+	
+	get_tree().current_scene.add_child(projectile)
 	
 	$ShootTimer.start()
 
@@ -104,6 +140,9 @@ func die():
 		return
 		
 	is_dead = true
+	
+	reset_powerups()   # ← AQUI
+	
 	Global.lives -= 1
 	explosion()
 	
@@ -111,6 +150,7 @@ func die():
 		respawn()
 	else:
 		game_over()
+
 		
 func respawn():
 	# Esconde nave
@@ -141,4 +181,61 @@ func explosion():
 	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().current_scene.add_child(explosion)
+
+#func activate_missile():
+#	current_weapon = WeaponType.MISSILE
+
+func activate_missile():
+	missile_active = true
 	
+	var timer = get_tree().create_timer(missile_duration)
+	await timer.timeout
+	
+	if is_dead:
+		return
+		
+	missile_active = false
+
+	
+func try_fire_missile():
+	if not can_fire_missile:
+		return
+	
+	var target = get_nearest_enemy()
+	if target == null:
+		return
+	
+	can_fire_missile = false
+	
+	var missile = missile_scene.instantiate()
+	missile.global_position = $GunPoint.global_position
+	missile.set_target(target)
+	
+	get_tree().current_scene.add_child(missile)
+	
+	await get_tree().create_timer(missile_cooldown).timeout
+	can_fire_missile = true
+
+func get_nearest_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	
+	if enemies.size() == 0:
+		return null
+	
+	var nearest = null
+	var min_dist = INF
+	
+	for e in enemies:
+		var dist = global_position.distance_to(e.global_position)
+		if dist < min_dist:
+			min_dist = dist
+			nearest = e
+	
+	return nearest
+
+
+func reset_powerups():
+	current_weapon = WeaponType.NORMAL
+	
+	missile_active = false
+	can_fire_missile = true

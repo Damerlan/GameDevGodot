@@ -22,7 +22,7 @@ func _ready():
 	blink_timer.timeout.connect(_on_blink_timeout)
 	add_child(blink_timer)
 
-func _process(delta):
+func _process(_delta):
 	update_score()
 	update_energy()
 	update_stage()

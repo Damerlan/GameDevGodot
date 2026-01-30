@@ -19,10 +19,11 @@ var state : State = State.ENTER
 var shots_fired : int = 0
 
 func _ready():
+	add_to_group("enemy")
 	health = max_health
 	shoot_timer.wait_time = shoot_interval
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	match state:
 		State.ENTER:
 			velocity.x = -enter_speed
@@ -82,3 +83,10 @@ func spawn_explosion():
 	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().current_scene.add_child(explosion)
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(1)
+		spawn_explosion()
+		queue_free() # inimigo explode
