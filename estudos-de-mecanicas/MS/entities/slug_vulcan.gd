@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var base_atlas: Texture2D
-@export var move_speed: float = 200.0
+@export var move_speed: float = 100.0
 
 @onready var base: Sprite2D = $Base
 
@@ -18,9 +18,11 @@ var current_state: State = State.IDLE
 
 var animations = {
 	"idle": [
-		Rect2(10.0, 24.0, 60.0, 56.0),
-		Rect2(75.0, 24.0, 60.0, 56.0),
-		Rect2(140.0, 24.0, 60.0, 56.0),
+		Rect2(10.0, 1438.0, 60.0, 45.0),
+	Rect2(75.0, 1440.0, 60.0, 43.0),
+	Rect2(140.0, 1438.0, 60.0, 45.0),
+	Rect2(205.0, 1437.0, 65.0, 46.0),
+	Rect2(275.0, 1444.0, 70.0, 39.0),
 	],
 
 	"run": [

@@ -18,3 +18,6 @@ base_atlas = ExtResource("1_ufde6")
 shape = SubResource("RectangleShape2D_cdw8d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 1
+limit_right = 3800
+limit_bottom = 230
