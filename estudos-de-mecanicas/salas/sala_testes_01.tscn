@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlatcbumv8t0l"]
+
+[ext_resource type="Texture2D" uid="uid://bldjjif0dq2g3" path="res://Assets/MS/bg/mission-1-bg04.png" id="1_784yu"]
+[ext_resource type="Texture2D" uid="uid://d23lv13qbpbug" path="res://Assets/MS/bg/mission-1-bg03.png" id="2_vk6jy"]
+[ext_resource type="Texture2D" uid="uid://pof4ns1xqmiv" path="res://Assets/MS/bg/mission-1-bg02.png" id="3_im6xl"]
+[ext_resource type="Texture2D" uid="uid://c66vwnh0t6o40" path="res://Assets/MS/bg/mission-1-bg01.png" id="4_5qefv"]
+[ext_resource type="PackedScene" uid="uid://b63ythyu2i40t" path="res://MS/entities/poson_bat.tscn" id="5_vk6jy"]
+[ext_resource type="PackedScene" uid="uid://brthbp4mlm5km" path="res://entidades/MS/boneco_de_testes.tscn" id="6_im6xl"]
+
+[node name="SalaTestes01" type="Node2D"]
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="04" type="Parallax2D" parent="BackGround"]
+repeat_size = Vector2(511, 120)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/04"]
+texture = ExtResource("1_784yu")
+centered = false
+
+[node name="03" type="Parallax2D" parent="BackGround"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/03"]
+position = Vector2(0, 82)
+texture = ExtResource("2_vk6jy")
+centered = false
+
+[node name="02" type="Parallax2D" parent="BackGround"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/02"]
+texture = ExtResource("3_im6xl")
+centered = false
+
+[node name="01" type="Parallax2D" parent="BackGround"]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/01"]
+visible = false
+position = Vector2(0, 146)
+texture = ExtResource("4_5qefv")
+centered = false
+
+[node name="PosonBat" parent="." instance=ExtResource("5_vk6jy")]
+position = Vector2(361, 53)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ground"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 204)
+polygon = PackedVector2Array(1, -12, 34, -20, 63, -27, 99, -36, 124, -42, 145, -42, 155, -41, 169, -36, 186, -33, 216, -25, 238, -20, 261, -14, 289, -11, 322, -12, 339, -12, 373, -21, 391, -26, 415, -27, 424, -26, 434, -22, 448, -20, 475, -13, 499, -13, 552, -12, 593, -13, 626, -13, 718, -12, 800, -13, 893, -13, 995, -12, 1131, -12, 1276, -4, 1353, -4, 1479, -4, 1780, -3, 2175, -2, 2449, 0, 2725, -3, 2880, -2, 3153, -2, 3292, -2, 3721, -2, 3839, -2, 3839, -156, 3915, -156, 3915, 27, -95, 36, -99, -210, 1, -210)
+
+[node name="BonecoDeTestes" parent="." instance=ExtResource("6_im6xl")]
+position = Vector2(67, 153)
