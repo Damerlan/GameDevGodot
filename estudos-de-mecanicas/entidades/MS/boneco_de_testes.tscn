@@ -194,4 +194,12 @@ position = Vector2(-10, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ohgkt")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 1
+limit_right = 3800
+limit_bottom = 230
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

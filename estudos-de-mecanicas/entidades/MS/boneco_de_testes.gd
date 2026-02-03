@@ -19,6 +19,7 @@ var state: State = State.IDLE
 var life := max_life
 var facing := 1
 
+@onready var cam = $Camera2D
 
 # ===============================
 # LOOP PRINCIPAL
@@ -33,6 +34,8 @@ func _physics_process(delta):
 	update_state()
 	
 	move_and_slide()
+	
+	#cam.offset.x = facing * 80 #ajuste de camera
 
 
 func _process(delta):

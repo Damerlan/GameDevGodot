@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0o3xq0oialm8"]
+
+[ext_resource type="Script" uid="uid://crvm5yh85opwd" path="res://MS/entities/turret.gd" id="1_k4abq"]
+[ext_resource type="Texture2D" uid="uid://dcm0b6abuwg6a" path="res://Assets/MS/Slug-Tank/torreta-vulcan-Sheet.png" id="2_67mmc"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_k4abq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_67mmc")
+hframes = 42
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-13, -14)

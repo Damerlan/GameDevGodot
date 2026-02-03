@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1t87pddisg4l"]
+
+[ext_resource type="Script" uid="uid://5jgq7wfq3326" path="res://sistemas/frames_maper.gd" id="1_uh0t2"]
+
+[node name="FramesMaper" type="Node2D"]
+script = ExtResource("1_uh0t2")

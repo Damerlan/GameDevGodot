@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://2jvks7ybpui7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdw8d"]
+
+[node name="SlugVulcan" type="CharacterBody2D"]
+
+[node name="Base" type="Sprite2D" parent="."]
+
+[node name="Treads" type="AnimatedSprite2D" parent="."]
+
+[node name="Turret" type="Sprite2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdw8d")

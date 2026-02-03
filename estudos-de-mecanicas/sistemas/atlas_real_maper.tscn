@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp7wlwy80kv34"]
+[gd_scene load_steps=3 format=3 uid="uid://cp7wlwy80kv34"]
 
 [ext_resource type="Script" uid="uid://bwjcmeupwa01" path="res://sistemas/atlas_real_maper.gd" id="1_tqk1t"]
+[ext_resource type="Texture2D" uid="uid://dcm0b6abuwg6a" path="res://Assets/MS/Slug-Tank/torreta-vulcan-Sheet.png" id="2_d4gac"]
 
 [node name="AtlasRealMaper" type="Node2D"]
 visible = false
 script = ExtResource("1_tqk1t")
+texture = ExtResource("2_d4gac")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgytfcem2ewak"]
+
+[ext_resource type="Script" uid="uid://caknaxwfm5x5l" path="res://MS/entities/slug_vulcan.gd" id="1_1gak8"]
+[ext_resource type="Texture2D" uid="uid://mb8gqdtpb82x" path="res://Assets/MS/Slug-Tank/canhao-map.png" id="1_ufde6"]
+[ext_resource type="PackedScene" uid="uid://d0o3xq0oialm8" path="res://MS/entities/turret.tscn" id="3_iqvfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdw8d"]
+
+[node name="SlugVulcan" type="CharacterBody2D"]
+script = ExtResource("1_1gak8")
+base_atlas = ExtResource("1_ufde6")
+
+[node name="Base" type="Sprite2D" parent="."]
+
+[node name="Turret" parent="." instance=ExtResource("3_iqvfg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdw8d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
