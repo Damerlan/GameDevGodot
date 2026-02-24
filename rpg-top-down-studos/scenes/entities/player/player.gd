@@ -45,7 +45,7 @@ func movement_loop() -> void:
 	move_and_slide()
 	
 	#inverção de sprite
-	if state == State.IDLE or State.RUN:
+	if state == State.IDLE or state == State.RUN:
 		if move_direction.x < -0.01:
 			$Sprite2D.flip_h = true
 		elif move_direction.x > 0.01:

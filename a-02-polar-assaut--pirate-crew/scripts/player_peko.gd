@@ -74,9 +74,6 @@ var on_ice: bool = false
 var status: PlayerState	#variável de status
 @export var input_dir := 0.0
 
-var JUMP_VELOCITY = -600.0
-var SPEED = 80.0
-
 #adicionando a mecanica do momentum
 @export var run_momentum := 0.0     # aumenta enquanto corre
 @export var max_momentum := 500.0   # limite do momentum
@@ -319,18 +316,6 @@ func death_state(_delta):
 
 
 
-func aply_gravity(_delta):
-	pass
-
-
-func aplyca_gravity(_delta):
-	pass
-
-
-func update_direction():
-	pass
-
-
 func apply_movement(delta):
 	var accel := acceleration * ice_accel_multiplier
 	var decel := deceleration * ice_decel_multiplier
@@ -371,27 +356,11 @@ func apply_movement(delta):
 func read_input():
 	input_dir = Input.get_axis("move_left", "move_right")
 
-func jump_old():#Jump antigo
-	#velocity.y = jump_force
-	var extra_force = run_momentum * 0.4    # 40% do momentum vira força no pulo
-	velocity.y = jump_force - extra_force
-	go_to_jump_state()
-	#change_state(PlayerState.jump)
-
 func jump(): #novo Jump
 	var extra_force = run_momentum * base_momentum_jump_multiplier
 	velocity.y = jump_force - extra_force
 	go_to_jump_state()	
 	
-func soft_jump_old():#soft antigo
-	if not is_on_floor():
-		return
-		
-	var extra_force = run_momentum * 0.2 #menos influencia do momentum
-	velocity.y = (jump_force * soft_jump_multiplier) - extra_force
-	go_to_jump_state()
-
-
 func soft_jump():#soft jump novo
 	if not is_on_floor():
 		return
