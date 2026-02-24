@@ -69,7 +69,7 @@ func move() -> void:
 	move_and_slide()
 
 	#SPRITE FLiping
-	if state == State.IDLE or State.CHASE:
+	if state == State.IDLE or state == State.CHASE:
 		if velocity.x < -01:
 			$Sprite2D.flip_h = true
 		elif velocity.x > 0.1:

@@ -1,7 +1,7 @@
 # GameDevGodot
 Repository for developing games with Godot. 
 
-Estes projetos estestão licenciados sob os termos da MIT License.
+Estes projetos estão licenciados sob os termos da MIT License.
 Isso significa que você pode:
 
 Usar o código

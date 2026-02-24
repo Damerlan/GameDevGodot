@@ -1,15 +1,14 @@
 extends Node
 
-@onready var music_player := AudioStreamPlayer.new()
-@onready var sfx_player := AudioStreamPlayer.new()
+var music_player := AudioStreamPlayer.new()
+var sfx_player := AudioStreamPlayer.new()
 
 var music_atual: AudioStream = null
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	add_child(music_player)
+	add_child(sfx_player)
 
 
 

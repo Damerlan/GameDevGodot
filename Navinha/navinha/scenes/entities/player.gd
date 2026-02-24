@@ -67,18 +67,6 @@ func _process(_delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 
-#func shoot():
-#	if not can_shoot:
-#		return
-	
-#	can_shoot = false
-	
-#	var bullet = preload("res://scenes/projetles/bullet_player.tscn").instantiate()
-#	bullet.global_position = $GunPoint.global_position
-#	get_tree().current_scene.add_child(bullet)
-	
-#	$ShootTimer.start()
-
 func shoot():
 	if not can_shoot:
 		return
@@ -126,15 +114,6 @@ func start_invulnerability():
 	invulnerable = false
 
 
-#func die():
-#	Global.lives -= 1
-	
-#	if Global.lives > 0:
-#		queue_free()
-#	else:
-#		print("GAME OVER")
-#		queue_free()
-
 func die():
 	if is_dead:
 		return
@@ -181,9 +160,6 @@ func explosion():
 	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().current_scene.add_child(explosion)
-
-#func activate_missile():
-#	current_weapon = WeaponType.MISSILE
 
 func activate_missile():
 	missile_active = true

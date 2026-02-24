@@ -21,13 +21,6 @@ var start_y : float
 
 var health : int
 
-#func _ready():
-#	health = max_health
-#	start_y = global_position.y
-#	if can_shoot:
-#		shoot_timer.wait_time = shoot_interval
-#		shoot_timer.start()
-
 func _ready():
 	add_to_group("enemy")
 	health = max_health
@@ -78,10 +71,6 @@ func spawn_explosion():
 	var explosion = preload("res://scenes/projetles/explosion.tscn").instantiate()
 	explosion.global_position = global_position
 	get_tree().current_scene.add_child(explosion)
-
-func _on_VisibleOnScreenNotifier2D_screen_exited():
-	queue_free()
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
